@@ -13,7 +13,7 @@ const NotFound = () => {
           </a>
         </div>
 
-        <h1 className="page-title user-page__title">Page Not Found</h1>
+        <h1 className="page-title user-page__title">404 Page Not Found</h1>
       </header>
 
       <div className="sign-in user-page__content">
