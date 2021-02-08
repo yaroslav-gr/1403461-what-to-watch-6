@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from '../movie-card/movie-card';
+import FilmCard from '../film-card/film-card';
 
 const Main = (props) => {
-  const {films, movieDesc} = props;
+  const {films, filmDesc} = props;
 
   return (
     <React.Fragment>
@@ -37,10 +37,10 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{movieDesc.title}</h2>
+              <h2 className="movie-card__title">{filmDesc.title}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{movieDesc.genre}</span>
-                <span className="movie-card__year">{movieDesc.year}</span>
+                <span className="movie-card__genre">{filmDesc.genre}</span>
+                <span className="movie-card__year">{filmDesc.year}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -100,7 +100,7 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {films.map((film, i) => <MovieCard key={film.img + i} title={film.title} img={film.img} />)}
+            {films.map((film, i) => <FilmCard key={film.img + i} title={film.title} img={film.img} />)}
           </div>
 
           <div className="catalog__more">
@@ -131,11 +131,11 @@ Main.propTypes = {
     title: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired
   })).isRequired,
-  movieDesc: PropTypes.objectOf(PropTypes.shape({
+  filmDesc: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired
-  })).isRequired
+  }).isRequired
 };
 
 export default Main;

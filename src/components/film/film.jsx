@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Movie = () => {
+const Film = () => {
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -55,7 +55,7 @@ const Movie = () => {
         </div>
 
         <div className="movie-card__wrap movie-card__translate-top">
-         <div className="movie-card__info">
+          <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
               <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
@@ -84,9 +84,9 @@ const Movie = () => {
               </div>
 
               <div className="movie-card__text">
-                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.</p>
+                <p>In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave&apos;s friend and protege.</p>
 
-                <p>Gustave prides himself on providing first-className service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
+                <p>Gustave prides himself on providing first-className service to the hotel&apos;s guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave&apos;s lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.</p>
 
                 <p className="movie-card__director"><strong>Director: Wes Andreson</strong></p>
 
@@ -158,4 +158,4 @@ const Movie = () => {
   );
 };
 
-export default Movie;
+export default Film;
