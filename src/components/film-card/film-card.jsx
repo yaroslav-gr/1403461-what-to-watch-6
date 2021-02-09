@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MovieCard = (props) => {
+const FilmCard = (props) => {
   const {title, img} = props;
 
   return (
@@ -18,9 +18,9 @@ const MovieCard = (props) => {
   );
 };
 
-MovieCard.propTypes = {
+FilmCard.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired
 };
 
-export default MovieCard;
+export default FilmCard;

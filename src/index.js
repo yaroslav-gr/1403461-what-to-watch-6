@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
 import {films} from './moks/films.js';
-import {movieDesc} from './moks/movie-desc.js';
+import {filmDesc} from './moks/film-desc.js';
 
 
 ReactDOM.render(
     <App
-      films={films} movieDesc={movieDesc}
+      films={films} filmDesc={filmDesc}
     />,
     document.querySelector(`#root`)
 );
