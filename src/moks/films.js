@@ -1,78 +1,154 @@
 export const films = [
   {
-    title: `Fantastic Beasts: The Crimes of Grindelwald`,
-    img: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`
+    id: 1,
+    name: "The Grand Budapest Hotel",
+    poster_image: "img/the-grand-budapest-hotel-poster.jpg",
+    preview_image: "img/the-grand-budapest-hotel-poster.jpg",
+    background_image: "img/bg-the-grand-budapest-hotel.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `Bohemian Rhapsody`,
-    img: `img/bohemian-rhapsody.jpg`
+    id: 2,
+    name: "Fantastic Beasts: The Crimes of Grindelwald",
+    poster_image: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
+    preview_image: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
+    background_image: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `Macbeth`,
-    img: `img/macbeth.jpg`
+    id: 3,
+    name: "Bohemian Rhapsody",
+    poster_image: "img/bohemian-rhapsody.jpg",
+    preview_image: "img/bohemian-rhapsody.jpg",
+    background_image: "img/bohemian-rhapsody.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `Aviator`,
-    img: `img/aviator.jpg`
+    id: 4,
+    name: "Macbeth",
+    poster_image: "img/macbeth.jpg",
+    preview_image: "img/macbeth.jpg",
+    background_image: "img/macbeth.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `We need to talk about Kevin`,
-    img: `img/we-need-to-talk-about-kevin.jpg`
+    id: 5,
+    name: "Aviator",
+    poster_image: "img/aviator.jpg",
+    preview_image: "img/aviator.jpg",
+    background_image: "img/aviator.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `What We Do in the Shadows`,
-    img: `img/what-we-do-in-the-shadows.jpg`
+    id: 6,
+    name: "What We Do in the Shadows",
+    poster_image: "img/what-we-do-in-the-shadows.jpg",
+    preview_image: "img/what-we-do-in-the-shadows.jpg",
+    background_image: "img/what-we-do-in-the-shadows.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `Revenant`,
-    img: `img/revenant.jpg`
+    id: 7,
+    name: "We need to talk about Kevin",
+    poster_image: "img/we-need-to-talk-about-kevin.jpg",
+    preview_image: "img/we-need-to-talk-about-kevin.jpg",
+    background_image: "img/we-need-to-talk-about-kevin.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
   {
-    title: `Johnny English`,
-    img: `img/johnny-english.jpg`
-  },
-  {
-    title: `Shutter Island`,
-    img: `img/shutter-island.jpg`
-  },
-  {
-    title: `Pulp Fiction`,
-    img: `img/pulp-fiction.jpg`
-  },
-  {
-    title: `No Country for Old Men`,
-    img: `img/no-country-for-old-men.jpg`
-  },
-  {
-    title: `Snatch`,
-    img: `img/snatch.jpg`
-  },
-  {
-    title: `Moonrise Kingdom`,
-    img: `img/moonrise-kingdom.jpg`
-  },
-  {
-    title: `Seven Years in Tibet`,
-    img: `img/seven-years-in-tibet.jpg`
-  },
-  {
-    title: `Midnight Special`,
-    img: `img/midnight-special.jpg`
-  },
-  {
-    title: `Dardjeeling Limited`,
-    img: `img/dardjeeling-limited.jpg`
-  },
-  {
-    title: `Orlando`,
-    img: `img/orlando.jpg`
-  },
-  {
-    title: `Mindhunter`,
-    img: `img/mindhunter.jpg`
-  },
-  {
-    title: `Midnight Special`,
-    img: `img/midnight-special.jpg`
+    id: 8,
+    name: "Revenant",
+    poster_image: "img/revenant.jpg",
+    preview_image: "img/revenant.jpg",
+    background_image: "img/revenant.jpg",
+    background_color: "#ffffff",
+    video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    preview_video_link: "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+    description: "In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.",
+    rating: 8.9,
+    scores_count: 240,
+    director: "Wes Andreson",
+    starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
+    run_time: 99,
+    genre: "Comedy",
+    released: 2014,
+    is_favorite: false
   },
 ];

@@ -9,7 +9,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={films[0].background_image} alt={films[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -33,14 +33,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={films[0].poster_image} alt={films[0].name + " poster"} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{filmDesc.title}</h2>
+              <h2 className="movie-card__title">{films[0].name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{filmDesc.genre}</span>
-                <span className="movie-card__year">{filmDesc.year}</span>
+                <span className="movie-card__genre">{films[0].genre}</span>
+                <span className="movie-card__year">{films[0].released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -100,7 +100,7 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {films.map((film, i) => <FilmCard key={film.img + i} title={film.title} img={film.img} />)}
+            {films.map((film, i) => <FilmCard key={film.id} name={film.name} poster_image={film.poster_image} />)}
           </div>
 
           <div className="catalog__more">
@@ -128,14 +128,11 @@ const Main = (props) => {
 
 Main.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired
-  })).isRequired,
-  filmDesc: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    poster_image: PropTypes.string.isRequired,
+    background_image: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired
-  }).isRequired
+  })).isRequired,
 };
 
 export default Main;

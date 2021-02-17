@@ -10,12 +10,12 @@ import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
 
 const App = (props) => {
-  const {films, filmDesc} = props;
+  const {films} = props;
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main films={films} filmDesc={filmDesc} />
+          <Main films={films} />
         </Route>
         <Route exact path="/login">
           <SingIn />
@@ -42,14 +42,11 @@ const App = (props) => {
 
 App.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired
-  })).isRequired,
-  filmDesc: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    poster_image: PropTypes.string.isRequired,
+    background_image: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired
-  }).isRequired
+  })).isRequired,
 };
 
 export default App;
