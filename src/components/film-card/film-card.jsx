@@ -1,5 +1,5 @@
 import React from 'react';
-import {filmCardPropTypes} from '../../prop-types/film-prop-types';
+import {filmCardPropTypes} from '../../prop-types/prop-types';
 
 const FilmCard = (props) => {
   const {name, poster_image, setCurrentFilmCard} = props;

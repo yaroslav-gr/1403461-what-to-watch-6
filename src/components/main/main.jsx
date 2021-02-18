@@ -1,7 +1,6 @@
 import React from 'react';
 import FilmsList from '../films-list/films-list';
-
-import {filmsPropTypes} from '../../prop-types/film-prop-types';
+import {filmsPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
   const {films} = props;

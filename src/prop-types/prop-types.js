@@ -14,3 +14,13 @@ export const filmCardPropTypes = {
   poster_image: PropTypes.string.isRequired,
   setCurrentFilmCard: PropTypes.func.isRequired,
 };
+
+export const addReviewsPropTypes = {
+  name: PropTypes.string.isRequired,
+  poster_image: PropTypes.string.isRequired,
+};
+
+export const playerPropTypes = {
+  video_link: PropTypes.string.isRequired,
+  poster_image: PropTypes.string.isRequired,
+}

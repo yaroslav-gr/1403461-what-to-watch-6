@@ -1,12 +1,15 @@
 import React from 'react';
+import {addReviewsPropTypes} from '../../prop-types/prop-types'
 
-const AddReview = () => {
+const AddReview = (props) => {
+  const {poster_image, name} = props;
+
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
         <div className="movie-card__header">
           <div className="movie-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={poster_image} alt={name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -23,7 +26,7 @@ const AddReview = () => {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <a href="movie-page.html" className="breadcrumbs__link">The Grand Budapest Hotel</a>
+                  <a href="movie-page.html" className="breadcrumbs__link">{name}</a>
                 </li>
                 <li className="breadcrumbs__item">
                   <a className="breadcrumbs__link">Add review</a>
@@ -39,7 +42,7 @@ const AddReview = () => {
           </header>
 
           <div className="movie-card__poster movie-card__poster--small">
-            <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+            <img src={poster_image} alt={name + " poster"}  width="218" height="327" />
           </div>
         </div>
 
@@ -93,5 +96,7 @@ const AddReview = () => {
     </React.Fragment>
   );
 };
+
+AddReview.propTypes = addReviewsPropTypes;
 
 export default AddReview;
