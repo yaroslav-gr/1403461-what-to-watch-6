@@ -11,5 +11,6 @@ export const filmsPropTypes = {
 
 export const filmCardPropTypes = {
   name: PropTypes.string.isRequired,
-  poster_image: PropTypes.string.isRequired
+  poster_image: PropTypes.string.isRequired,
+  setCurrentFilmCard: PropTypes.func.isRequired,
 };
