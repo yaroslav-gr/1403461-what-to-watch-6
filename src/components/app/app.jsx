@@ -23,8 +23,7 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList films={films}/>
         </Route>
-        <Route exact path="/films/:id">
-          <Film />
+        <Route exact path="/films/:id" render={(props) => <Film id={props.match.params.id} films={films}/>}>
         </Route>
         <Route exact path="/films/:id/review" render={(props) => <AddReview poster_image={films[props.match.params.id].poster_image} name={films[props.match.params.id].name}/>}>
         </Route>

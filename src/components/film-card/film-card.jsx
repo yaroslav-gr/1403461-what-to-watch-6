@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {filmCardPropTypes} from '../../prop-types/prop-types';
 
 const FilmCard = (props) => {
