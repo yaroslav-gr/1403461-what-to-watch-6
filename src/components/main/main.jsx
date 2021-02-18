@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import FilmCard from '../film-card/film-card';
+import FilmsList from '../films-list/films-list';
+
+import {filmsPropTypes} from '../../prop-types/film-prop-types';
 
 const Main = (props) => {
-  const {films, filmDesc} = props;
+  const {films} = props;
 
   return (
     <React.Fragment>
@@ -99,9 +100,7 @@ const Main = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {films.map((film, i) => <FilmCard key={film.id} name={film.name} poster_image={film.poster_image} />)}
-          </div>
+          <FilmsList films={films}></FilmsList>
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -126,13 +125,6 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    poster_image: PropTypes.string.isRequired,
-    background_image: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  })).isRequired,
-};
+Main.propTypes = filmsPropTypes;
 
 export default Main;

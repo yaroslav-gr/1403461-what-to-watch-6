@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {filmCardPropTypes} from '../../prop-types/film-prop-types';
 
 const FilmCard = (props) => {
   const {name, poster_image} = props;
-  
+
   return (
     <React.Fragment>
       <article className="small-movie-card catalog__movies-card">
@@ -18,9 +18,6 @@ const FilmCard = (props) => {
   );
 };
 
-FilmCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  poster_image: PropTypes.string.isRequired
-}
+FilmCard.propTypes = filmCardPropTypes
 
 export default FilmCard;
