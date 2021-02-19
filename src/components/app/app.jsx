@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {filmsPropTypes} from '../../prop-types/prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -25,9 +25,9 @@ const App = (props) => {
         </Route>
         <Route exact path="/films/:id" render={(props) => <FilmDetails id={props.match.params.id} films={films}/>}>
         </Route>
-        <Route exact path="/films/:id/review" render={(props) => <AddReview id={films[props.match.params.id].id} poster_image={films[props.match.params.id].poster_image} name={films[props.match.params.id].name}/>}>
+        <Route exact path="/films/:id/review" render={(props) => <AddReview id={films[props.match.params.id].id} posterImage={films[props.match.params.id].poster_image} name={films[props.match.params.id].name}/>}>
         </Route>
-        <Route exact path="/player/:id" render={(props) => <Player video_link={films[props.match.params.id].video_link} poster_image={films[props.match.params.id].poster_image} />}>
+        <Route exact path="/player/:id" render={(props) => <Player videoLink={films[props.match.params.id].video_link} posterImage={films[props.match.params.id].poster_image} />}>
         </Route>
         <Route>
           <NotFound />
@@ -37,13 +37,6 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    poster_image: PropTypes.string.isRequired,
-    background_image: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  })).isRequired,
-};
+App.propTypes = filmsPropTypes;
 
 export default App;

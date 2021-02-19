@@ -2,12 +2,12 @@ import React from 'react';
 import {playerPropTypes} from '../../prop-types/prop-types';
 
 const Player = (props) => {
-  const {video_link, poster_image} = props;
+  const {videoLink, posterImage} = props;
 
   return (
     <React.Fragment>
       <div className="player">
-        <video src={video_link} className="player__video" poster={poster_image}></video>
+        <video src={videoLink} className="player__video" poster={posterImage}></video>
 
         <button type="button" className="player__exit">Exit</button>
 
