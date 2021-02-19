@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
-import Film from '../film/film';
+import FilmDetails from '../film/film-details';
 import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
@@ -23,9 +23,9 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList films={films}/>
         </Route>
-        <Route exact path="/films/:id" render={(props) => <Film id={props.match.params.id} films={films}/>}>
+        <Route exact path="/films/:id" render={(props) => <FilmDetails id={props.match.params.id} films={films}/>}>
         </Route>
-        <Route exact path="/films/:id/review" render={(props) => <AddReview poster_image={films[props.match.params.id].poster_image} name={films[props.match.params.id].name}/>}>
+        <Route exact path="/films/:id/review" render={(props) => <AddReview id={films[props.match.params.id].id} poster_image={films[props.match.params.id].poster_image} name={films[props.match.params.id].name}/>}>
         </Route>
         <Route exact path="/player/:id" render={(props) => <Player video_link={films[props.match.params.id].video_link} poster_image={films[props.match.params.id].poster_image} />}>
         </Route>

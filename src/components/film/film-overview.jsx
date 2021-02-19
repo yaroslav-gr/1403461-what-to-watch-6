@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import FilmsList from '../films-list/films-list';
 import {filmsPropTypes} from '../../prop-types/prop-types';
 
-const Film = (props) => {
+const FilmOverview = (props) => {
   const {id, films} = props;
 
   return (
@@ -17,11 +18,11 @@ const Film = (props) => {
 
           <header className="page-header movie-card__head">
             <div className="logo">
-              <a href="main.html" className="logo__link">
+              <Link to="/" className="logo__link">
                 <span className="logo__letter logo__letter--1">W</span>
                 <span className="logo__letter logo__letter--2">T</span>
                 <span className="logo__letter logo__letter--3">W</span>
-              </a>
+              </Link>
             </div>
 
             <div className="user-block">
@@ -47,12 +48,12 @@ const Film = (props) => {
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
+                    <svg viewBox="0 0 19 20" width="19" height="20">
+                      <use xlinkHref="#add"></use>
+                    </svg>
+                    <span>My list</span>
                 </button>
-                <a href="add-review.html" className="btn movie-card__button">Add review</a>
+                <Link to={"/films/"+ id +"/review"} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -104,7 +105,9 @@ const Film = (props) => {
       <div className="page-content">
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
+
           <FilmsList films={films}></FilmsList>
+
         </section>
 
         <footer className="page-footer">
@@ -125,6 +128,6 @@ const Film = (props) => {
   );
 };
 
-Film.propTypes = filmsPropTypes;
+FilmOverview.propTypes = filmsPropTypes;
 
-export default Film;
+export default FilmOverview;

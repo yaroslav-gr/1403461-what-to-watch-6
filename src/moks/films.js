@@ -1,6 +1,6 @@
 export const films = [
   {
-    id: 1,
+    id: 0,
     name: "The Grand Budapest Hotel",
     poster_image: "img/the-grand-budapest-hotel-poster.jpg",
     preview_image: "img/the-grand-budapest-hotel-poster.jpg",
@@ -19,7 +19,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 2,
+    id: 1,
     name: "Fantastic Beasts: The Crimes of Grindelwald",
     poster_image: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
     preview_image: "img/fantastic-beasts-the-crimes-of-grindelwald.jpg",
@@ -32,13 +32,13 @@ export const films = [
     scores_count: 240,
     director: "Wes Andreson",
     starring: ["Bill Murray", "Edward Norton", "Jude Law", "Willem Dafoe", "Saoirse Ronan"],
-    run_time: 99,
+    run_time: 125,
     genre: "Comedy",
     released: 2014,
     is_favorite: false
   },
   {
-    id: 3,
+    id: 2,
     name: "Bohemian Rhapsody",
     poster_image: "img/bohemian-rhapsody.jpg",
     preview_image: "img/bohemian-rhapsody.jpg",
@@ -57,7 +57,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 4,
+    id: 3,
     name: "Macbeth",
     poster_image: "img/macbeth.jpg",
     preview_image: "img/macbeth.jpg",
@@ -76,7 +76,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 5,
+    id: 4,
     name: "Aviator",
     poster_image: "img/aviator.jpg",
     preview_image: "img/aviator.jpg",
@@ -95,7 +95,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 6,
+    id: 5,
     name: "What We Do in the Shadows",
     poster_image: "img/what-we-do-in-the-shadows.jpg",
     preview_image: "img/what-we-do-in-the-shadows.jpg",
@@ -114,7 +114,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 7,
+    id: 6,
     name: "We need to talk about Kevin",
     poster_image: "img/we-need-to-talk-about-kevin.jpg",
     preview_image: "img/we-need-to-talk-about-kevin.jpg",
@@ -133,7 +133,7 @@ export const films = [
     is_favorite: false
   },
   {
-    id: 8,
+    id: 7,
     name: "Revenant",
     poster_image: "img/revenant.jpg",
     preview_image: "img/revenant.jpg",

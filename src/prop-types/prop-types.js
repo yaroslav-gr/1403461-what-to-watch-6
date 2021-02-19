@@ -10,12 +10,14 @@ export const filmsPropTypes = {
 };
 
 export const filmCardPropTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   poster_image: PropTypes.string.isRequired,
   setCurrentFilmCard: PropTypes.func.isRequired,
 };
 
 export const addReviewsPropTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   poster_image: PropTypes.string.isRequired,
 };
