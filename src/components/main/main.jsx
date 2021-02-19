@@ -33,7 +33,7 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={films[0].poster_image} alt={films[0].name + " poster"} width="218" height="327" />
+              <img src={films[0].poster_image} alt={films[0].name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">

@@ -1,14 +1,13 @@
-import React, {useState}  from 'react';
+import React, {useState} from 'react';
 import InputRadio from './input-radio';
 import {Link} from 'react-router-dom';
-import {addReviewsPropTypes} from '../../prop-types/prop-types'
+import {addReviewsPropTypes} from '../../prop-types/prop-types';
 
 const AddReview = (props) => {
   const [userForm, setUserForm] = useState({
-    rating: 0,
-    'review-text': ''
+    'review-text': ``,
+    'rating': 0,
   });
-  
   const {id, posterImage, name} = props;
   const INPUT_RADIO_COUNT = 10;
 
@@ -43,7 +42,7 @@ const AddReview = (props) => {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <Link to={"/films/" + id} className="breadcrumbs__link">{name}</Link>
+                  <Link to={`/films/` + id} className="breadcrumbs__link">{name}</Link>
                 </li>
                 <li className="breadcrumbs__item">
                   <a className="breadcrumbs__link">Add review</a>
@@ -59,7 +58,7 @@ const AddReview = (props) => {
           </header>
 
           <div className="movie-card__poster movie-card__poster--small">
-            <img src={posterImage} alt={name + " poster"}  width="218" height="327" />
+            <img src={posterImage} alt={name + ` poster`} width="218" height="327" />
           </div>
         </div>
 
@@ -70,9 +69,9 @@ const AddReview = (props) => {
 
                 {new Array(INPUT_RADIO_COUNT).fill(1).map((item, index) => {
                   return (
-                    <InputRadio key={index+1} index={index+1} handleChange={handleChange}/>
-                  )
-                })}
+                    <InputRadio key={index + 1} index={index + 1} handleChange={handleChange}/>
+                  );
+                })};
 
               </div>
             </div>

@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 import FilmsList from '../films-list/films-list';
 import {filmsPropTypes} from '../../prop-types/prop-types';
 
-const FilmDetails = (props) =>  {
+const FilmDetails = (props) => {
   const {id, films} = props;
 
-  const formatRunTime = function(time) {
+  const formatRunTime = function (time) {
     if (time / 60 > 0) {
       const hours = Math.trunc(time / 60);
       const minutes = ((time / 60 - hours) * 60).toFixed(0);
@@ -15,7 +15,6 @@ const FilmDetails = (props) =>  {
       return `0h ${time}m`;
     }
   };
-  
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -63,7 +62,7 @@ const FilmDetails = (props) =>  {
                   </svg>
                   <span>My list</span>
                 </button>
-                <Link to={"/films/"+ id +"/review"} className="btn movie-card__button">Add review</Link>
+                <Link to={`/films/` + id + `/review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -72,7 +71,7 @@ const FilmDetails = (props) =>  {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={films[id].poster_image} alt={films[id].name + "poster"} width="218" height="327" />
+              <img src={films[id].poster_image} alt={films[id].name + `poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -82,7 +81,7 @@ const FilmDetails = (props) =>  {
                     <Link to="#" className="movie-nav__link">Overview</Link>
                   </li>
                   <li className="movie-nav__item movie-nav__item--active">
-                    <Link to={"/films/" + id} className="movie-nav__link">Details</Link>
+                    <Link to={`/films/` + id} className="movie-nav__link">Details</Link>
                   </li>
                   <li className="movie-nav__item">
                     <Link to="#" className="movie-nav__link">Reviews</Link>
@@ -99,7 +98,7 @@ const FilmDetails = (props) =>  {
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Starring</strong>
                     <span className="movie-card__details-value">
-                      {films[id].starring.join(", \n")}
+                      {films[id].starring.join(`, \n`)}
                     </span>
                   </p>
                 </div>

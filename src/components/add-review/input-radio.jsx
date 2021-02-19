@@ -5,15 +5,15 @@ const InputRadio = (props) => {
   const {index, handleChange} = props;
 
   const handleChecked = (evt) => {
-    if (evt.target.checked == true) {
-      handleChange(evt)
+    if (evt.target.checked === true) {
+      handleChange(evt);
     }
-  }
+  };
 
   return (
     <React.Fragment>
-      <input className="rating__input" id={"star-" + index} type="radio" name="rating" value={index} onChange={handleChecked}/>
-      <label className="rating__label" htmlFor={"star-" + index}>Rating {index}</label>
+      <input className="rating__input" id={`star-` + index} type="radio" name="rating" value={index} onChange={handleChecked}/>
+      <label className="rating__label" htmlFor={`star-` + index}>Rating {index}</label>
     </React.Fragment>
   );
 };

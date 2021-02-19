@@ -48,12 +48,12 @@ const FilmOverview = (props) => {
                   <span>Play</span>
                 </button>
                 <button className="btn btn--list movie-card__button" type="button">
-                    <svg viewBox="0 0 19 20" width="19" height="20">
-                      <use xlinkHref="#add"></use>
-                    </svg>
-                    <span>My list</span>
+                  <svg viewBox="0 0 19 20" width="19" height="20">
+                    <use xlinkHref="#add"></use>
+                  </svg>
+                  <span>My list</span>
                 </button>
-                <Link to={"/films/"+ id +"/review"} className="btn movie-card__button">Add review</Link>
+                <Link to={`/films/` + id + `/review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -62,7 +62,7 @@ const FilmOverview = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={films[id].poster_image} alt={films[id].name + " poster"} width="218" height="327" />
+              <img src={films[id].poster_image} alt={films[id].name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">

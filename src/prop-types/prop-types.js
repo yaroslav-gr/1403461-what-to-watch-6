@@ -34,4 +34,4 @@ export const inputRadioPropTypes = {
 
 export const filmsPropTypes = {
   films: PropTypes.arrayOf(PropTypes.object).isRequired
-}
+};

@@ -11,13 +11,13 @@ const FilmCard = (props) => {
           <img src={posterImage} alt={name} width="280" height="175" />
         </div>
         <h3 className="small-movie-card__title">
-          <Link className="small-movie-card__link" to={"/films/" + id} >{name}</Link>
+          <Link className="small-movie-card__link" to={`/films/` + id} >{name}</Link>
         </h3>
       </article>
     </React.Fragment>
   );
 };
 
-FilmCard.propTypes = filmCardPropTypes
+FilmCard.propTypes = filmCardPropTypes;
 
 export default FilmCard;
