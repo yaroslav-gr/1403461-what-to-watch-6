@@ -9,7 +9,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={films[0].background_image} alt={films[0].name} />
+          <img src={films[0].backgroundImage} alt={films[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -33,7 +33,7 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={films[0].poster_image} alt={films[0].name + ` poster`} width="218" height="327" />
+              <img src={films[0].posterImage} alt={films[0].name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">

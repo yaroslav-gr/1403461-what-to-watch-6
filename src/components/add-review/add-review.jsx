@@ -71,7 +71,7 @@ const AddReview = (props) => {
                   return (
                     <InputRadio key={index + 1} index={index + 1} handleChange={handleChange}/>
                   );
-                })};
+                })}
 
               </div>
             </div>

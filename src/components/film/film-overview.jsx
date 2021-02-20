@@ -11,7 +11,7 @@ const FilmOverview = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={films[id].poster_image} alt={films[id].name} />
+            <img src={films[id].posterImage} alt={films[id].name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -62,7 +62,7 @@ const FilmOverview = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={films[id].poster_image} alt={films[id].name + ` poster`} width="218" height="327" />
+              <img src={films[id].posterImage} alt={films[id].name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -84,7 +84,7 @@ const FilmOverview = (props) => {
                 <div className="movie-rating__score">{films[id].rating}</div>
                 <p className="movie-rating__meta">
                   <span className="movie-rating__level">Very good</span>
-                  <span className="movie-rating__count">{films[id].scores_count} ratings</span>
+                  <span className="movie-rating__count">{films[id].scoresCount} ratings</span>
                 </p>
               </div>
 

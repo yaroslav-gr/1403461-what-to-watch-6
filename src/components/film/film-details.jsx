@@ -2,25 +2,17 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../films-list/films-list';
 import {filmsPropTypes} from '../../prop-types/prop-types';
+import {formatRunTime} from '../../utils/film';
 
 const FilmDetails = (props) => {
   const {id, films} = props;
 
-  const formatRunTime = function (time) {
-    if (time / 60 > 0) {
-      const hours = Math.trunc(time / 60);
-      const minutes = ((time / 60 - hours) * 60).toFixed(0);
-      return `${hours}h ${minutes}m`;
-    } else {
-      return `0h ${time}m`;
-    }
-  };
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={films[id].poster_image} alt={films[id].name} />
+            <img src={films[id].posterImage} alt={films[id].name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -71,7 +63,7 @@ const FilmDetails = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={films[id].poster_image} alt={films[id].name + `poster`} width="218" height="327" />
+              <img src={films[id].posterImage} alt={films[id].name + `poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -106,7 +98,7 @@ const FilmDetails = (props) => {
                 <div className="movie-card__text-col">
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Run Time</strong>
-                    <span className="movie-card__details-value">{formatRunTime(films[id].run_time)}</span>
+                    <span className="movie-card__details-value">{formatRunTime(films[id].runTime)}</span>
                   </p>
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Genre</strong>
