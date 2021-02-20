@@ -1,18 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../films-list/films-list';
-import {filmsPropTypes} from '../../prop-types/prop-types';
+import {filmDetailsPropTypes} from '../../prop-types/prop-types';
 import {formatRunTime} from '../../utils/film';
 
 const FilmDetails = (props) => {
-  const {id, films} = props;
+  const {film, films} = props;
 
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={films[id].posterImage} alt={films[id].name} />
+            <img src={film.posterImage} alt={film.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -35,10 +35,10 @@ const FilmDetails = (props) => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{films[id].name}</h2>
+              <h2 className="movie-card__title">{film.name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{films[id].genre}</span>
-                <span className="movie-card__year">{films[id].released}</span>
+                <span className="movie-card__genre">{film.genre}</span>
+                <span className="movie-card__year">{film.released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -54,7 +54,7 @@ const FilmDetails = (props) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <Link to={`/films/` + id + `/review`} className="btn movie-card__button">Add review</Link>
+                <Link to={`/films/` + film.id + `/review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ const FilmDetails = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={films[id].posterImage} alt={films[id].name + `poster`} width="218" height="327" />
+              <img src={film.posterImage} alt={film.name + `poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -73,7 +73,7 @@ const FilmDetails = (props) => {
                     <Link to="#" className="movie-nav__link">Overview</Link>
                   </li>
                   <li className="movie-nav__item movie-nav__item--active">
-                    <Link to={`/films/` + id} className="movie-nav__link">Details</Link>
+                    <Link to={`/films/` + film.id} className="movie-nav__link">Details</Link>
                   </li>
                   <li className="movie-nav__item">
                     <Link to="#" className="movie-nav__link">Reviews</Link>
@@ -85,12 +85,12 @@ const FilmDetails = (props) => {
                 <div className="movie-card__text-col">
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Director</strong>
-                    <span className="movie-card__details-value">{films[id].director}</span>
+                    <span className="movie-card__details-value">{film.director}</span>
                   </p>
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Starring</strong>
                     <span className="movie-card__details-value">
-                      {films[id].starring.join(`, \n`)}
+                      {film.starring.join(`, \n`)}
                     </span>
                   </p>
                 </div>
@@ -98,15 +98,15 @@ const FilmDetails = (props) => {
                 <div className="movie-card__text-col">
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Run Time</strong>
-                    <span className="movie-card__details-value">{formatRunTime(films[id].runTime)}</span>
+                    <span className="movie-card__details-value">{formatRunTime(film.runTime)}</span>
                   </p>
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Genre</strong>
-                    <span className="movie-card__details-value">{films[id].genre}</span>
+                    <span className="movie-card__details-value">{film.genre}</span>
                   </p>
                   <p className="movie-card__details-item">
                     <strong className="movie-card__details-name">Released</strong>
-                    <span className="movie-card__details-value">{films[id].released}</span>
+                    <span className="movie-card__details-value">{film.released}</span>
                   </p>
                 </div>
               </div>
@@ -141,6 +141,6 @@ const FilmDetails = (props) => {
   );
 };
 
-FilmDetails.propTypes = filmsPropTypes;
+FilmDetails.propTypes = filmDetailsPropTypes;
 
 export default FilmDetails;

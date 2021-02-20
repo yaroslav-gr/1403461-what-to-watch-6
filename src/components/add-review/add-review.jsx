@@ -8,7 +8,7 @@ const AddReview = (props) => {
     'review-text': ``,
     'rating': 0,
   });
-  const {id, posterImage, name} = props;
+  const {id, posterImage, filmName} = props;
   const INPUT_RADIO_COUNT = 10;
 
   const handleSubmit = (evt) => {
@@ -25,7 +25,7 @@ const AddReview = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__header">
           <div className="movie-card__bg">
-            <img src={posterImage} alt={name} />
+            <img src={posterImage} alt={filmName} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -42,7 +42,7 @@ const AddReview = (props) => {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <Link to={`/films/` + id} className="breadcrumbs__link">{name}</Link>
+                  <Link to={`/films/` + id} className="breadcrumbs__link">{filmName}</Link>
                 </li>
                 <li className="breadcrumbs__item">
                   <a className="breadcrumbs__link">Add review</a>
@@ -58,7 +58,7 @@ const AddReview = (props) => {
           </header>
 
           <div className="movie-card__poster movie-card__poster--small">
-            <img src={posterImage} alt={name + ` poster`} width="218" height="327" />
+            <img src={posterImage} alt={filmName + ` poster`} width="218" height="327" />
           </div>
         </div>
 

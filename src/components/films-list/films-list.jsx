@@ -4,7 +4,7 @@ import {filmsPropTypes} from '../../prop-types/prop-types';
 
 
 const FilmsList = (props) => {
-  const [currentFilmCard, setCurrentFilmCard] = useState({});
+  const [, setCurrentFilmCard] = useState({});
   const {films} = props;
 
   return (
