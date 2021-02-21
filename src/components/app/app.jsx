@@ -1,36 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {filmsPropTypes} from '../../prop-types/prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
-import Film from '../film/film';
+import FilmDetails from '../film/film-details';
 import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
 
 const App = (props) => {
-  const {films, filmDesc} = props;
+  const {films} = props;
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main films={films} filmDesc={filmDesc} />
+          <Main films={films} />
         </Route>
         <Route exact path="/login">
           <SingIn />
         </Route>
         <Route exact path="/mylist">
-          <MyList />
+          <MyList films={films}/>
         </Route>
-        <Route exact path="/films/:id">
-          <Film />
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id]} films={films}/>}>
         </Route>
-        <Route exact path="/films/:id/review">
-          <AddReview />
+        <Route exact path="/films/:id/review" render={(prop) => <AddReview id={films[prop.match.params.id].id} posterImage={films[prop.match.params.id].posterImage} filmName={films[prop.match.params.id].name}/>}>
         </Route>
-        <Route exact path="/player/:id">
-          <Player />
+        <Route exact path="/player/:id" render={(prop) => <Player videoLink={films[prop.match.params.id].videoLink} posterImage={films[prop.match.params.id].posterImage} />}>
         </Route>
         <Route>
           <NotFound />
@@ -40,16 +37,6 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired
-  })).isRequired,
-  filmDesc: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired
-  }).isRequired
-};
+App.propTypes = filmsPropTypes;
 
 export default App;
