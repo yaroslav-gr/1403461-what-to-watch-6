@@ -10,7 +10,7 @@ const FilmsList = (props) => {
   return (
     <React.Fragment>
       <div className="catalog__movies-list">
-        {films.map((film) => <FilmCard key={film.id} id={film.id} name={film.name} posterImage={film.posterImage} setCurrentFilmCard={() => {
+        {films.map((film) => <FilmCard key={film.id} film={film} setCurrentFilmCard={() => {
           setCurrentFilmCard(film);
         }} />)}
       </div>

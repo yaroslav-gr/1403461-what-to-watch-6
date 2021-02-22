@@ -6,7 +6,8 @@ const VideoPlayer = (props) => {
 
   return (
     <React.Fragment>
-      <video poster={previewImage} loop>
+      <video width="280" height="175"
+      poster={previewImage} loop muted>
         <source src={previewVideoLink}/>
       </video>
     </React.Fragment>

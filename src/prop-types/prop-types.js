@@ -25,10 +25,8 @@ export const filmsPropTypes = {
 };
 
 export const filmCardPropTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  posterImage: PropTypes.string.isRequired,
-  setCurrentFilmCard: PropTypes.func.isRequired,
+  film: PropTypes.shape(filmPropTypes),
+  setCurrentFilmCard: PropTypes.func.isRequired
 };
 
 export const addReviewsPropTypes = {

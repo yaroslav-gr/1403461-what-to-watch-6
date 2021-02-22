@@ -1,17 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import VideoPlayer from '../video-player/video-player';
 import {filmCardPropTypes} from '../../prop-types/prop-types';
 
 const FilmCard = (props) => {
-  const {id, name, posterImage, setCurrentFilmCard} = props;
+  const {film, setCurrentFilmCard} = props;
   return (
     <React.Fragment>
       <article className="small-movie-card catalog__movies-card" onMouseOver={setCurrentFilmCard}>
         <div className="small-movie-card__image">
-          <img src={posterImage} alt={name} width="280" height="175" />
+          <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink}>
+          </VideoPlayer>
+          {/* <img src={posterImage} alt={name} width="280" height="175" /> */}
         </div>
         <h3 className="small-movie-card__title">
-          <Link className="small-movie-card__link" to={`/films/` + id} >{name}</Link>
+          <Link className="small-movie-card__link" to={`/films/` + film.id} >{film.name}</Link>
         </h3>
       </article>
     </React.Fragment>
