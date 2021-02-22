@@ -50,3 +50,8 @@ export const inputRadioPropTypes = {
 export const filmDetailsPropTypes = Object.assign(filmsPropTypes, {
   film: PropTypes.shape(filmPropTypes)
 });
+
+export const videoPlayerPropTypes = {
+  previewImage: filmPropTypes.previewImage,
+  previewVideoLink: filmPropTypes.previewVideoLink,
+};
