@@ -21,6 +21,6 @@ const FilmCard = (props) => {
   );
 };
 
-// FilmCard.propTypes = filmCardPropTypes;
+FilmCard.propTypes = filmCardPropTypes;
 
 export default FilmCard;
