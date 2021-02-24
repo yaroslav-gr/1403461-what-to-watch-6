@@ -7,18 +7,18 @@ const VideoPlayer = (props) => {
 
   useEffect(() =>{
     if (isPlaying) {
-      videoRef.current.play()
+      videoRef.current.play();
     } else {
       videoRef.current.pause();
-      videoRef.current.load()
+      videoRef.current.load();
     }
-  }, [isPlaying])
+  }, [isPlaying]);
 
   return (
     <React.Fragment>
       <video width="280" height="175"
-      poster={previewImage} loop muted
-      ref={videoRef}>
+        poster={previewImage} loop muted
+        ref={videoRef}>
         <source src={previewVideoLink}/>
       </video>
     </React.Fragment>

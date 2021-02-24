@@ -5,7 +5,6 @@ import {filmCardPropTypes} from '../../prop-types/prop-types';
 
 const FilmCard = (props) => {
   const {film, isPlaying, handleHover} = props;
-  
   return (
     <React.Fragment>
       <article className="small-movie-card catalog__movies-card" onMouseOver={() => handleHover(film)} onMouseOut={() => handleHover()}>

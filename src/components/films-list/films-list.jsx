@@ -17,12 +17,12 @@ const FilmsList = (props) => {
 
   useEffect(() => {
     if (currentFilmCard) {
-      timeOutId = setTimeout(() => {setPlaying(true);}, 1000)
+      timeOutId = setTimeout(() => {
+        setPlaying(true);
+      }, 1000);
     }
 
-    return () => {
-      timeOutId && clearTimeout(timeOutId);
-    };
+    return () => timeOutId && clearTimeout(timeOutId);
   }, [currentFilmCard]);
 
   return (
