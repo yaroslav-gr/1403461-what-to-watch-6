@@ -1,5 +1,6 @@
 import React from 'react';
 import FilmsList from '../films-list/films-list';
+import GenresList from './genres-list';
 import {filmsPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
@@ -66,7 +67,9 @@ const Main = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
+          <GenresList></GenresList>
+
+          {/* <ul className="catalog__genres-list">
             <li className="catalog__genres-item catalog__genres-item--active">
               <a href="#" className="catalog__genres-link">All genres</a>
             </li>
@@ -97,7 +100,7 @@ const Main = (props) => {
             <li className="catalog__genres-item">
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
-          </ul>
+          </ul> */}
 
           <FilmsList films={films}></FilmsList>
 
