@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {ActionCreator} from '../../store/action';
+import {genresListPropTypes} from '../../prop-types/prop-types';
 
 const GenresList = (props) => {
   const {films, activeGenre, setCurrentGenre} = props;
@@ -44,5 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setCurrentGenre(genre))
   }
 });
+
+GenresList.propTypes = genresListPropTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

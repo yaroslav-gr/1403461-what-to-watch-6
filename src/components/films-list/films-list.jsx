@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import FilmCard from '../film-card/film-card';
-import {filmsPropTypes} from '../../prop-types/prop-types';
+import {filmsListPropTypes} from '../../prop-types/prop-types';
 
 
 const FilmsList = (props) => {
@@ -44,7 +44,7 @@ const FilmsList = (props) => {
   );
 };
 
-FilmsList.propTypes = filmsPropTypes;
+FilmsList.propTypes = filmsListPropTypes;
 
 const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
