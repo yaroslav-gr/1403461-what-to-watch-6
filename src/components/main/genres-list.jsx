@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {ActionCreator} from '../../store/action';
 
 const GenresList = (props) => {
-  const {films, activeGenre} = props;
+  const {films, activeGenre, setCurrentGenre} = props;
 
   const createCurrentGenreList = function() {
     const genresList = new Set();
@@ -19,7 +20,11 @@ const GenresList = (props) => {
 
         {createCurrentGenreList().map((item, index) => (
           <li key={item + index} className={'catalog__genres-item ' + (item === activeGenre ? 'catalog__genres-item--active ' : '')}>
-            <a href="#" className="catalog__genres-link">{item}</a>
+            <a href="#" className="catalog__genres-link" onClick={(event) => {
+              event.preventDefault();
+              setCurrentGenre(event.target.textContent);
+            }}
+            >{item}</a>
           </li>
         ))}
 
@@ -34,4 +39,10 @@ const mapStateToProps = (state) => ({
   activeGenre: state.activeGenre,
 });
 
-export default connect(mapStateToProps, null)(GenresList);
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentGenre(genre) {
+    dispatch(ActionCreator.setCurrentGenre(genre))
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GenresList);

@@ -9,7 +9,14 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    return state
+  switch (action.type) {
+    case ActionType.SET_CURRENT_GENRE:
+      return {
+        ...state,
+        activeGenre: action.payload,
+      }
+  };
+    return state;
 };
 
 export {reducer};
