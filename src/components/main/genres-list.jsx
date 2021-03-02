@@ -1,19 +1,37 @@
 import React from 'react';
-import {GENRES} from '../../const/const';
+import {connect} from 'react-redux';
 
+const GenresList = (props) => {
+  const {films, activeGenre} = props;
 
-const GenresList = () => {
+  const createCurrentGenreList = function() {
+    const genresList = new Set();
+    films.map((film) => genresList.add(film.genre));
+    const currentGenresList = Array.from(genresList);
+    currentGenresList.unshift(`All genres`);
+
+    return currentGenresList;
+  };
+  
   return (
     <React.Fragment>
       <ul className="catalog__genres-list">
-        {Object.keys(GENRES).map((item, index) => (
-          <li key={GENRES[item] + index} className={'catalog__genres-item ' + (GENRES[item].isActive ? 'catalog__genres-item--active ' : '')}>
-            <a href="#" className="catalog__genres-link">{GENRES[item].name}</a>
+
+        {createCurrentGenreList().map((item, index) => (
+          <li key={item + index} className={'catalog__genres-item ' + (item === activeGenre ? 'catalog__genres-item--active ' : '')}>
+            <a href="#" className="catalog__genres-link">{item}</a>
           </li>
         ))}
+
       </ul>
     </React.Fragment>
   );
 };
 
-export default GenresList;
+const mapStateToProps = (state) => ({
+  GENRES: state.genres,
+  films: state.films,
+  activeGenre: state.activeGenre,
+});
+
+export default connect(mapStateToProps, null)(GenresList);
