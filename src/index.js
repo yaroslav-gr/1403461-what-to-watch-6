@@ -8,15 +8,15 @@ import {reducer} from '../src/store/reducer';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 const store = createStore(
-  reducer,
-  composeWithDevTools()
-  );
+    reducer,
+    composeWithDevTools()
+);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App
-      films={films}
-    />
-  </Provider>,
-  document.querySelector(`#root`)
+    <Provider store={store}>
+      <App
+        films={films}
+      />
+    </Provider>,
+    document.querySelector(`#root`)
 );

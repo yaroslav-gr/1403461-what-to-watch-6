@@ -21,7 +21,7 @@ export const filmPropTypes = {
 };
 
 export const filmsPropTypes = {
-  films:PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
 };
 
 export const filmsListPropTypes = {
@@ -65,4 +65,4 @@ export const genresListPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   activeGenre: PropTypes.string.isRequired,
   setCurrentGenre: PropTypes.func.isRequired,
-}
+};

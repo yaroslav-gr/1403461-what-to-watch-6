@@ -3,10 +3,10 @@ import {GENRES} from '../const/const';
 import {ActionType} from '../store/action';
 
 const initialState = {
-  films: films,
+  films,
   genres: GENRES,
   activeGenre: `All genres`,
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,9 +14,9 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         activeGenre: action.payload,
-      }
-  };
-    return state;
+      };
+  }
+  return state;
 };
 
 export {reducer};

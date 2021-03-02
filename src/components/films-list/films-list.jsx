@@ -18,7 +18,7 @@ const FilmsList = (props) => {
     if (activeGenre === `All genres`) {
       return films;
     } else {
-      const newFilmList = films.filter(film => film.genre === activeGenre);
+      const newFilmList = films.filter((film) => film.genre === activeGenre);
       return newFilmList;
     }
   };
