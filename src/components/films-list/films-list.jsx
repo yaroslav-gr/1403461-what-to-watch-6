@@ -7,20 +7,11 @@ import {filmsListPropTypes} from '../../prop-types/prop-types';
 const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {films, activeGenre} = props;
+  const {actualFlimList} = props;
 
   const handleHover = (film) => {
     setCurrentFilmCard(film);
     setPlaying(false);
-  };
-
-  const getCurrentFilms = () => {
-    if (activeGenre === `All genres`) {
-      return films;
-    } else {
-      const newFilmList = films.filter((film) => film.genre === activeGenre);
-      return newFilmList;
-    }
   };
 
   let timeOutId;
@@ -38,7 +29,7 @@ const FilmsList = (props) => {
   return (
     <React.Fragment>
       <div className="catalog__movies-list">
-        {getCurrentFilms().map((film) => <FilmCard key={film.id} film={film} isPlaying={isPlaying && currentFilmCard.id === film.id} handleHover={handleHover}/>)}
+        {actualFlimList.map((film) => <FilmCard key={film.id} film={film} isPlaying={isPlaying && currentFilmCard.id === film.id} handleHover={handleHover}/>)}
       </div>
     </React.Fragment>
   );
@@ -47,7 +38,7 @@ const FilmsList = (props) => {
 FilmsList.propTypes = filmsListPropTypes;
 
 const mapStateToProps = (state) => ({
-  activeGenre: state.activeGenre,
+  actualFlimList: state.actualFlimList
 });
 
 export default connect(mapStateToProps, null)(FilmsList);
