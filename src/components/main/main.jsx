@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import FilmsList from '../films-list/films-list';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
+import { ActionCreator } from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
-  const {films, countShowingFilms, filmListByGenre} = props;
+  const {films, countShowingFilms, filmListByGenre, resetFilmList} = props;
+
+  useEffect(() => {
+    resetFilmList()
+  }, []);
 
   return (
     <React.Fragment>
@@ -103,6 +108,13 @@ Main.propTypes = mainPropTypes;
 const mapStateToProps = (state) => ({
   countShowingFilms: state.countShowingFilms,
   filmListByGenre: state.filmListByGenre,
+  pathKey: state.pathKey,
 });
 
-export default connect(mapStateToProps, null)(Main);
+const mapDispatchToProps = (dispatch) => ({
+  resetFilmList() {
+    dispatch(ActionCreator.resetFilmList())
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

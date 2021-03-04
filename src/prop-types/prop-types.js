@@ -31,6 +31,7 @@ export const filmsListPropTypes = {
 
 export const mainPropTypes ={
   countShowingFilms: PropTypes.number.isRequired,
+  resetFilmList: PropTypes.func.isRequired,
   filmListByGenre: filmsPropTypes.films,
   films: filmsPropTypes.films,
 }

@@ -1,7 +1,8 @@
 export const ActionType = {
   SET_CURRENT_GENRE: `genres/setCurrentGenre`,
   SHOW_MORE_BY_BYTTON_CLICK: `films/showMoreByButtonClick`,
-  RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`
+  RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`,
+  RESET_FILM_LIST: `films/resetFilmList`,
 };
 
 export const ActionCreator = {
@@ -16,5 +17,9 @@ export const ActionCreator = {
 
   resetCountShowingFilms: () => ({
     type: ActionType.RESET_COUNT_SHOWING_FILMS,
+  }),
+
+  resetFilmList: () => ({
+    type: ActionType.RESET_FILM_LIST,
   })
 };

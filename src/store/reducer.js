@@ -7,6 +7,7 @@ const initialState = {
   activeGenre: `All genres`,
   filmListByGenre: films,
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+  pathKey: ``,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +27,14 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
-      }  
+      }
+    case ActionType.RESET_FILM_LIST:
+      return {
+        ...state,
+        filmListByGenre: films,
+        activeGenre: `All genres`,
+        countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+      }
   }
   return state;
 };
