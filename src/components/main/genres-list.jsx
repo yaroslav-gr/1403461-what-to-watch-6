@@ -4,7 +4,7 @@ import {ActionCreator} from '../../store/action';
 import {genresListPropTypes} from '../../prop-types/prop-types';
 
 const GenresList = (props) => {
-  const {films, activeGenre, setCurrentGenre} = props;
+  const {films, activeGenre, setCurrentGenre, resetCountShowingFilms} = props;
 
   const createCurrentGenreList = () => {
     const genresList = new Set();
@@ -23,6 +23,7 @@ const GenresList = (props) => {
           <li key={item + index} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
             <a href="#" className="catalog__genres-link" onClick={(event) => {
               event.preventDefault();
+              resetCountShowingFilms();
               setCurrentGenre(event.target.textContent);
             }}
             >{item}</a>
@@ -43,6 +44,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setCurrentGenre(genre) {
     dispatch(ActionCreator.setCurrentGenre(genre));
+  },
+
+  resetCountShowingFilms() {
+    dispatch(ActionCreator.resetCountShowingFilms())
   }
 });
 
