@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
 import FilmCard from '../film-card/film-card';
-import {filmsPropTypes} from '../../prop-types/prop-types';
+import {filmsListPropTypes} from '../../prop-types/prop-types';
 
 
 const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {films} = props;
+  const {filmListByGenre} = props;
 
   const handleHover = (film) => {
     setCurrentFilmCard(film);
@@ -28,12 +29,16 @@ const FilmsList = (props) => {
   return (
     <React.Fragment>
       <div className="catalog__movies-list">
-        {films.map((film) => <FilmCard key={film.id} film={film} isPlaying={isPlaying && currentFilmCard.id === film.id} handleHover={handleHover}/>)}
+        {filmListByGenre.map((film) => <FilmCard key={film.id} film={film} isPlaying={isPlaying && currentFilmCard.id === film.id} handleHover={handleHover}/>)}
       </div>
     </React.Fragment>
   );
 };
 
-FilmsList.propTypes = filmsPropTypes;
+FilmsList.propTypes = filmsListPropTypes;
 
-export default FilmsList;
+const mapStateToProps = (state) => ({
+  filmListByGenre: state.filmListByGenre
+});
+
+export default connect(mapStateToProps, null)(FilmsList);
