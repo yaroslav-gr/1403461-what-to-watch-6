@@ -7,7 +7,6 @@ const initialState = {
   activeGenre: `All genres`,
   filmListByGenre: films,
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
-  pathKey: ``,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,23 +17,23 @@ const reducer = (state = initialState, action) => {
         activeGenre: action.payload,
         filmListByGenre: action.payload === `All genres` ? state.films : state.films.filter((film) => film.genre === action.payload),
       };
-    case ActionType.SHOW_MORE_BY_BYTTON_CLICK: 
+    case ActionType.SHOW_MORE_BY_BYTTON_CLICK:
       return {
         ...state,
         countShowingFilms: state.countShowingFilms + COUNT_FILMS_FOR_SHOWING,
-      }
-    case ActionType.RESET_COUNT_SHOWING_FILMS: 
+      };
+    case ActionType.RESET_COUNT_SHOWING_FILMS:
       return {
         ...state,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
-      }
+      };
     case ActionType.RESET_FILM_LIST:
       return {
         ...state,
         filmListByGenre: films,
         activeGenre: `All genres`,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
-      }
+      };
   }
   return state;
 };

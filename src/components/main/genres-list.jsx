@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   resetCountShowingFilms() {
-    dispatch(ActionCreator.resetCountShowingFilms())
+    dispatch(ActionCreator.resetCountShowingFilms());
   }
 });
 

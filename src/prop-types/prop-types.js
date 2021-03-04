@@ -29,12 +29,12 @@ export const filmsListPropTypes = {
   countShowingFilms: PropTypes.number.isRequired,
 };
 
-export const mainPropTypes ={
+export const mainPropTypes = {
   countShowingFilms: PropTypes.number.isRequired,
   resetFilmList: PropTypes.func.isRequired,
   filmListByGenre: filmsPropTypes.films,
   films: filmsPropTypes.films,
-}
+};
 
 export const filmCardPropTypes = {
   film: PropTypes.shape(filmPropTypes).isRequired,
@@ -77,4 +77,4 @@ export const genresListPropTypes = {
 
 export const showMoreButtonPropTypes = {
   handleClickButton: PropTypes.func.isRequired,
-}
+};

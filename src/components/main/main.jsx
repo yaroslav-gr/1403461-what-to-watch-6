@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import FilmsList from '../films-list/films-list';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
-import { ActionCreator } from '../../store/action';
+import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
   const {films, countShowingFilms, filmListByGenre, resetFilmList} = props;
 
   useEffect(() => {
-    resetFilmList()
+    resetFilmList();
   }, []);
 
   return (
@@ -81,7 +81,6 @@ const Main = (props) => {
           <div className="catalog__more">
 
             {(filmListByGenre.length > countShowingFilms) && <ShowMoreButton />}
-            
           </div>
         </section>
 
@@ -108,12 +107,11 @@ Main.propTypes = mainPropTypes;
 const mapStateToProps = (state) => ({
   countShowingFilms: state.countShowingFilms,
   filmListByGenre: state.filmListByGenre,
-  pathKey: state.pathKey,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   resetFilmList() {
-    dispatch(ActionCreator.resetFilmList())
+    dispatch(ActionCreator.resetFilmList());
   },
 });
 
