@@ -26,7 +26,14 @@ export const filmsPropTypes = {
 
 export const filmsListPropTypes = {
   filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  countShowingFilms: PropTypes.number.isRequired,
 };
+
+export const mainPropTypes ={
+  countShowingFilms: PropTypes.number.isRequired,
+  filmListByGenre: filmsPropTypes.films,
+  films: filmsPropTypes.films,
+}
 
 export const filmCardPropTypes = {
   film: PropTypes.shape(filmPropTypes).isRequired,
@@ -64,4 +71,9 @@ export const genresListPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   activeGenre: PropTypes.string.isRequired,
   setCurrentGenre: PropTypes.func.isRequired,
+  resetCountShowingFilms: PropTypes.func.isRequired,
 };
+
+export const showMoreButtonPropTypes = {
+  handleClickButton: PropTypes.func.isRequired,
+}

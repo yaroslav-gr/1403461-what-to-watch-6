@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import FilmsList from '../films-list/films-list';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
-import {filmsPropTypes} from '../../prop-types/prop-types';
+import {mainPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
   const {films, countShowingFilms, filmListByGenre} = props;
@@ -98,7 +98,7 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = filmsPropTypes;
+Main.propTypes = mainPropTypes;
 
 const mapStateToProps = (state) => ({
   countShowingFilms: state.countShowingFilms,

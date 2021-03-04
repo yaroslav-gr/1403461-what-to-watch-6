@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { ActionCreator } from '../../store/action';
+import {showMoreButtonPropTypes} from '../../prop-types/prop-types';
 
 const ShowMoreButton = (props) => {
   const {handleClickButton} = props;
@@ -17,5 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.handleShowMoreByButton())
   }
 });
+
+ShowMoreButton.propTypes = showMoreButtonPropTypes;
 
 export default connect(null, mapDispatchToProps) (ShowMoreButton);
