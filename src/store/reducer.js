@@ -6,7 +6,7 @@ const initialState = {
   films,
   activeGenre: `All genres`,
   filmListByGenre: films,
-  countFilmsByButton: COUNT_FILMS_FOR_SHOWING,
+  countShowingFilms: COUNT_FILMS_FOR_SHOWING,
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,12 +20,12 @@ const reducer = (state = initialState, action) => {
     case ActionType.SHOW_MORE_BY_BYTTON_CLICK: 
       return {
         ...state,
-        countFilmsByButton: state.countFilmsByButton + COUNT_FILMS_FOR_SHOWING,
+        countShowingFilms: state.countShowingFilms + COUNT_FILMS_FOR_SHOWING,
       }
     case ActionType.RESET_COUNT_SHOWING_FILMS: 
       return {
         ...state,
-        countFilmsByButton: COUNT_FILMS_FOR_SHOWING,
+        countShowingFilms: COUNT_FILMS_FOR_SHOWING,
       }  
   }
   return state;

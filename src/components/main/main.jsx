@@ -1,11 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import FilmsList from '../films-list/films-list';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
 import {filmsPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
-  const {films} = props;
+  const {films, countShowingFilms, filmListByGenre} = props;
 
   return (
     <React.Fragment>
@@ -73,7 +74,9 @@ const Main = (props) => {
           <FilmsList films={films}></FilmsList>
 
           <div className="catalog__more">
-            <ShowMoreButton />
+
+            {(filmListByGenre.length > countShowingFilms) && <ShowMoreButton />}
+            
           </div>
         </section>
 
@@ -97,4 +100,9 @@ const Main = (props) => {
 
 Main.propTypes = filmsPropTypes;
 
-export default Main;
+const mapStateToProps = (state) => ({
+  countShowingFilms: state.countShowingFilms,
+  filmListByGenre: state.filmListByGenre,
+});
+
+export default connect(mapStateToProps, null)(Main);
