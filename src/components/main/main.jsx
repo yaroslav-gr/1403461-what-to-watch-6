@@ -1,6 +1,7 @@
 import React from 'react';
 import FilmsList from '../films-list/films-list';
 import GenresList from './genres-list';
+import ShowMoreButton from './show-more-button';
 import {filmsPropTypes} from '../../prop-types/prop-types';
 
 const Main = (props) => {
@@ -72,7 +73,7 @@ const Main = (props) => {
           <FilmsList films={films}></FilmsList>
 
           <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
+            <ShowMoreButton />
           </div>
         </section>
 
