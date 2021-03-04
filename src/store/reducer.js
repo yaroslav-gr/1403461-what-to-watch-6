@@ -6,7 +6,7 @@ const initialState = {
   films,
   genres: GENRES,
   activeGenre: `All genres`,
-  actualFlimList: films
+  filmListByGenre: films,
 };
 
 const reducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         activeGenre: action.payload,
-        actualFlimList: action.payload === `All genres` ? state.films : state.films.filter((film) => film.genre === action.payload),
+        filmListByGenre: action.payload === `All genres` ? state.films : state.films.filter((film) => film.genre === action.payload),
       };
   }
   return state;

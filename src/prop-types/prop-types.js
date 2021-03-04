@@ -25,7 +25,7 @@ export const filmsPropTypes = {
 };
 
 export const filmsListPropTypes = {
-  actualFlimList: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
 };
 
 export const filmCardPropTypes = {
