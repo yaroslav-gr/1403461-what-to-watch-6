@@ -1,12 +1,12 @@
 import {films} from '../moks/films';
-import {GENRES} from '../const/const';
+import {COUNT_FILMS_FOR_SHOWING} from '../const/const';
 import {ActionType} from '../store/action';
 
 const initialState = {
   films,
-  genres: GENRES,
   activeGenre: `All genres`,
   filmListByGenre: films,
+  countShowingFilms: COUNT_FILMS_FOR_SHOWING,
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +16,23 @@ const reducer = (state = initialState, action) => {
         ...state,
         activeGenre: action.payload,
         filmListByGenre: action.payload === `All genres` ? state.films : state.films.filter((film) => film.genre === action.payload),
+      };
+    case ActionType.SHOW_MORE_BY_BYTTON_CLICK:
+      return {
+        ...state,
+        countShowingFilms: state.countShowingFilms + COUNT_FILMS_FOR_SHOWING,
+      };
+    case ActionType.RESET_COUNT_SHOWING_FILMS:
+      return {
+        ...state,
+        countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+      };
+    case ActionType.RESET_FILM_LIST:
+      return {
+        ...state,
+        filmListByGenre: films,
+        activeGenre: `All genres`,
+        countShowingFilms: COUNT_FILMS_FOR_SHOWING,
       };
   }
   return state;
