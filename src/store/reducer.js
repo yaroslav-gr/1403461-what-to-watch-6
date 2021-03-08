@@ -3,7 +3,7 @@ import {COUNT_FILMS_FOR_SHOWING, AuthorizationStatus} from '../const/const';
 import {ActionType} from '../store/action';
 
 const initialState = {
-  films,
+  films: [],
   activeGenre: `All genres`,
   filmListByGenre: films,
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
@@ -39,6 +39,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         authorizationStatus: action.payload,
+      };
+    case ActionType.LOAD_FILMS:
+      return {
+        ...state,
+        films: action.payload,
       };
   }
   return state;
