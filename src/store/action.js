@@ -3,6 +3,7 @@ export const ActionType = {
   SHOW_MORE_BY_BYTTON_CLICK: `films/showMoreByButtonClick`,
   RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`,
   RESET_FILM_LIST: `films/resetFilmList`,
+  REQUIRED_AUTHORIZATION: `user/requiredAuthorization`
 };
 
 export const ActionCreator = {
@@ -21,5 +22,10 @@ export const ActionCreator = {
 
   resetFilmList: () => ({
     type: ActionType.RESET_FILM_LIST,
-  })
+  }),
+
+  requireAuthorization: (status) => ({
+    type: ActionType.REQUIRED_AUTHORIZATION,
+    payload: status,
+  }),
 };

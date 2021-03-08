@@ -1,5 +1,5 @@
 import {films} from '../moks/films';
-import {COUNT_FILMS_FOR_SHOWING} from '../const/const';
+import {COUNT_FILMS_FOR_SHOWING, AuthorizationStatus} from '../const/const';
 import {ActionType} from '../store/action';
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
   activeGenre: `All genres`,
   filmListByGenre: films,
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
 };
 
 const reducer = (state = initialState, action) => {
@@ -33,6 +34,11 @@ const reducer = (state = initialState, action) => {
         filmListByGenre: films,
         activeGenre: `All genres`,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+      };
+    case ActionType.REQUIRED_AUTHORIZATION: 
+      return {
+        ...state,
+        authorizationStatus: action.payload,
       };
   }
   return state;
