@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
 import FilmsList from './films-list';
 import {connect} from 'react-redux';
+import {fetchFilms} from '../../store/api-actions';
 
 const PageContent = (props) => {
-  const {films, countShowingFilms, filmListByGenre} = props;
+  const {films, countShowingFilms, filmListByGenre, isDataLoaded, loadFilms} = props;
+
+  useEffect(() => {
+    if(!isDataLoaded) {
+      loadFilms();
+    }
+  }, [isDataLoaded]);
 
   return (
     <React.Fragment>
@@ -45,5 +52,12 @@ const mapStateToProps = (state) => ({
   films: state.films,
   filmListByGenre: state.filmListByGenre,
   countShowingFilms: state.countShowingFilms,
-})
-export default connect(mapStateToProps, null)(PageContent);
+  isDataLoaded: state.isDataLoaded,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loadFilms() {
+    dispatch(fetchFilms())
+  },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(PageContent);

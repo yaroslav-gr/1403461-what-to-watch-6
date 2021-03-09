@@ -3,14 +3,11 @@ import {connect} from 'react-redux';
 import FilmCard from '../page-content/film-card';
 import LoadingScreen from '../loading-screen/loading-screen';
 import {filmsListPropTypes} from '../../prop-types/prop-types';
-import {fetchFilms} from '../../store/api-actions';
-
-
 
 const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {filmListByGenre, countShowingFilms, isDataLoaded, loadFilms} = props;
+  const {filmListByGenre, countShowingFilms, isDataLoaded} = props;
 
   const handleHover = (film) => {
     setCurrentFilmCard(film);
@@ -28,12 +25,6 @@ const FilmsList = (props) => {
 
     return () => timeOutId && clearTimeout(timeOutId);
   }, [currentFilmCard]);
-
-  useEffect(() => {
-    if(!isDataLoaded) {
-      loadFilms();
-    }
-  }, [isDataLoaded]);
 
   if (!isDataLoaded) {
     return <LoadingScreen />
@@ -56,10 +47,4 @@ const mapStateToProps = (state) => ({
   isDataLoaded: state.isDataLoaded,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  loadFilms() {
-    dispatch(fetchFilms())
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilmsList);
+export default connect(mapStateToProps, null)(FilmsList);

@@ -25,9 +25,7 @@ store.dispatch(checkAuth())
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        films={films}
-      />
+      <App />
     </Provider>,
     document.querySelector(`#root`)
 );
