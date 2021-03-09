@@ -18,6 +18,6 @@ export const dataAdapter = (films) => {
       newFilm[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = filmValues[index];
     });
     adaptedFilms.push(newFilm);
-  })
+  });
   return adaptedFilms;
 };

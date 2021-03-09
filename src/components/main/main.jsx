@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
-import {films as mokFilms} from '../../moks/films'
+import {films as mokFilms} from '../../moks/films';
 
 const Main = (props) => {
   const {resetFilmList} = props;

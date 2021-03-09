@@ -15,7 +15,7 @@ const App = (props) => {
   const {films, isDataLoaded, loadFilms} = props;
 
   useEffect(() => {
-    if(!isDataLoaded) {
+    if (!isDataLoaded) {
       loadFilms();
     }
   }, [isDataLoaded]);
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loadFilms() {
-    dispatch(fetchFilms())
+    dispatch(fetchFilms());
   },
 });
 

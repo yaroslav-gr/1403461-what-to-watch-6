@@ -1,6 +1,6 @@
 import {ActionCreator} from '../store/action';
 import {AuthorizationStatus} from '../const/const';
-import {dataAdapter} from '../utils/film'; 
+import {dataAdapter} from '../utils/film';
 
 export const fetchFilms = () => (dispatch, _getState, api) => {
   api.get(`/films`).

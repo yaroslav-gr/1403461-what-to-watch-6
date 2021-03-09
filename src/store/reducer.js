@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
         activeGenre: `All genres`,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
       };
-    case ActionType.REQUIRED_AUTHORIZATION: 
+    case ActionType.REQUIRED_AUTHORIZATION:
       return {
         ...state,
         authorizationStatus: action.payload,

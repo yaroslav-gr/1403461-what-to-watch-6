@@ -27,8 +27,8 @@ const FilmsList = (props) => {
   }, [currentFilmCard]);
 
   if (!isDataLoaded) {
-    return <LoadingScreen />
-  } 
+    return <LoadingScreen />;
+  }
 
   return (
     <React.Fragment>
