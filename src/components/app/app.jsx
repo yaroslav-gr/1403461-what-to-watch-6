@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -7,9 +7,19 @@ import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
+import {appPropTypes} from '../../prop-types/prop-types';
+import {connect} from 'react-redux';
+import {fetchFilms} from '../../store/api-actions';
 
 const App = (props) => {
-  const {films} = props;
+  const {films, isDataLoaded, loadFilms} = props;
+
+  useEffect(() => {
+    if(!isDataLoaded) {
+      loadFilms();
+    }
+  }, [isDataLoaded]);
+
   return (
     <BrowserRouter>
       <Switch>
@@ -36,4 +46,17 @@ const App = (props) => {
   );
 };
 
-export default App;
+App.propTypes = appPropTypes;
+
+const mapStateToProps = (state) => ({
+  films: state.films,
+  isDataLoaded: state.isDataLoaded,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loadFilms() {
+    dispatch(fetchFilms())
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

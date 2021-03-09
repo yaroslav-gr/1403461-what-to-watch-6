@@ -24,11 +24,16 @@ export const filmsPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
 };
 
+export const appPropTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  isDataLoaded: PropTypes.bool.isRequired,
+  loadFilms: PropTypes.func.isRequired,
+};
+
 export const pageContentPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   countShowingFilms: PropTypes.number.isRequired,
   filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-  isDataLoaded: PropTypes.bool.isRequired,
 };
 
 export const filmsListPropTypes = {
