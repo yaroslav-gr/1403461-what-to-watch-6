@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import FilmsList from '../films-list/films-list';
-import GenresList from './genres-list';
-import ShowMoreButton from './show-more-button';
+import PageContent from '../page-content/page-content';
 import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
+import {films as mokFilms} from '../../moks/films'
 
 const Main = (props) => {
-  const {films, countShowingFilms, filmListByGenre, resetFilmList} = props;
+  const {resetFilmList} = props;
 
   useEffect(() => {
     resetFilmList();
@@ -17,7 +16,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={films[0].backgroundImage} alt={films[0].name} />
+          <img src={mokFilms[0].backgroundImage} alt={mokFilms[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -41,14 +40,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={films[0].posterImage} alt={films[0].name + ` poster`} width="218" height="327" />
+              <img src={mokFilms[0].posterImage} alt={mokFilms[0].name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{films[0].name}</h2>
+              <h2 className="movie-card__title">{mokFilms[0].name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{films[0].genre}</span>
-                <span className="movie-card__year">{films[0].released}</span>
+                <span className="movie-card__genre">{mokFilms[0].genre}</span>
+                <span className="movie-card__year">{mokFilms[0].released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -70,44 +69,12 @@ const Main = (props) => {
         </div>
       </section>
 
-      <div className="page-content">
-        <section className="catalog">
-          <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <GenresList></GenresList>
-
-          <FilmsList films={films}></FilmsList>
-
-          <div className="catalog__more">
-
-            {(filmListByGenre.length > countShowingFilms) && <ShowMoreButton />}
-          </div>
-        </section>
-
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
-      </div>
+      <PageContent></PageContent>
     </React.Fragment>
   );
 };
 
 Main.propTypes = mainPropTypes;
-
-const mapStateToProps = (state) => ({
-  countShowingFilms: state.countShowingFilms,
-  filmListByGenre: state.filmListByGenre,
-});
 
 const mapDispatchToProps = (dispatch) => ({
   resetFilmList() {
@@ -115,4 +82,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(null, mapDispatchToProps)(Main);
