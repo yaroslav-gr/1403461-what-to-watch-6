@@ -1,5 +1,4 @@
 import React from 'react';
-import {filmsPropTypes} from '../../prop-types/prop-types';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -21,7 +20,7 @@ const App = (props) => {
           <SingIn />
         </Route>
         <Route exact path="/mylist">
-          <MyList films={films}/>
+          <MyList />
         </Route>
         <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id]} films={films}/>}>
         </Route>
@@ -36,7 +35,5 @@ const App = (props) => {
     </BrowserRouter>
   );
 };
-
-App.propTypes = filmsPropTypes;
 
 export default App;

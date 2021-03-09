@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
 import FilmsList from './films-list';
+import {pageContentPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 
@@ -48,6 +49,8 @@ const PageContent = (props) => {
   );
 };
 
+PageContent.propTypes = pageContentPropTypes;
+
 const mapStateToProps = (state) => ({
   films: state.films,
   filmListByGenre: state.filmListByGenre,
@@ -60,4 +63,5 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchFilms())
   },
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(PageContent);

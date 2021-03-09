@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../page-content/films-list';
 import {filmsPropTypes} from '../../prop-types/prop-types';
+import {connect} from 'react-redux';
 
 
 const MyList = (props) => {
@@ -54,4 +55,8 @@ const MyList = (props) => {
 
 MyList.propTypes = filmsPropTypes;
 
-export default MyList;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export default connect(mapStateToProps, null)(MyList);
