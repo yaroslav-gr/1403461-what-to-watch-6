@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import FilmCard from '../page-content/film-card';
-import LoadingScreen from '../loading-screen/loading-screen';
 import {filmsListPropTypes} from '../../prop-types/prop-types';
 
 const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {filmListByGenre, countShowingFilms, isDataLoaded} = props;
+  const {filmListByGenre, countShowingFilms} = props;
 
   const handleHover = (film) => {
     setCurrentFilmCard(film);
@@ -26,10 +25,6 @@ const FilmsList = (props) => {
     return () => timeOutId && clearTimeout(timeOutId);
   }, [currentFilmCard]);
 
-  if (!isDataLoaded) {
-    return <LoadingScreen />;
-  }
-
   return (
     <React.Fragment>
       <div className="catalog__movies-list">
@@ -44,7 +39,6 @@ FilmsList.propTypes = filmsListPropTypes;
 const mapStateToProps = (state) => ({
   filmListByGenre: state.filmListByGenre,
   countShowingFilms: state.countShowingFilms,
-  isDataLoaded: state.isDataLoaded,
 });
 
 export default connect(mapStateToProps, null)(FilmsList);

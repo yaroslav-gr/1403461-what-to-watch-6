@@ -7,6 +7,7 @@ import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
+import LoadingScreen from '../loading-screen/loading-screen';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
@@ -20,6 +21,10 @@ const App = (props) => {
     }
   }, [isDataLoaded]);
 
+  if (!isDataLoaded) {
+    return <LoadingScreen />;
+  };
+
   return (
     <BrowserRouter>
       <Switch>
@@ -32,7 +37,7 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList />
         </Route>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id]} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id - 1]} films={films}/>}>
         </Route>
         <Route exact path="/films/:id/review" render={(prop) => <AddReview id={films[prop.match.params.id].id} posterImage={films[prop.match.params.id].posterImage} filmName={films[prop.match.params.id].name}/>}>
         </Route>

@@ -28,6 +28,7 @@ export const appPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   isDataLoaded: PropTypes.bool.isRequired,
   loadFilms: PropTypes.func.isRequired,
+  isDataLoaded: PropTypes.bool.isRequired,
 };
 
 export const pageContentPropTypes = {
@@ -39,7 +40,6 @@ export const pageContentPropTypes = {
 export const filmsListPropTypes = {
   filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   countShowingFilms: PropTypes.number.isRequired,
-  isDataLoaded: PropTypes.bool.isRequired,
 };
 
 export const mainPropTypes = {
