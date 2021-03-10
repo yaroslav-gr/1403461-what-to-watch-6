@@ -5,6 +5,7 @@ export const ActionType = {
   RESET_FILM_LIST: `films/resetFilmList`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
   LOAD_FILMS: `films/loadFilms`,
+  ERROR_LOADING: `films/erroeLoading`,
 };
 
 export const ActionCreator = {
@@ -33,5 +34,10 @@ export const ActionCreator = {
   loadFilms: (films) => ({
     type: ActionType.LOAD_FILMS,
     payload: films,
+  }),
+
+  setErrorLoading: (error) => ({
+    type: ActionType.ERROR_LOADING,
+    payload: error,
   }),
 };

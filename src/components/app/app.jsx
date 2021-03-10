@@ -8,18 +8,23 @@ import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
 import LoadingScreen from '../loading-screen/loading-screen';
+import ErrorFilmsLoading from '../error-loading/error-films-loading';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 
 const App = (props) => {
-  const {films, isDataLoaded, loadFilms} = props;
+  const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
 
   useEffect(() => {
     if (!isDataLoaded) {
       loadFilms();
     }
   }, [isDataLoaded]);
+
+  if (isErrorLoading) {
+    return <ErrorFilmsLoading />
+  };
 
   if (!isDataLoaded) {
     return <LoadingScreen />;
@@ -56,6 +61,7 @@ App.propTypes = appPropTypes;
 const mapStateToProps = (state) => ({
   films: state.films,
   isDataLoaded: state.isDataLoaded,
+  isErrorLoading: state.isErrorLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

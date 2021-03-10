@@ -8,6 +8,8 @@ const initialState = {
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
   authorizationStatus: AuthorizationStatus.NO_AUTH,
   isDataLoaded: false,
+  isErrorLoading: false,
+  errorMessage: ``,
 };
 
 const reducer = (state = initialState, action) => {
@@ -47,6 +49,12 @@ const reducer = (state = initialState, action) => {
         isDataLoaded: true,
         filmListByGenre: action.payload,
       };
+     case ActionType.ERROR_LOADING:
+        return {
+          ...state,
+          isErrorLoading: true,
+          errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
+        };
   }
   return state;
 };
