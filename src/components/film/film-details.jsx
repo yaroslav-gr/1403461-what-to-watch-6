@@ -123,7 +123,6 @@ const FilmDetails = (props) => {
           <FilmsList films={films}></FilmsList>
 
         </section>
-       
         <Footer />
       </div>
     </React.Fragment>

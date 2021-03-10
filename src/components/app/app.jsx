@@ -23,12 +23,12 @@ const App = (props) => {
   }, [isDataLoaded]);
 
   if (isErrorLoading) {
-    return <ErrorFilmsLoading />
-  };
+    return <ErrorFilmsLoading />;
+  }
 
   if (!isDataLoaded) {
     return <LoadingScreen />;
-  };
+  }
 
   return (
     <BrowserRouter>

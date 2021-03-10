@@ -49,12 +49,12 @@ const reducer = (state = initialState, action) => {
         isDataLoaded: true,
         filmListByGenre: action.payload,
       };
-     case ActionType.ERROR_LOADING:
-        return {
-          ...state,
-          isErrorLoading: true,
-          errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
-        };
+    case ActionType.ERROR_LOADING:
+      return {
+        ...state,
+        isErrorLoading: true,
+        errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
+      };
   }
   return state;
 };

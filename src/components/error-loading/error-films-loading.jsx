@@ -20,7 +20,7 @@ const ErrorFilmsLoading = (props) => {
     <React.Fragment>
       <div className="page-content" style={{height: `100vh`}}>
         <p style={{fontSize: `30px`}}>{errorMessage}</p>
-        <button onClick={handleButton}  style={buttonStyle}>Try to load again</button>
+        <button onClick={handleButton} style={buttonStyle}>Try to load again</button>
       </div>
     </React.Fragment>
   );

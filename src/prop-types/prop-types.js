@@ -90,6 +90,6 @@ export const showMoreButtonPropTypes = {
 };
 
 export const errorFilmsLoadingPropTypes = {
-  errorMessage: PropTypes.string.isRequired, 
+  errorMessage: PropTypes.string.isRequired,
   handleButton: PropTypes.func.isRequired,
 };
