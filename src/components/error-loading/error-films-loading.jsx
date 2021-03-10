@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
+import {errorFilmsLoadingPropTypes} from '../../prop-types/prop-types';
 
 const ErrorFilmsLoading = (props) => {
   const {errorMessage, handleButton} = props;
@@ -34,5 +35,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchFilms());
   },
 });
+
+ErrorFilmsLoading.propTypes = errorFilmsLoadingPropTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(ErrorFilmsLoading);

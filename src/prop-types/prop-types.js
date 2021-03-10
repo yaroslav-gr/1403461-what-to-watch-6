@@ -28,7 +28,7 @@ export const appPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   isDataLoaded: PropTypes.bool.isRequired,
   loadFilms: PropTypes.func.isRequired,
-  isDataLoaded: PropTypes.bool.isRequired,
+  isErrorLoading: PropTypes.bool.isRequired,
 };
 
 export const pageContentPropTypes = {
@@ -87,4 +87,9 @@ export const genresListPropTypes = {
 
 export const showMoreButtonPropTypes = {
   handleClickButton: PropTypes.func.isRequired,
+};
+
+export const errorFilmsLoadingPropTypes = {
+  errorMessage: PropTypes.string.isRequired, 
+  handleButton: PropTypes.func.isRequired,
 };
