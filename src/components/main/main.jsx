@@ -3,10 +3,9 @@ import {connect} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
-import {films as mokFilms} from '../../moks/films';
 
 const Main = (props) => {
-  const {resetFilmList} = props;
+  const {film, resetFilmList} = props;
 
   useEffect(() => {
     resetFilmList();
@@ -16,7 +15,7 @@ const Main = (props) => {
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src={mokFilms[0].backgroundImage} alt={mokFilms[0].name} />
+          <img src={film.backgroundImage} alt={film.name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -40,14 +39,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={mokFilms[0].posterImage} alt={mokFilms[0].name + ` poster`} width="218" height="327" />
+              <img src={film.posterImage} alt={film.name + ` poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{mokFilms[0].name}</h2>
+              <h2 className="movie-card__title">{film.name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{mokFilms[0].genre}</span>
-                <span className="movie-card__year">{mokFilms[0].released}</span>
+                <span className="movie-card__genre">{film.genre}</span>
+                <span className="movie-card__year">{film.released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -76,10 +75,14 @@ const Main = (props) => {
 
 Main.propTypes = mainPropTypes;
 
+const mapStateToProps = (state) => ({
+  film: state.films[0],
+});
+
 const mapDispatchToProps = (dispatch) => ({
   resetFilmList() {
     dispatch(ActionCreator.resetFilmList());
   },
 });
 
-export default connect(null, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
