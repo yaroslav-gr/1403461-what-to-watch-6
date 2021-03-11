@@ -1,5 +1,4 @@
-import React from 'react';
-import {filmsPropTypes} from '../../prop-types/prop-types';
+import React, {useEffect} from 'react';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -8,22 +7,42 @@ import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
+import LoadingScreen from '../loading-screen/loading-screen';
+import ErrorFilmsLoading from '../error-loading/error-films-loading';
+import {appPropTypes} from '../../prop-types/prop-types';
+import {connect} from 'react-redux';
+import {fetchFilms} from '../../store/api-actions';
 
 const App = (props) => {
-  const {films} = props;
+  const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
+
+  useEffect(() => {
+    if (!isDataLoaded) {
+      loadFilms();
+    }
+  }, [isDataLoaded]);
+
+  if (isErrorLoading) {
+    return <ErrorFilmsLoading />;
+  }
+
+  if (!isDataLoaded) {
+    return <LoadingScreen />;
+  }
+
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Main films={films} />
+          <Main />
         </Route>
         <Route exact path="/login">
           <SingIn />
         </Route>
         <Route exact path="/mylist">
-          <MyList films={films}/>
+          <MyList />
         </Route>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id]} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id - 1]} films={films}/>}>
         </Route>
         <Route exact path="/films/:id/review" render={(prop) => <AddReview id={films[prop.match.params.id].id} posterImage={films[prop.match.params.id].posterImage} filmName={films[prop.match.params.id].name}/>}>
         </Route>
@@ -37,6 +56,18 @@ const App = (props) => {
   );
 };
 
-App.propTypes = filmsPropTypes;
+App.propTypes = appPropTypes;
 
-export default App;
+const mapStateToProps = (state) => ({
+  films: state.films,
+  isDataLoaded: state.isDataLoaded,
+  isErrorLoading: state.isErrorLoading,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loadFilms() {
+    dispatch(fetchFilms());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,15 @@
-import {films} from '../moks/films';
-import {COUNT_FILMS_FOR_SHOWING} from '../const/const';
+import {COUNT_FILMS_FOR_SHOWING, AuthorizationStatus} from '../const/const';
 import {ActionType} from '../store/action';
 
 const initialState = {
-  films,
+  films: [],
   activeGenre: `All genres`,
-  filmListByGenre: films,
+  filmListByGenre: [],
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
+  isDataLoaded: false,
+  isErrorLoading: false,
+  errorMessage: ``,
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,9 +33,27 @@ const reducer = (state = initialState, action) => {
     case ActionType.RESET_FILM_LIST:
       return {
         ...state,
-        filmListByGenre: films,
+        filmListByGenre: state.films,
         activeGenre: `All genres`,
         countShowingFilms: COUNT_FILMS_FOR_SHOWING,
+      };
+    case ActionType.REQUIRED_AUTHORIZATION:
+      return {
+        ...state,
+        authorizationStatus: action.payload,
+      };
+    case ActionType.LOAD_FILMS:
+      return {
+        ...state,
+        films: action.payload,
+        isDataLoaded: true,
+        filmListByGenre: action.payload,
+      };
+    case ActionType.ERROR_LOADING:
+      return {
+        ...state,
+        isErrorLoading: true,
+        errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
       };
   }
   return state;

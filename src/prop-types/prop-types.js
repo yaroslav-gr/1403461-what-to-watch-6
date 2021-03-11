@@ -24,16 +24,26 @@ export const filmsPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
 };
 
+export const appPropTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  isDataLoaded: PropTypes.bool.isRequired,
+  loadFilms: PropTypes.func.isRequired,
+  isErrorLoading: PropTypes.bool.isRequired,
+};
+
+export const pageContentPropTypes = {
+  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  countShowingFilms: PropTypes.number.isRequired,
+  filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+};
+
 export const filmsListPropTypes = {
   filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
   countShowingFilms: PropTypes.number.isRequired,
 };
 
 export const mainPropTypes = {
-  countShowingFilms: PropTypes.number.isRequired,
   resetFilmList: PropTypes.func.isRequired,
-  filmListByGenre: filmsPropTypes.films,
-  films: filmsPropTypes.films,
 };
 
 export const filmCardPropTypes = {
@@ -77,4 +87,9 @@ export const genresListPropTypes = {
 
 export const showMoreButtonPropTypes = {
   handleClickButton: PropTypes.func.isRequired,
+};
+
+export const errorFilmsLoadingPropTypes = {
+  errorMessage: PropTypes.string.isRequired,
+  handleButton: PropTypes.func.isRequired,
 };

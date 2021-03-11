@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import FilmCard from '../film-card/film-card';
+import FilmCard from '../page-content/film-card';
 import {filmsListPropTypes} from '../../prop-types/prop-types';
-
 
 const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
