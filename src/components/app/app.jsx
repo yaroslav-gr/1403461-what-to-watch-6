@@ -42,11 +42,11 @@ const App = (props) => {
         <Route exact path="/mylist">
           <MyList />
         </Route>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id - 1]} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
         </Route>
-        <Route exact path="/films/:id/review" render={(prop) => <AddReview id={films[prop.match.params.id].id} posterImage={films[prop.match.params.id].posterImage} filmName={films[prop.match.params.id].name}/>}>
+        <Route exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
         </Route>
-        <Route exact path="/player/:id" render={(prop) => <Player videoLink={films[prop.match.params.id].videoLink} posterImage={films[prop.match.params.id].posterImage} />}>
+        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
         </Route>
         <Route>
           <NotFound />

@@ -8,7 +8,8 @@ const AddReview = (props) => {
     'review-text': ``,
     'rating': 0,
   });
-  const {id, posterImage, filmName} = props;
+  const {film} = props;
+
   const INPUT_RADIO_COUNT = 10;
 
   const handleSubmit = (evt) => {
@@ -25,7 +26,7 @@ const AddReview = (props) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__header">
           <div className="movie-card__bg">
-            <img src={posterImage} alt={filmName} />
+            <img src={film.posterImage} alt={film.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -42,7 +43,7 @@ const AddReview = (props) => {
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
-                  <Link to={`/films/` + id} className="breadcrumbs__link">{filmName}</Link>
+                  <Link to={`/films/` + film.id} className="breadcrumbs__link">{film.name}</Link>
                 </li>
                 <li className="breadcrumbs__item">
                   <a className="breadcrumbs__link">Add review</a>
@@ -58,7 +59,7 @@ const AddReview = (props) => {
           </header>
 
           <div className="movie-card__poster movie-card__poster--small">
-            <img src={posterImage} alt={filmName + ` poster`} width="218" height="327" />
+            <img src={film.posterImage} alt={film.name + ` poster`} width="218" height="327" />
           </div>
         </div>
 
@@ -67,7 +68,7 @@ const AddReview = (props) => {
             <div className="rating">
               <div className="rating__stars">
 
-                {new Array(INPUT_RADIO_COUNT).fill(1).map((item, index) => {
+                {new Array(INPUT_RADIO_COUNT).fill(1).map((_item, index) => {
                   return (
                     <InputRadio key={index + 1} index={index + 1} handleChange={handleChange}/>
                   );

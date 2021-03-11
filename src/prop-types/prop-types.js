@@ -53,14 +53,11 @@ export const filmCardPropTypes = {
 };
 
 export const addReviewsPropTypes = {
-  id: PropTypes.number.isRequired,
-  filmName: PropTypes.string.isRequired,
-  posterImage: PropTypes.string.isRequired,
+  film: PropTypes.shape(filmPropTypes).isRequired,
 };
 
 export const playerPropTypes = {
-  videoLink: PropTypes.string.isRequired,
-  posterImage: PropTypes.string.isRequired,
+  film: PropTypes.shape(filmPropTypes).isRequired,
 };
 
 export const inputRadioPropTypes = {
@@ -69,7 +66,7 @@ export const inputRadioPropTypes = {
 };
 
 export const filmDetailsPropTypes = Object.assign(filmsPropTypes, {
-  film: PropTypes.shape(filmPropTypes)
+  id: PropTypes.number.isRequired,
 });
 
 export const videoPlayerPropTypes = {
