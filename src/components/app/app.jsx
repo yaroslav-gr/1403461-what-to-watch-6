@@ -9,6 +9,7 @@ import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
 import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
+import PrivateRoute from '../private-route/private-route';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
@@ -39,9 +40,10 @@ const App = (props) => {
         <Route exact path="/login">
           <SingIn />
         </Route>
-        <Route exact path="/mylist">
-          <MyList />
-        </Route>
+        <PrivateRoute exact
+        path="/mylist"
+        render={() => <MyList />}>
+        </PrivateRoute>
         <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
         </Route>
         <Route exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
