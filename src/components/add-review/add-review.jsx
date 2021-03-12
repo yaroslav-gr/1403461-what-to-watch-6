@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import InputRadio from './input-radio';
+import UserHeader from '../header/user-header';
 import {Link} from 'react-router-dom';
 import {addReviewsPropTypes} from '../../prop-types/prop-types';
 
-const AddReview = (props) => {
+const AddReview = ({film}) => {
   const [userForm, setUserForm] = useState({
     'review-text': ``,
     'rating': 0,
   });
-  const {film} = props;
 
   const INPUT_RADIO_COUNT = 10;
 
@@ -23,23 +23,15 @@ const AddReview = (props) => {
 
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full">
+      <section className="movie-card movie-card--full" style={{backgroundColor: film.backgroundColor}}>
         <div className="movie-card__header">
           <div className="movie-card__bg">
-            <img src={film.posterImage} alt={film.name} />
+            <img src={film.backgroundImage} alt={film.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <header className="page-header">
-            <div className="logo">
-              <Link to="/" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
-
+          <UserHeader>
             <nav className="breadcrumbs">
               <ul className="breadcrumbs__list">
                 <li className="breadcrumbs__item">
@@ -50,21 +42,16 @@ const AddReview = (props) => {
                 </li>
               </ul>
             </nav>
-
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </div>
-          </header>
-
+          </UserHeader>
           <div className="movie-card__poster movie-card__poster--small">
             <img src={film.posterImage} alt={film.name + ` poster`} width="218" height="327" />
           </div>
         </div>
 
         <div className="add-review">
-          <form onSubmit={handleSubmit} action="#" className="add-review__form">
+          <form onSubmit={handleSubmit}
+          action="#"
+          className="add-review__form">
             <div className="rating">
               <div className="rating__stars">
 
