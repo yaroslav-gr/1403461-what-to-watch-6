@@ -1,12 +1,13 @@
 import React, {useRef} from 'react';
 import Footer from '../footer/footer';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login} from '../../store/api-actions';
 
 const SingIn = ({onSubmit}) => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const history = useHistory()
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -15,6 +16,7 @@ const SingIn = ({onSubmit}) => {
       login: emailRef.current.value,
       password: passwordRef.current.value,
     });
+    history.push(`/`)
   };
 
   return (
@@ -46,7 +48,8 @@ const SingIn = ({onSubmit}) => {
                 type="email"
                 placeholder="Email address"
                 name="user-email"
-                id="user-email" />
+                id="user-email"
+                required/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
               <div className="sign-in__field">
@@ -57,7 +60,8 @@ const SingIn = ({onSubmit}) => {
                 type="password"
                 placeholder="Password"
                 name="user-password"
-                id="user-password" />
+                id="user-password"
+                required/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
             </div>
