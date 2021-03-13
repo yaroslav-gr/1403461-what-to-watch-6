@@ -15,9 +15,14 @@ export const checkAuth = () => (dispatch, _getState, api) => {
     catch(() => {});
 };
 
-export const login = ({login: email, password}) => (dispatch, _getState, api) => {
+export const login = ({email, password}) => (dispatch, _getState, api) => {
   api.post(`/login`, {email, password}).
-    then(({data}) => dispatch(ActionCreator.getAuthorInfo(data))).
-    then(() => dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH))).
-    then(() => dispatch(ActionCreator.redirectToRoute(`/`)));
+    then(({data}) => {
+      dispatch(ActionCreator.getAuthorInfo(data));
+      dispatch(ActionCreator.redirectToRoute(`/`));
+      dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+    }).
+    catch((error) => {
+      throw error;
+    });
 };

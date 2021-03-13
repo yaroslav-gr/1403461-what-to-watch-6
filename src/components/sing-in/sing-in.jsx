@@ -1,20 +1,34 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import Footer from '../footer/footer';
+import SingInMessage from './sing-in-message';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login} from '../../store/api-actions';
 
 const SingIn = ({onSubmit}) => {
+  const [errorText, setErrorText] = useState(``);
+
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
 
-    onSubmit({
-      login: emailRef.current.value,
-      password: passwordRef.current.value,
-    });
+    const password = passwordRef.current.value;
+    const email = emailRef.current.value;
+
+    if (!password.trim()) {
+      setErrorText(`Please enter a valid password`);
+      passwordRef.current.value = ``;
+      passwordRef.current.focus();
+      return;
+    }
+
+    try {
+      await onSubmit({email, password});
+    } catch(error) {
+      setErrorText(`Please enter a valid email address`);
+    }
   };
 
   return (
@@ -33,6 +47,8 @@ const SingIn = ({onSubmit}) => {
         </header>
 
         <div className="sign-in user-page__content">
+
+          {errorText && <SingInMessage message={errorText}/>}
           <form
           action="#"
           className="sign-in__form"
@@ -77,7 +93,7 @@ const SingIn = ({onSubmit}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {
-    dispatch(login(authData));
+    return new Promise(dispatch(login(authData)));
   },
 });
 
