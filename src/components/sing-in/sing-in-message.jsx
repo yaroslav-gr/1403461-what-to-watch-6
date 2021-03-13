@@ -1,4 +1,5 @@
 import React from 'react';
+import {singInMessagePropTypes} from '../../prop-types/prop-types';
 
 const SingInMessage = ({message}) => {
   return(
@@ -9,5 +10,7 @@ const SingInMessage = ({message}) => {
     </React.Fragment>
   );
 };
+
+SingInMessage.propTypes = singInMessagePropTypes;
 
 export default SingInMessage;

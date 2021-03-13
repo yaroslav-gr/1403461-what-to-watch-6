@@ -90,3 +90,28 @@ export const errorFilmsLoadingPropTypes = {
   errorMessage: PropTypes.string.isRequired,
   handleButton: PropTypes.func.isRequired,
 };
+
+export const singInPropTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export const userHeaderPropTypes = {
+  children: PropTypes.symbol.isRequired,
+  authorInfo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    avatar_url: PropTypes.string.isRequired,
+  }).isRequired
+};
+
+export const privateRoutePropTypes = {
+  render: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  exact: PropTypes.bool.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+};
+
+export const singInMessagePropTypes = {
+  message: PropTypes.string.isRequired,
+}

@@ -1,8 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children, authorInfo}) => {
+  console.log(children)
   return (
     <React.Fragment>
       <header className="page-header user-page__head">
@@ -25,6 +27,8 @@ const UserHeader = ({children, authorInfo}) => {
     </React.Fragment>
   );
 };
+
+UserHeader.propTypes = userHeaderPropTypes;
 
 const mapStateToProps = (state) => ({
   authorInfo: state.authorInfo,

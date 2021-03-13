@@ -4,6 +4,7 @@ import SingInMessage from './sing-in-message';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login} from '../../store/api-actions';
+import {singInPropTypes} from '../../prop-types/prop-types';
 
 const SingIn = ({onSubmit}) => {
   const [errorText, setErrorText] = useState(``);
@@ -90,6 +91,8 @@ const SingIn = ({onSubmit}) => {
     </React.Fragment>
   );
 };
+
+SingIn.propTypes = singInPropTypes;
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(authData) {
