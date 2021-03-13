@@ -101,7 +101,7 @@ export const userHeaderPropTypes = {
     id: PropTypes.number.isRequired,
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    avatar_url: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string.isRequired,
   }).isRequired
 };
 
@@ -114,4 +114,4 @@ export const privateRoutePropTypes = {
 
 export const singInMessagePropTypes = {
   message: PropTypes.string.isRequired,
-}
+};

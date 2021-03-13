@@ -5,7 +5,6 @@ import {AppRoute} from '../../const/const';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children, authorInfo}) => {
-  console.log(children)
   return (
     <React.Fragment>
       <header className="page-header user-page__head">
@@ -20,7 +19,7 @@ const UserHeader = ({children, authorInfo}) => {
         {children}
         <div className="user-block">
           <div className="user-block__avatar">
-            <img src={authorInfo.avatar_url} alt="User avatar" width="63" height="63" />
+            <img src={authorInfo.avatarUrl} alt="User avatar" width="63" height="63" />
           </div>
         </div>
         <p style={{paddingLeft: 20}}>{authorInfo.email}</p>

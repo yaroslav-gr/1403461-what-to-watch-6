@@ -50,8 +50,8 @@ const AddReview = ({film}) => {
 
         <div className="add-review">
           <form onSubmit={handleSubmit}
-          action="#"
-          className="add-review__form">
+            action="#"
+            className="add-review__form">
             <div className="rating">
               <div className="rating__stars">
 

@@ -8,7 +8,7 @@ export const formatRunTime = function (time) {
   }
 };
 
-export const dataAdapter = (films) => {
+export const filmsAdapter = (films) => {
   const adaptedFilms = [];
   films.map((film) => {
     const newFilm = {};
@@ -20,4 +20,14 @@ export const dataAdapter = (films) => {
     adaptedFilms.push(newFilm);
   });
   return adaptedFilms;
+};
+
+export const authInfoAdapter = (authInfo) => {
+  const newInfo = {};
+  const infoKeys = Object.keys(authInfo);
+  const infoValues = Object.values(authInfo);
+  infoKeys.map((key, index) => {
+    newInfo[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = infoValues[index];
+  });
+  return newInfo;
 };

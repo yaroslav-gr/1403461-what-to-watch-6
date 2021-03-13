@@ -42,9 +42,10 @@ const App = (props) => {
         <Route exact path={AppRoute.LOGIN}>
           <SingIn />
         </Route>
-        <PrivateRoute exact
-        path="/mylist"
-        render={() => <MyList />}>
+        <PrivateRoute
+          exact
+          path="/mylist"
+          render={() => <MyList />}>
         </PrivateRoute>
         <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
         </Route>
