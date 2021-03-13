@@ -1,7 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-const UserHeader = ({children}) => {
+const UserHeader = ({children, authorInfo}) => {
   return (
     <React.Fragment>
       <header className="page-header user-page__head">
@@ -16,12 +17,17 @@ const UserHeader = ({children}) => {
         {children}
         <div className="user-block">
           <div className="user-block__avatar">
-            <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
+            <img src={authorInfo.avatar_url} alt="User avatar" width="63" height="63" />
           </div>
         </div>
+        <p style={{paddingLeft: 20}}>{authorInfo.email}</p>
       </header>
     </React.Fragment>
   );
 };
 
-export default UserHeader;
+const mapStateToProps = (state) => ({
+  authorInfo: state.authorInfo,
+});
+
+export default connect(mapStateToProps, null)(UserHeader);

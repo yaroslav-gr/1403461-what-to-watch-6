@@ -10,12 +10,12 @@ export const fetchFilms = () => (dispatch, _getState, api) => {
 };
 
 export const checkAuth = () => (dispatch, _getState, api) => {
-  api.get(`/login`).
+  api.get(`/login`).then(({data}) => dispatch(ActionCreator.getAuthorInfo(data))).
     then(() => dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH))).
     catch(() => {});
 };
 
 export const login = ({login: email, password}) => (dispatch, _getState, api) => {
-  api.post(`/login`, {email, password}).
+  api.post(`/login`, {email, password}).then(({data}) => dispatch(ActionCreator.getAuthorInfo(data))).
     then(() => dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH)));
 };

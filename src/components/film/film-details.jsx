@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../page-content/films-list';
+import UserHeader from '../header/user-header';
+import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import {filmDetailsPropTypes} from '../../prop-types/prop-types';
 import {formatRunTime} from '../../utils/film';
+import { connect } from 'react-redux';
 
-const FilmDetails = (props) => {
-  const {id, films} = props;
-
+const FilmDetails = ({id, films, authorizationStatus}) => {
   const currentFilm = films.find((film) => film.id === id);
 
   return (
@@ -20,21 +21,7 @@ const FilmDetails = (props) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          <header className="page-header movie-card__head">
-            <div className="logo">
-              <Link to="/" className="logo__link">
-                <span className="logo__letter logo__letter--1">W</span>
-                <span className="logo__letter logo__letter--2">T</span>
-                <span className="logo__letter logo__letter--3">W</span>
-              </Link>
-            </div>
-
-            <div className="user-block">
-              <div className="user-block__avatar">
-                <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-              </div>
-            </div>
-          </header>
+          {authorizationStatus === `AUTH` ? <UserHeader/> : <GuestHeader/>}
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
@@ -133,4 +120,8 @@ const FilmDetails = (props) => {
 
 FilmDetails.propTypes = filmDetailsPropTypes;
 
-export default FilmDetails;
+const mapStateToProps = (state) => ({
+  authorizationStatus: state.authorizationStatus,
+});
+
+export default connect(mapStateToProps, null)(FilmDetails);
