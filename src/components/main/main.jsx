@@ -5,6 +5,7 @@ import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
 import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
+import {AuthorizationStatus} from '../../const/const';
 
 const Main = (props) => {
   const {film, resetFilmList, authorizationStatus} = props;
@@ -22,7 +23,7 @@ const Main = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        {authorizationStatus === `AUTH` ? <UserHeader/> : <GuestHeader/>}
+        {authorizationStatus === AuthorizationStatus.AUTH ? <UserHeader/> : <GuestHeader/>}
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">

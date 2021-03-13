@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {AppRoute} from '../../const/const';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children, authorInfo}) => {
@@ -9,7 +10,7 @@ const UserHeader = ({children, authorInfo}) => {
     <React.Fragment>
       <header className="page-header user-page__head">
         <div className="logo">
-          <Link to="/" className="logo__link">
+          <Link to={AppRoute.ROOT} className="logo__link">
             <span className="logo__letter logo__letter--1">W</span>
             <span className="logo__letter logo__letter--2">T</span>
             <span className="logo__letter logo__letter--3">W</span>

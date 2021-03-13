@@ -6,7 +6,8 @@ import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import {filmDetailsPropTypes} from '../../prop-types/prop-types';
 import {formatRunTime} from '../../utils/film';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import {AuthorizationStatus} from '../../const/const';
 
 const FilmDetails = ({id, films, authorizationStatus}) => {
   const currentFilm = films.find((film) => film.id === id);
@@ -21,7 +22,7 @@ const FilmDetails = ({id, films, authorizationStatus}) => {
 
           <h1 className="visually-hidden">WTW</h1>
 
-          {authorizationStatus === `AUTH` ? <UserHeader/> : <GuestHeader/>}
+          {authorizationStatus === AuthorizationStatus.AUTH ? <UserHeader/> : <GuestHeader/>}
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">

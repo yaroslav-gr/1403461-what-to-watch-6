@@ -14,6 +14,7 @@ import browserHistory from '../../browser-history';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
+import {AppRoute} from '../../const/const';
 
 const App = (props) => {
   const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
@@ -35,10 +36,10 @@ const App = (props) => {
   return (
     <BrowserRouter history={browserHistory}>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={AppRoute.ROOT}>
           <Main />
         </Route>
-        <Route exact path="/login">
+        <Route exact path={AppRoute.LOGIN}>
           <SingIn />
         </Route>
         <PrivateRoute exact
