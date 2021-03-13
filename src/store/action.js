@@ -7,6 +7,7 @@ export const ActionType = {
   LOAD_FILMS: `films/loadFilms`,
   ERROR_LOADING: `films/erroeLoading`,
   GET_AUTHOR_INFO: `login/getAuthorInfo`,
+  REDIRECT_TO_ROUTE: `app/redirectToRoute`,
 };
 
 export const ActionCreator = {
@@ -45,5 +46,10 @@ export const ActionCreator = {
   getAuthorInfo: (authInfo) => ({
     type: ActionType.GET_AUTHOR_INFO,
     payload: authInfo,
+  }),
+
+  redirectToRoute: (url) => ({
+    type: ActionType.REDIRECT_TO_ROUTE,
+    payload: url,
   }),
 };

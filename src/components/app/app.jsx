@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
 import FilmDetails from '../film/film-details';
@@ -10,6 +10,7 @@ import SingIn from '../sing-in/sing-in';
 import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
 import PrivateRoute from '../private-route/private-route';
+import browserHistory from '../../browser-history';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
@@ -32,7 +33,7 @@ const App = (props) => {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter history={browserHistory}>
       <Switch>
         <Route exact path="/">
           <Main />

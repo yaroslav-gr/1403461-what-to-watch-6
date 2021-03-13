@@ -1,13 +1,12 @@
 import React, {useRef} from 'react';
 import Footer from '../footer/footer';
-import {Link, useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login} from '../../store/api-actions';
 
 const SingIn = ({onSubmit}) => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const history = useHistory()
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -16,7 +15,6 @@ const SingIn = ({onSubmit}) => {
       login: emailRef.current.value,
       password: passwordRef.current.value,
     });
-    history.push(`/`)
   };
 
   return (
