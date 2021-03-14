@@ -53,14 +53,11 @@ export const filmCardPropTypes = {
 };
 
 export const addReviewsPropTypes = {
-  id: PropTypes.number.isRequired,
-  filmName: PropTypes.string.isRequired,
-  posterImage: PropTypes.string.isRequired,
+  film: PropTypes.shape(filmPropTypes).isRequired,
 };
 
 export const playerPropTypes = {
-  videoLink: PropTypes.string.isRequired,
-  posterImage: PropTypes.string.isRequired,
+  film: PropTypes.shape(filmPropTypes).isRequired,
 };
 
 export const inputRadioPropTypes = {
@@ -69,7 +66,7 @@ export const inputRadioPropTypes = {
 };
 
 export const filmDetailsPropTypes = Object.assign(filmsPropTypes, {
-  film: PropTypes.shape(filmPropTypes)
+  id: PropTypes.number.isRequired,
 });
 
 export const videoPlayerPropTypes = {
@@ -92,4 +89,29 @@ export const showMoreButtonPropTypes = {
 export const errorFilmsLoadingPropTypes = {
   errorMessage: PropTypes.string.isRequired,
   handleButton: PropTypes.func.isRequired,
+};
+
+export const singInPropTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export const userHeaderPropTypes = {
+  children: PropTypes.symbol,
+  authorInfo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    avatarUrl: PropTypes.string.isRequired,
+  }).isRequired
+};
+
+export const privateRoutePropTypes = {
+  render: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  exact: PropTypes.bool.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+};
+
+export const singInMessagePropTypes = {
+  message: PropTypes.string.isRequired,
 };

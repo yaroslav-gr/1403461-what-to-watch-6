@@ -10,6 +10,7 @@ const initialState = {
   isDataLoaded: false,
   isErrorLoading: false,
   errorMessage: ``,
+  authorInfo: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +55,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isErrorLoading: true,
         errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
+      };
+    case ActionType.GET_AUTHOR_INFO:
+      return {
+        ...state,
+        authorInfo: action.payload,
       };
   }
   return state;

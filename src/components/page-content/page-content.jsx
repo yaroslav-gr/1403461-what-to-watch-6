@@ -25,7 +25,7 @@ const PageContent = (props) => {
           </div>
         </section>
 
-        <Footer></Footer>
+        <Footer />
       </div>
     </React.Fragment>
   );

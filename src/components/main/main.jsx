@@ -1,11 +1,14 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import PageContent from '../page-content/page-content';
+import GuestHeader from '../header/guest-header';
+import UserHeader from '../header/user-header';
 import {ActionCreator} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
+import {AuthorizationStatus} from '../../const/const';
 
 const Main = (props) => {
-  const {film, resetFilmList} = props;
+  const {film, resetFilmList, authorizationStatus} = props;
 
   useEffect(() => {
     resetFilmList();
@@ -20,21 +23,7 @@ const Main = (props) => {
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        {authorizationStatus === AuthorizationStatus.AUTH ? <UserHeader/> : <GuestHeader/>}
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">
@@ -77,6 +66,7 @@ Main.propTypes = mainPropTypes;
 
 const mapStateToProps = (state) => ({
   film: state.films[0],
+  authorizationStatus: state.authorizationStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({

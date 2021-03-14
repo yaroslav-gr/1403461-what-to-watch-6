@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
 import FilmDetails from '../film/film-details';
@@ -9,9 +9,12 @@ import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
 import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
+import PrivateRoute from '../private-route/private-route';
+import browserHistory from '../../browser-history';
 import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
+import {AppRoute} from '../../const/const';
 
 const App = (props) => {
   const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
@@ -31,22 +34,24 @@ const App = (props) => {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter history={browserHistory}>
       <Switch>
-        <Route exact path="/">
+        <Route exact path={AppRoute.ROOT}>
           <Main />
         </Route>
-        <Route exact path="/login">
+        <Route exact path={AppRoute.LOGIN}>
           <SingIn />
         </Route>
-        <Route exact path="/mylist">
-          <MyList />
+        <PrivateRoute
+          exact
+          path="/mylist"
+          render={() => <MyList />}>
+        </PrivateRoute>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
         </Route>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails film={films[prop.match.params.id - 1]} films={films}/>}>
-        </Route>
-        <Route exact path="/films/:id/review" render={(prop) => <AddReview id={films[prop.match.params.id].id} posterImage={films[prop.match.params.id].posterImage} filmName={films[prop.match.params.id].name}/>}>
-        </Route>
-        <Route exact path="/player/:id" render={(prop) => <Player videoLink={films[prop.match.params.id].videoLink} posterImage={films[prop.match.params.id].posterImage} />}>
+        <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
+        </PrivateRoute>
+        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
         </Route>
         <Route>
           <NotFound />
