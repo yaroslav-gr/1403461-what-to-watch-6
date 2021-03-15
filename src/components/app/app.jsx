@@ -47,11 +47,11 @@ const App = (props) => {
           path="/mylist"
           render={() => <MyList />}>
         </PrivateRoute>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={Number(prop.match.params.id)} films={films}/>}>
         </Route>
-        <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
+        <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </PrivateRoute>
-        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
+        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </Route>
         <Route>
           <NotFound />

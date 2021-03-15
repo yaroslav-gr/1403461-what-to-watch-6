@@ -22,7 +22,7 @@ export const filmsAdapter = (films) => {
   return adaptedFilms;
 };
 
-export const authInfoAdapter = (authInfo) => {
+export const userInfoAdapter = (authInfo) => {
   const newInfo = {};
   const infoKeys = Object.keys(authInfo);
   const infoValues = Object.values(authInfo);

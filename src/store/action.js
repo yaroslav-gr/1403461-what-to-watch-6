@@ -6,7 +6,7 @@ export const ActionType = {
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
   LOAD_FILMS: `films/loadFilms`,
   ERROR_LOADING: `films/erroeLoading`,
-  GET_AUTHOR_INFO: `login/getAuthorInfo`,
+  GET_AUTHOR_INFO: `login/getUserInfo`,
   REDIRECT_TO_ROUTE: `app/redirectToRoute`,
 };
 
@@ -43,9 +43,9 @@ export const ActionCreator = {
     payload: error,
   }),
 
-  getAuthorInfo: (authInfo) => ({
+  getUserInfo: (userInfo) => ({
     type: ActionType.GET_AUTHOR_INFO,
-    payload: authInfo,
+    payload: userInfo,
   }),
 
   redirectToRoute: (url) => ({

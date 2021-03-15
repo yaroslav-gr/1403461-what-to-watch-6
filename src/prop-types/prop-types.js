@@ -96,8 +96,8 @@ export const singInPropTypes = {
 };
 
 export const userHeaderPropTypes = {
-  children: PropTypes.symbol,
-  authorInfo: PropTypes.shape({
+  children: PropTypes.object,
+  userInfo: PropTypes.shape({
     id: PropTypes.number.isRequired,
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
