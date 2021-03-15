@@ -8,6 +8,7 @@ export const ActionType = {
   ERROR_LOADING: `films/erroeLoading`,
   GET_AUTHOR_INFO: `login/getUserInfo`,
   REDIRECT_TO_ROUTE: `app/redirectToRoute`,
+  SET_BAD_REQUEST: `login/setBadRequest`,
 };
 
 export const ActionCreator = {
@@ -51,5 +52,9 @@ export const ActionCreator = {
   redirectToRoute: (url) => ({
     type: ActionType.REDIRECT_TO_ROUTE,
     payload: url,
+  }),
+
+  setBadRequest: () => ({
+    type: ActionType.SET_BAD_REQUEST,
   }),
 };

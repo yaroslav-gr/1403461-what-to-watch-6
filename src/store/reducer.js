@@ -7,6 +7,7 @@ const initialState = {
   filmListByGenre: [],
   countShowingFilms: COUNT_FILMS_FOR_SHOWING,
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  isBadRequest: false,
   isDataLoaded: false,
   isErrorLoading: false,
   errorMessage: ``,
@@ -60,6 +61,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userInfo: action.payload,
+      };
+    case ActionType.SET_BAD_REQUEST:
+      return {
+        ...state,
+        isBadRequest: true,
       };
   }
   return state;

@@ -22,7 +22,7 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
       dispatch(ActionCreator.redirectToRoute(AppRoute.ROOT));
       dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
     }).
-    catch((error) => {
-      throw error;
+    catch(() => {
+      dispatch(ActionCreator.setBadRequest());
     });
 };
