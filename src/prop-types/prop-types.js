@@ -114,4 +114,5 @@ export const privateRoutePropTypes = {
 
 export const singInMessagePropTypes = {
   message: PropTypes.string.isRequired,
+  isBadRequest: PropTypes.bool.isRequired,
 };

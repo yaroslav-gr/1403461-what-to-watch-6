@@ -21,11 +21,11 @@ const UserHeader = ({children, userInfo, handlerAvatarClick}) => {
         <div className="user-block">
           <div className="user-block__avatar">
             <img
-            onClick={handlerAvatarClick}
-            src={userInfo.avatarUrl}
-            alt="User avatar"
-            width="63"
-            height="63" />
+              onClick={handlerAvatarClick}
+              src={userInfo.avatarUrl}
+              alt="User avatar"
+              width="63"
+              height="63" />
           </div>
         </div>
         <p style={{paddingLeft: 20}}>{userInfo.email}</p>
