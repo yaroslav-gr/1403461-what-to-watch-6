@@ -28,4 +28,4 @@ const mapStateToProps = (state) => ({
 PrivateRoute.propTypes = privateRoutePropTypes;
 
 export {PrivateRoute};
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps, null)(PrivateRoute);

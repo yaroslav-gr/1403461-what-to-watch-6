@@ -1,28 +1,28 @@
-import {ActionCreator} from '../store/action';
+import {loadFilms, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
 import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
 import {filmsAdapter, userInfoAdapter} from '../utils/film';
 
 export const fetchFilms = () => (dispatch, _getState, api) => {
   api.get(APIRoute.FILMS).
     then(({data}) => filmsAdapter(data)).
-    then((data) => dispatch(ActionCreator.loadFilms(data))).
-    catch((error) => dispatch(ActionCreator.setErrorLoading(error)));
+    then((data) => dispatch(loadFilms(data))).
+    catch((error) => dispatch(setErrorLoading(error)));
 };
 
 export const checkAuth = () => (dispatch, _getState, api) => {
-  api.get(APIRoute.LOGIN).then(({data}) => dispatch(ActionCreator.getUserInfo(userInfoAdapter(data)))).
-    then(() => dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH))).
+  api.get(APIRoute.LOGIN).then(({data}) => dispatch(getUserInfo(userInfoAdapter(data)))).
+    then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH))).
     catch(() => {});
 };
 
 export const login = ({email, password}) => (dispatch, _getState, api) => {
   api.post(APIRoute.LOGIN, {email, password}).
     then(({data}) => {
-      dispatch(ActionCreator.getUserInfo(userInfoAdapter(data)));
-      dispatch(ActionCreator.redirectToRoute(AppRoute.ROOT));
-      dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(getUserInfo(userInfoAdapter(data)));
+      dispatch(redirectToRoute(AppRoute.ROOT));
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     }).
     catch(() => {
-      dispatch(ActionCreator.setBadRequest());
+      dispatch(setBadRequest());
     });
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const/const';
-import {ActionCreator} from '../../store/action';
+import {redirectToRoute} from '../../store/action';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children, userInfo, handlerAvatarClick}) => {
@@ -42,7 +42,7 @@ const mapStateToProps = ({USER}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   handlerAvatarClick() {
-    dispatch(ActionCreator.redirectToRoute(AppRoute.MY_LIST));
+    dispatch(redirectToRoute(AppRoute.MY_LIST));
   },
 });
 

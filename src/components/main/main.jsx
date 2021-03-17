@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
-import {ActionCreator} from '../../store/action';
+import {resetFilmList} from '../../store/action';
 import {mainPropTypes} from '../../prop-types/prop-types';
 import {AuthorizationStatus} from '../../const/const';
 
@@ -71,7 +71,7 @@ const mapStateToProps = ({FILMS, LOGIN}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   resetFilmList() {
-    dispatch(ActionCreator.resetFilmList());
+    dispatch(resetFilmList());
   },
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/action';
+import {handleShowMoreByButton} from '../../store/action';
 import {showMoreButtonPropTypes} from '../../prop-types/prop-types';
 
 const ShowMoreButton = (props) => {
@@ -15,7 +15,7 @@ const ShowMoreButton = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   handleClickButton() {
-    dispatch(ActionCreator.handleShowMoreByButton());
+    dispatch(handleShowMoreByButton());
   },
 });
 

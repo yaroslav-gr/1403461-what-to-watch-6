@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/action';
+import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
 import {genresListPropTypes} from '../../prop-types/prop-types';
 
 const GenresList = (props) => {
@@ -43,11 +43,11 @@ const mapStateToProps = ({FILMS}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setCurrentGenre(genre) {
-    dispatch(ActionCreator.setCurrentGenre(genre));
+    dispatch(setCurrentGenre(genre));
   },
 
   resetCountShowingFilms() {
-    dispatch(ActionCreator.resetCountShowingFilms());
+    dispatch(resetCountShowingFilms());
   }
 });
 
