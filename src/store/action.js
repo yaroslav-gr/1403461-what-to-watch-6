@@ -1,60 +1,58 @@
 export const ActionType = {
-  SET_CURRENT_GENRE: `genres/setCurrentGenre`,
   SHOW_MORE_BY_BYTTON_CLICK: `films/showMoreByButtonClick`,
   RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`,
   RESET_FILM_LIST: `films/resetFilmList`,
-  REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
   LOAD_FILMS: `films/loadFilms`,
   ERROR_LOADING: `films/erroeLoading`,
   GET_AUTHOR_INFO: `login/getUserInfo`,
-  REDIRECT_TO_ROUTE: `app/redirectToRoute`,
   SET_BAD_REQUEST: `login/setBadRequest`,
+  SET_CURRENT_GENRE: `genres/setCurrentGenre`,
+  REDIRECT_TO_ROUTE: `app/redirectToRoute`,
+  REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
 };
 
-export const ActionCreator = {
-  setCurrentGenre: (newGenre) => ({
+  export const setCurrentGenre = (newGenre) => ({
     type: ActionType.SET_CURRENT_GENRE,
     payload: newGenre,
-  }),
+  });
 
-  handleShowMoreByButton: () => ({
+  export const handleShowMoreByButton = () => ({
     type: ActionType.SHOW_MORE_BY_BYTTON_CLICK,
-  }),
+  });
 
-  resetCountShowingFilms: () => ({
+  export const resetCountShowingFilms = () => ({
     type: ActionType.RESET_COUNT_SHOWING_FILMS,
-  }),
+  });
 
-  resetFilmList: () => ({
+  export const resetFilmList = () => ({
     type: ActionType.RESET_FILM_LIST,
-  }),
+  });
 
-  requireAuthorization: (status) => ({
+  export const requireAuthorization = (status) => ({
     type: ActionType.REQUIRED_AUTHORIZATION,
     payload: status,
-  }),
+  });
 
-  loadFilms: (films) => ({
+  export const loadFilms = (films) => ({
     type: ActionType.LOAD_FILMS,
     payload: films,
-  }),
+  });
 
-  setErrorLoading: (error) => ({
+  export const setErrorLoading = (error) => ({
     type: ActionType.ERROR_LOADING,
     payload: error,
-  }),
+  });
 
-  getUserInfo: (userInfo) => ({
+  export const getUserInfo = (userInfo) => ({
     type: ActionType.GET_AUTHOR_INFO,
     payload: userInfo,
-  }),
+  });
 
-  redirectToRoute: (url) => ({
+  export const redirectToRoute = (url) => ({
     type: ActionType.REDIRECT_TO_ROUTE,
     payload: url,
-  }),
+  });
 
-  setBadRequest: () => ({
+  export const setBadRequest = () => ({
     type: ActionType.SET_BAD_REQUEST,
-  }),
-};
+  });
