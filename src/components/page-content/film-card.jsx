@@ -5,6 +5,7 @@ import {filmCardPropTypes} from '../../prop-types/prop-types';
 
 const FilmCard = (props) => {
   const {film, isPlaying, handleHover} = props;
+  console.log(`FilmCadr rerender`);
   return (
     <React.Fragment>
       <article className="small-movie-card catalog__movies-card" onMouseOver={() => handleHover(film)} onMouseOut={() => handleHover()}>
@@ -22,4 +23,4 @@ const FilmCard = (props) => {
 
 FilmCard.propTypes = filmCardPropTypes;
 
-export default FilmCard;
+export default React.memo(FilmCard);

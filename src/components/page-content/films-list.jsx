@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {connect} from 'react-redux';
 import FilmCard from '../page-content/film-card';
 import {filmsListPropTypes} from '../../prop-types/prop-types';
@@ -7,11 +7,12 @@ const FilmsList = (props) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
   const {filmListByGenre, countShowingFilms} = props;
+  console.log(`FIlmLIst Rerender`);
 
-  const handleHover = (film) => {
+  const handleHover = useCallback((film) => {
     setCurrentFilmCard(film);
     setPlaying(false);
-  };
+  }, []);
 
   let timeOutId;
 
