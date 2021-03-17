@@ -33,10 +33,10 @@ const PageContent = (props) => {
 
 PageContent.propTypes = pageContentPropTypes;
 
-const mapStateToProps = (state) => ({
-  films: state.films,
-  filmListByGenre: state.filmListByGenre,
-  countShowingFilms: state.countShowingFilms,
+const mapStateToProps = ({FILMS}) => ({
+  films: FILMS.films,
+  filmListByGenre: FILMS.filmListByGenre,
+  countShowingFilms: FILMS.countShowingFilms,
 });
 
 

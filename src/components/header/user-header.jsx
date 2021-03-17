@@ -36,8 +36,8 @@ const UserHeader = ({children, userInfo, handlerAvatarClick}) => {
 
 UserHeader.propTypes = userHeaderPropTypes;
 
-const mapStateToProps = (state) => ({
-  userInfo: state.userInfo,
+const mapStateToProps = ({USER}) => ({
+  userInfo: USER.userInfo,
 });
 
 const mapDispatchToProps = (dispatch) => ({

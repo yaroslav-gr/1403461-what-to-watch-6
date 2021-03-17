@@ -64,9 +64,9 @@ const Main = (props) => {
 
 Main.propTypes = mainPropTypes;
 
-const mapStateToProps = (state) => ({
-  film: state.films[0],
-  authorizationStatus: state.authorizationStatus,
+const mapStateToProps = ({FILMS, LOGIN}) => ({
+  film: FILMS.films[0],
+  authorizationStatus: LOGIN.authorizationStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({

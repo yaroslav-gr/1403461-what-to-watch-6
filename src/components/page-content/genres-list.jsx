@@ -35,10 +35,10 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  GENRES: state.genres,
-  films: state.films,
-  activeGenre: state.activeGenre,
+const mapStateToProps = ({FILMS}) => ({
+  GENRES: FILMS.genres,
+  films: FILMS.films,
+  activeGenre: FILMS.activeGenre,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -37,9 +37,9 @@ const FilmsList = (props) => {
 
 FilmsList.propTypes = filmsListPropTypes;
 
-const mapStateToProps = (state) => ({
-  filmListByGenre: state.filmListByGenre,
-  countShowingFilms: state.countShowingFilms,
+const mapStateToProps = ({FILMS}) => ({
+  filmListByGenre: FILMS.filmListByGenre,
+  countShowingFilms: FILMS.countShowingFilms,
 });
 
 export default connect(mapStateToProps, null)(FilmsList);
