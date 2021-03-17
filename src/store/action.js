@@ -1,3 +1,5 @@
+import {createAction} from '@reduxjs/toolkit';
+
 export const ActionType = {
   SHOW_MORE_BY_BYTTON_CLICK: `films/showMoreByButtonClick`,
   RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`,
@@ -11,48 +13,34 @@ export const ActionType = {
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
 };
 
-  export const setCurrentGenre = (newGenre) => ({
-    type: ActionType.SET_CURRENT_GENRE,
+  export const setCurrentGenre = createAction(ActionType.SET_CURRENT_GENRE, (newGenre) => ({
     payload: newGenre,
-  });
+  }));
 
-  export const handleShowMoreByButton = () => ({
-    type: ActionType.SHOW_MORE_BY_BYTTON_CLICK,
-  });
+  export const handleShowMoreByButton = createAction(ActionType.SHOW_MORE_BY_BYTTON_CLICK);
 
-  export const resetCountShowingFilms = () => ({
-    type: ActionType.RESET_COUNT_SHOWING_FILMS,
-  });
+  export const resetCountShowingFilms = createAction(ActionType.RESET_COUNT_SHOWING_FILMS);
 
-  export const resetFilmList = () => ({
-    type: ActionType.RESET_FILM_LIST,
-  });
+  export const resetFilmList = createAction(ActionType.RESET_FILM_LIST);
 
-  export const requireAuthorization = (status) => ({
-    type: ActionType.REQUIRED_AUTHORIZATION,
+  export const requireAuthorization = createAction(ActionType.REQUIRED_AUTHORIZATION, (status) => ({
     payload: status,
-  });
+  }));
 
-  export const loadFilms = (films) => ({
-    type: ActionType.LOAD_FILMS,
+  export const loadFilms = createAction(ActionType.LOAD_FILMS, (films) => ({
     payload: films,
-  });
+  }));
 
-  export const setErrorLoading = (error) => ({
-    type: ActionType.ERROR_LOADING,
+  export const setErrorLoading = createAction(ActionType.ERROR_LOADING, (error) => ({
     payload: error,
-  });
+  }));
 
-  export const getUserInfo = (userInfo) => ({
-    type: ActionType.GET_AUTHOR_INFO,
+  export const getUserInfo = createAction(ActionType.GET_AUTHOR_INFO, (userInfo) => ({
     payload: userInfo,
-  });
+  }));
 
-  export const redirectToRoute = (url) => ({
-    type: ActionType.REDIRECT_TO_ROUTE,
+  export const redirectToRoute = createAction(ActionType.REDIRECT_TO_ROUTE, (url) => ({
     payload: url,
-  });
+  }));
 
-  export const setBadRequest = () => ({
-    type: ActionType.SET_BAD_REQUEST,
-  });
+  export const setBadRequest = createAction(ActionType.SET_BAD_REQUEST);

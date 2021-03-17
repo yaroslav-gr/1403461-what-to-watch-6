@@ -1,18 +1,15 @@
-import {ActionType} from '../action';
+import {createReducer} from '@reduxjs/toolkit';
+import {getUserInfo} from '../action';
 
 const initialState = {
   userInfo: {},
 };
 
-const userData = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.GET_AUTHOR_INFO:
-      return {
-        ...state,
-        userInfo: action.payload,
-      };
-  }
-  return state;
-};
+const userData = createReducer(initialState, (builder) => {
+  builder.addCase(getUserInfo, (state, action) => ({
+    ...state,
+    userInfo: action.payload,
+  }));
+});
 
 export {userData};

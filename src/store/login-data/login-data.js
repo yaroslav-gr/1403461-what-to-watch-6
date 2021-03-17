@@ -1,25 +1,19 @@
+import {createReducer} from '@reduxjs/toolkit'
 import {AuthorizationStatus} from '../../const/const';
-import {ActionType} from '../action';
+import {setBadRequest, requireAuthorization} from '../action';
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
   isBadRequest: false,
 };
 
-const loginData = (state = initialState, action) => {
-  switch (action.type) {
-    case ActionType.REQUIRED_AUTHORIZATION:
-      return {
-        ...state,
-        authorizationStatus: action.payload,
-      };
-    case ActionType.SET_BAD_REQUEST:
-      return {
-        ...state,
-        isBadRequest: true,
-      };
-  }
-  return state;
-};
+const loginData = createReducer(initialState, (builder) => {
+  builder.addCase(setBadRequest, (state, action) => {
+    state.isBadRequest = action.payload;
+  });
+  builder.addCase(requireAuthorization, (state, action) => {
+    state.authorizationStatus = action.payload;
+  });
+});
 
 export {loginData};
