@@ -7,6 +7,7 @@ import Footer from '../footer/footer';
 import {filmDetailsPropTypes} from '../../prop-types/prop-types';
 import {formatRunTime} from '../../utils/film';
 import {connect} from 'react-redux';
+import {getAuthorizationStatus} from '../../store/login-data/selectors';
 import {AuthorizationStatus} from '../../const/const';
 
 const FilmDetails = ({id, films, authorizationStatus}) => {
@@ -122,7 +123,7 @@ const FilmDetails = ({id, films, authorizationStatus}) => {
 FilmDetails.propTypes = filmDetailsPropTypes;
 
 const mapStateToProps = (state) => ({
-  authorizationStatus: state.authorizationStatus,
+  authorizationStatus: getAuthorizationStatus(state),
 });
 
 export default connect(mapStateToProps, null)(FilmDetails);

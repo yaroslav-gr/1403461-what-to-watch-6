@@ -15,6 +15,7 @@ import {appPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 import {AppRoute} from '../../const/const';
+import {getFilms, getIsDataLoaded, getIsErrorLoading} from '../../store/films-data/selectors';
 
 const App = (props) => {
   const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
@@ -63,10 +64,10 @@ const App = (props) => {
 
 App.propTypes = appPropTypes;
 
-const mapStateToProps = ({FILMS}) => ({
-  films: FILMS.films,
-  isDataLoaded: FILMS.isDataLoaded,
-  isErrorLoading: FILMS.isErrorLoading,
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  isDataLoaded: getIsDataLoaded(state),
+  isErrorLoading: getIsErrorLoading(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
+import {getErrorMessage} from '../../store/films-data/selectors';
 import {errorFilmsLoadingPropTypes} from '../../prop-types/prop-types';
 
 const ErrorFilmsLoading = (props) => {
@@ -27,7 +28,7 @@ const ErrorFilmsLoading = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  errorMessage: state.errorMessage,
+  errorMessage: getErrorMessage(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

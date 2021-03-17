@@ -4,6 +4,8 @@ import PageContent from '../page-content/page-content';
 import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
 import {resetFilmList} from '../../store/action';
+import {getFilms} from '../../store/films-data/selectors';
+import {getAuthorizationStatus} from '../../store/login-data/selectors';
 import {mainPropTypes} from '../../prop-types/prop-types';
 import {AuthorizationStatus} from '../../const/const';
 
@@ -64,9 +66,9 @@ const Main = (props) => {
 
 Main.propTypes = mainPropTypes;
 
-const mapStateToProps = ({FILMS, LOGIN}) => ({
-  film: FILMS.films[0],
-  authorizationStatus: LOGIN.authorizationStatus,
+const mapStateToProps = (state) => ({
+  film: getFilms(state)[0],
+  authorizationStatus: getAuthorizationStatus(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

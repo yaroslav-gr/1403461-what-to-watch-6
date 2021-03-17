@@ -3,6 +3,7 @@ import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
 import FilmsList from './films-list';
 import Footer from '../footer/footer';
+import {getFilms, getFilmListByGenre, getCountShowingFilms} from '../../store/films-data/selectors';
 import {pageContentPropTypes} from '../../prop-types/prop-types';
 import {connect} from 'react-redux';
 
@@ -33,10 +34,10 @@ const PageContent = (props) => {
 
 PageContent.propTypes = pageContentPropTypes;
 
-const mapStateToProps = ({FILMS}) => ({
-  films: FILMS.films,
-  filmListByGenre: FILMS.filmListByGenre,
-  countShowingFilms: FILMS.countShowingFilms,
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  filmListByGenre: getFilmListByGenre(state),
+  countShowingFilms: getCountShowingFilms(state),
 });
 
 

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const/const';
 import {redirectToRoute} from '../../store/action';
+import {getUserInfo} from '../../store/user-data/selectors';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children, userInfo, handlerAvatarClick}) => {
@@ -36,8 +37,8 @@ const UserHeader = ({children, userInfo, handlerAvatarClick}) => {
 
 UserHeader.propTypes = userHeaderPropTypes;
 
-const mapStateToProps = ({USER}) => ({
-  userInfo: USER.userInfo,
+const mapStateToProps = (state) => ({
+  userInfo: getUserInfo(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

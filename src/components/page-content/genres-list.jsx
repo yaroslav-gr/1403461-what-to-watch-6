@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
+import {getFilms, getActiveGenre} from '../../store/films-data/selectors';
 import {genresListPropTypes} from '../../prop-types/prop-types';
 
 const GenresList = (props) => {
@@ -35,10 +36,9 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = ({FILMS}) => ({
-  GENRES: FILMS.genres,
-  films: FILMS.films,
-  activeGenre: FILMS.activeGenre,
+const mapStateToProps = (state) => ({
+  films: getFilms(state),
+  activeGenre: getActiveGenre(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

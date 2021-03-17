@@ -4,6 +4,7 @@ import SingInMessage from './sing-in-message';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {login} from '../../store/api-actions';
+import {getIsBadRequest} from '../../store/login-data/selectors';
 import {singInPropTypes} from '../../prop-types/prop-types';
 
 const SingIn = ({onSubmit, isBadRequest}) => {
@@ -95,7 +96,7 @@ const SingIn = ({onSubmit, isBadRequest}) => {
 SingIn.propTypes = singInPropTypes;
 
 const mapStateToProps = (state) => ({
-  isBadRequest: state.isBadRequest,
+  isBadRequest: getIsBadRequest(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
