@@ -24,28 +24,6 @@ export const filmsPropTypes = {
   films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
 };
 
-export const appPropTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-  isDataLoaded: PropTypes.bool.isRequired,
-  loadFilms: PropTypes.func.isRequired,
-  isErrorLoading: PropTypes.bool.isRequired,
-};
-
-export const pageContentPropTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-  countShowingFilms: PropTypes.number.isRequired,
-  filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-};
-
-export const filmsListPropTypes = {
-  filmListByGenre: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-  countShowingFilms: PropTypes.number.isRequired,
-};
-
-export const mainPropTypes = {
-  resetFilmList: PropTypes.func.isRequired,
-};
-
 export const filmCardPropTypes = {
   film: PropTypes.shape(filmPropTypes).isRequired,
   isPlaying: PropTypes.bool.isRequired,
@@ -75,41 +53,14 @@ export const videoPlayerPropTypes = {
   isPlaying: PropTypes.bool.isRequired,
 };
 
-export const genresListPropTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
-  activeGenre: PropTypes.string.isRequired,
-  setCurrentGenre: PropTypes.func.isRequired,
-  resetCountShowingFilms: PropTypes.func.isRequired,
-};
-
-export const showMoreButtonPropTypes = {
-  handleClickButton: PropTypes.func.isRequired,
-};
-
-export const errorFilmsLoadingPropTypes = {
-  errorMessage: PropTypes.string.isRequired,
-  handleButton: PropTypes.func.isRequired,
-};
-
-export const singInPropTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
-
 export const userHeaderPropTypes = {
   children: PropTypes.object,
-  userInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string.isRequired,
-  }).isRequired
 };
 
 export const privateRoutePropTypes = {
   render: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
   exact: PropTypes.bool.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
 };
 
 export const singInMessagePropTypes = {
