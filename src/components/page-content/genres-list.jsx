@@ -1,11 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
-import {getFilms, getActiveGenre} from '../../store/films-data/selectors';
-import {genresListPropTypes} from '../../prop-types/prop-types';
 
-const GenresList = (props) => {
-  const {films, activeGenre, setCurrentGenre, resetCountShowingFilms} = props;
+const GenresList = () => {
+  const {films, activeGenre} = useSelector((state) => state.FILMS);
+  const dispatch = useDispatch();
 
   const createCurrentGenreList = () => {
     const genresList = new Set();
@@ -24,8 +23,8 @@ const GenresList = (props) => {
           <li key={item + index} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
             <a href="#" className="catalog__genres-link" onClick={(event) => {
               event.preventDefault();
-              resetCountShowingFilms();
-              setCurrentGenre(event.target.textContent);
+              dispatch(resetCountShowingFilms());
+              dispatch(setCurrentGenre(event.target.textContent));
             }}
             >{item}</a>
           </li>
@@ -36,21 +35,4 @@ const GenresList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  films: getFilms(state),
-  activeGenre: getActiveGenre(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentGenre(genre) {
-    dispatch(setCurrentGenre(genre));
-  },
-
-  resetCountShowingFilms() {
-    dispatch(resetCountShowingFilms());
-  }
-});
-
-GenresList.propTypes = genresListPropTypes;
-
-export default connect(mapStateToProps, mapDispatchToProps)(GenresList);
+export default GenresList;

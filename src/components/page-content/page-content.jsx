@@ -3,12 +3,10 @@ import GenresList from './genres-list';
 import ShowMoreButton from './show-more-button';
 import FilmsList from './films-list';
 import Footer from '../footer/footer';
-import {getFilms, getFilmListByGenre, getCountShowingFilms} from '../../store/films-data/selectors';
-import {pageContentPropTypes} from '../../prop-types/prop-types';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 
-const PageContent = (props) => {
-  const {films, countShowingFilms, filmListByGenre} = props;
+const PageContent = () => {
+  const {films, countShowingFilms, filmListByGenre} = useSelector((state) => state.FILMS);
 
   return (
     <React.Fragment>
@@ -32,13 +30,4 @@ const PageContent = (props) => {
   );
 };
 
-PageContent.propTypes = pageContentPropTypes;
-
-const mapStateToProps = (state) => ({
-  films: getFilms(state),
-  filmListByGenre: getFilmListByGenre(state),
-  countShowingFilms: getCountShowingFilms(state),
-});
-
-
-export default connect(mapStateToProps, null)(PageContent);
+export default PageContent;

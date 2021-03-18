@@ -1,19 +1,18 @@
 import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
 import {resetFilmList} from '../../store/action';
-import {getFilms} from '../../store/films-data/selectors';
-import {getAuthorizationStatus} from '../../store/login-data/selectors';
-import {mainPropTypes} from '../../prop-types/prop-types';
 import {AuthorizationStatus} from '../../const/const';
 
-const Main = (props) => {
-  const {film, resetFilmList, authorizationStatus} = props;
+const Main = () => {
+  const film = useSelector((state) => state.FILMS.films[0]);
+  const {authorizationStatus} = useSelector((state) => state.LOGIN);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    resetFilmList();
+    dispatch(resetFilmList());
   }, []);
 
   return (
@@ -64,17 +63,4 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = mainPropTypes;
-
-const mapStateToProps = (state) => ({
-  film: getFilms(state)[0],
-  authorizationStatus: getAuthorizationStatus(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  resetFilmList() {
-    dispatch(resetFilmList());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default Main;

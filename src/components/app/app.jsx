@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -11,18 +12,16 @@ import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
 import PrivateRoute from '../private-route/private-route';
 import browserHistory from '../../browser-history';
-import {appPropTypes} from '../../prop-types/prop-types';
-import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 import {AppRoute} from '../../const/const';
-import {getFilms, getIsDataLoaded, getIsErrorLoading} from '../../store/films-data/selectors';
 
-const App = (props) => {
-  const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
+const App = () => {
+  const {films, isErrorLoading, isDataLoaded} = useSelector((state) => state.FILMS);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isDataLoaded) {
-      loadFilms();
+      dispatch(fetchFilms());
     }
   }, [isDataLoaded]);
 
@@ -62,18 +61,4 @@ const App = (props) => {
   );
 };
 
-App.propTypes = appPropTypes;
-
-const mapStateToProps = (state) => ({
-  films: getFilms(state),
-  isDataLoaded: getIsDataLoaded(state),
-  isErrorLoading: getIsErrorLoading(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  loadFilms() {
-    dispatch(fetchFilms());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

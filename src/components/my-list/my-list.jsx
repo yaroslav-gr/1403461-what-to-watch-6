@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../page-content/films-list';
 import UserHeader from '../header/user-header';
-import {connect} from 'react-redux';
 import {AppRoute} from '../../const/const';
 
 const MyList = () => {
@@ -37,4 +36,4 @@ const MyList = () => {
   );
 };
 
-export default connect(null, null)(MyList);
+export default MyList;

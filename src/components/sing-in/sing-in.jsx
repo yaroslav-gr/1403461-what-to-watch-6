@@ -2,17 +2,18 @@ import React, {useRef, useState, useEffect} from 'react';
 import Footer from '../footer/footer';
 import SingInMessage from './sing-in-message';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {login} from '../../store/api-actions';
-import {getIsBadRequest} from '../../store/login-data/selectors';
-import {singInPropTypes} from '../../prop-types/prop-types';
 
-const SingIn = ({onSubmit, isBadRequest}) => {
+const SingIn = () => {
+  const {isBadRequest} = useSelector((state) => state.LOGIN);
+  const dispatch = useDispatch();
+
   const [errorText, setErrorText] = useState(``);
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const handleSubmit = async (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
 
     const password = passwordRef.current.value;
@@ -24,7 +25,7 @@ const SingIn = ({onSubmit, isBadRequest}) => {
       passwordRef.current.focus();
       return;
     }
-    onSubmit({email, password});
+    dispatch(login({email, password}));
   };
 
   useEffect(() => {
@@ -93,16 +94,4 @@ const SingIn = ({onSubmit, isBadRequest}) => {
   );
 };
 
-SingIn.propTypes = singInPropTypes;
-
-const mapStateToProps = (state) => ({
-  isBadRequest: getIsBadRequest(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onSubmit(authData) {
-    dispatch(login(authData));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SingIn);
+export default SingIn;

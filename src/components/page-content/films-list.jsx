@@ -1,14 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {connect} from 'react-redux';
+import {useSelector} from 'react-redux';
 import FilmCard from '../page-content/film-card';
-import {getFilmListByGenre, getCountShowingFilms} from '../../store/films-data/selectors';
-import {filmsListPropTypes} from '../../prop-types/prop-types';
 
-const FilmsList = (props) => {
+const FilmsList = () => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {filmListByGenre, countShowingFilms} = props;
-  console.log(`FIlmLIst Rerender`);
+  const {filmListByGenre, countShowingFilms} = useSelector((state) => state.FILMS);
 
   const handleHover = useCallback((film) => {
     setCurrentFilmCard(film);
@@ -36,11 +33,4 @@ const FilmsList = (props) => {
   );
 };
 
-FilmsList.propTypes = filmsListPropTypes;
-
-const mapStateToProps = (state) => ({
-  filmListByGenre: getFilmListByGenre(state),
-  countShowingFilms: getCountShowingFilms(state),
-});
-
-export default connect(mapStateToProps, null)(FilmsList);
+export default FilmsList;

@@ -6,11 +6,11 @@ import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import {filmDetailsPropTypes} from '../../prop-types/prop-types';
 import {formatRunTime} from '../../utils/film';
-import {connect} from 'react-redux';
-import {getAuthorizationStatus} from '../../store/login-data/selectors';
+import {useSelector} from 'react-redux';
 import {AuthorizationStatus} from '../../const/const';
 
-const FilmDetails = ({id, films, authorizationStatus}) => {
+const FilmDetails = ({id, films}) => {
+  const {authorizationStatus} = useSelector((state) => state.LOGIN);
   const currentFilm = films.find((film) => film.id === id);
 
   return (
@@ -122,8 +122,4 @@ const FilmDetails = ({id, films, authorizationStatus}) => {
 
 FilmDetails.propTypes = filmDetailsPropTypes;
 
-const mapStateToProps = (state) => ({
-  authorizationStatus: getAuthorizationStatus(state),
-});
-
-export default connect(mapStateToProps, null)(FilmDetails);
+export default FilmDetails;
