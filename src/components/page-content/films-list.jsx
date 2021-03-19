@@ -1,17 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {connect} from 'react-redux';
+import React, {useState, useEffect, useCallback} from 'react';
+import {useSelector} from 'react-redux';
 import FilmCard from '../page-content/film-card';
-import {filmsListPropTypes} from '../../prop-types/prop-types';
 
-const FilmsList = (props) => {
+const FilmsList = () => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
-  const {filmListByGenre, countShowingFilms} = props;
+  const {filmListByGenre, countShowingFilms} = useSelector((state) => state.FILMS);
 
-  const handleHover = (film) => {
+  const handleHover = useCallback((film) => {
     setCurrentFilmCard(film);
     setPlaying(false);
-  };
+  }, []);
 
   let timeOutId;
 
@@ -34,11 +33,4 @@ const FilmsList = (props) => {
   );
 };
 
-FilmsList.propTypes = filmsListPropTypes;
-
-const mapStateToProps = (state) => ({
-  filmListByGenre: state.filmListByGenre,
-  countShowingFilms: state.countShowingFilms,
-});
-
-export default connect(mapStateToProps, null)(FilmsList);
+export default FilmsList;

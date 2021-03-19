@@ -22,4 +22,4 @@ const FilmCard = (props) => {
 
 FilmCard.propTypes = filmCardPropTypes;
 
-export default FilmCard;
+export default React.memo(FilmCard);

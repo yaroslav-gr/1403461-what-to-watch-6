@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
@@ -11,17 +12,16 @@ import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
 import PrivateRoute from '../private-route/private-route';
 import browserHistory from '../../browser-history';
-import {appPropTypes} from '../../prop-types/prop-types';
-import {connect} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 import {AppRoute} from '../../const/const';
 
-const App = (props) => {
-  const {films, isDataLoaded, loadFilms, isErrorLoading} = props;
+const App = () => {
+  const {films, isErrorLoading, isDataLoaded} = useSelector((state) => state.FILMS);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isDataLoaded) {
-      loadFilms();
+      dispatch(fetchFilms());
     }
   }, [isDataLoaded]);
 
@@ -47,11 +47,11 @@ const App = (props) => {
           path="/mylist"
           render={() => <MyList />}>
         </PrivateRoute>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={prop.match.params.id * 1} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={Number(prop.match.params.id)} films={films}/>}>
         </Route>
-        <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
+        <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </PrivateRoute>
-        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === prop.match.params.id * 1)} />}>
+        <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </Route>
         <Route>
           <NotFound />
@@ -61,18 +61,4 @@ const App = (props) => {
   );
 };
 
-App.propTypes = appPropTypes;
-
-const mapStateToProps = (state) => ({
-  films: state.films,
-  isDataLoaded: state.isDataLoaded,
-  isErrorLoading: state.isErrorLoading,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  loadFilms() {
-    dispatch(fetchFilms());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

@@ -1,24 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {ActionCreator} from '../../store/action';
-import {showMoreButtonPropTypes} from '../../prop-types/prop-types';
+import {useDispatch} from 'react-redux';
+import {handleShowMoreByButton} from '../../store/action';
 
-const ShowMoreButton = (props) => {
-  const {handleClickButton} = props;
+const ShowMoreButton = () => {
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
-      <button className="catalog__button" type="button" onClick={handleClickButton}>Show more</button>
+      <button className="catalog__button" type="button" onClick={() => dispatch(handleShowMoreByButton())}>Show more</button>
     </React.Fragment>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  handleClickButton() {
-    dispatch(ActionCreator.handleShowMoreByButton());
-  },
-});
-
-ShowMoreButton.propTypes = showMoreButtonPropTypes;
-
-export default connect(null, mapDispatchToProps)(ShowMoreButton);
+export default ShowMoreButton;

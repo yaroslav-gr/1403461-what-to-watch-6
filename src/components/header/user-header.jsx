@@ -1,10 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const/const';
+import {redirectToRoute} from '../../store/action';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
-const UserHeader = ({children, authorInfo}) => {
+const UserHeader = ({children}) => {
+  const {userInfo} = useSelector((state) => state.USER);
+  const dispatch = useDispatch();
+
   return (
     <React.Fragment>
       <header className="page-header user-page__head">
@@ -19,10 +23,15 @@ const UserHeader = ({children, authorInfo}) => {
         {children}
         <div className="user-block">
           <div className="user-block__avatar">
-            <img src={authorInfo.avatarUrl} alt="User avatar" width="63" height="63" />
+            <img
+              onClick={() => dispatch(redirectToRoute(AppRoute.MY_LIST))}
+              src={userInfo.avatarUrl}
+              alt="User avatar"
+              width="63"
+              height="63" />
           </div>
         </div>
-        <p style={{paddingLeft: 20}}>{authorInfo.email}</p>
+        <p style={{paddingLeft: 20}}>{userInfo.email}</p>
       </header>
     </React.Fragment>
   );
@@ -30,8 +39,4 @@ const UserHeader = ({children, authorInfo}) => {
 
 UserHeader.propTypes = userHeaderPropTypes;
 
-const mapStateToProps = (state) => ({
-  authorInfo: state.authorInfo,
-});
-
-export default connect(mapStateToProps, null)(UserHeader);
+export default UserHeader;
