@@ -111,7 +111,7 @@ const FilmDetails = ({id, films}) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList films={films}></FilmsList>
+          <FilmsList filmsForRender={films}></FilmsList>
 
         </section>
         <Footer />
