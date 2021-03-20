@@ -3,11 +3,12 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
-import FilmDetails from '../film/film-details';
+import FilmDetails from '../film/film-info-page';
 import MyList from '../my-list/my-list';
 import NotFound from '../not-found/not-found';
 import Player from '../player/player';
 import SingIn from '../sing-in/sing-in';
+import FilmInfoPage from '../film/film-info-page';
 import LoadingScreen from '../loading-screen/loading-screen';
 import ErrorFilmsLoading from '../error-loading/error-films-loading';
 import PrivateRoute from '../private-route/private-route';
@@ -47,7 +48,7 @@ const App = () => {
           path="/mylist"
           render={() => <MyList />}>
         </PrivateRoute>
-        <Route exact path="/films/:id" render={(prop) => <FilmDetails id={Number(prop.match.params.id)} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmInfoPage id={Number(prop.match.params.id)} films={films}/>}>
         </Route>
         <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </PrivateRoute>
