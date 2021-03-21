@@ -5,6 +5,7 @@ import FilmReviews from './film-reviews';
 import FilmDetails from './film-details';
 import {Tabs} from '../../const/const';
 import {filmPropTypes} from '../../prop-types/prop-types';
+import {reviews} from '../../moks/reviews';
 
 const FilmTabs = ({film}) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -18,7 +19,7 @@ const FilmTabs = ({film}) => {
       case Tabs.OVERVIEW:
         return <FilmOverview film={film} />;
       case Tabs.REVIEWS:
-        return <FilmReviews film={film} />;
+        return <FilmReviews reviews={reviews} />;
       case Tabs.DETAILS:
         return <FilmDetails film={film} />;
     }

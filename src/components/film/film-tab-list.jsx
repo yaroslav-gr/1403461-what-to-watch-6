@@ -4,7 +4,7 @@ import {filmTabListPropTypes} from '../../prop-types/prop-types';
 
 const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
 
-  const setLiClass = (isActive) => {
+  const getLiClass = (isActive) => {
     return isActive ? `movie-nav__item  movie-nav__item--active` : `movie-nav__item`;
   };
 
@@ -17,7 +17,7 @@ const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
             <li
               key={index}
               onClick={() => handleChangeTab(index)}
-              className={setLiClass(activeTabIndex === index)}>
+              className={getLiClass(activeTabIndex === index)}>
               <Link to="#" className="movie-nav__link">{tab}</Link>
             </li>
           ))}
