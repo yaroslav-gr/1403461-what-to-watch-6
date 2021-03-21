@@ -1,5 +1,6 @@
 import React from 'react';
 import {formatDate} from '../../utils/film';
+import {reviewItemPropTypes} from '../../prop-types/prop-types';
 
 const ReviewItem = ({review}) => {
   return (
@@ -19,5 +20,7 @@ const ReviewItem = ({review}) => {
     </React.Fragment>
   );
 };
+
+ReviewItem.propTypes = reviewItemPropTypes;
 
 export default ReviewItem;

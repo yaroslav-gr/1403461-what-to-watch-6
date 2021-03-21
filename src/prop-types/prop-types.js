@@ -74,3 +74,20 @@ export const filmTabListPropTypes = {
   handleChangeTab: PropTypes.func.isRequired,
   activeTabIndex: PropTypes.number.isRequired,
 };
+
+export const reviewItemPropTypes = {
+  review: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    user: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
+    rating: PropTypes.number.isRequired,
+    comment: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+  }),
+};
+
+export const filmReviewsPropTypes = {
+  reviews: PropTypes.arrayOf(reviewItemPropTypes.review),
+};
