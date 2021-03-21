@@ -6,7 +6,7 @@ import Footer from '../footer/footer';
 import {useSelector} from 'react-redux';
 
 const PageContent = () => {
-  const {films, countShowingFilms, filmListByGenre} = useSelector((state) => state.FILMS);
+  const {countShowingFilms, filmListByGenre} = useSelector((state) => state.FILMS);
 
   return (
     <React.Fragment>
@@ -16,7 +16,7 @@ const PageContent = () => {
 
           <GenresList></GenresList>
 
-          <FilmsList films={films}></FilmsList>
+          <FilmsList filmsForRender={filmListByGenre.slice(0, countShowingFilms)}></FilmsList>
 
           <div className="catalog__more">
 

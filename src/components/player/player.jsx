@@ -1,5 +1,5 @@
 import React from 'react';
-import {playerPropTypes} from '../../prop-types/prop-types';
+import {filmPropTypes} from '../../prop-types/prop-types';
 
 const Player = (props) => {
   const {film} = props;
@@ -42,6 +42,6 @@ const Player = (props) => {
   );
 };
 
-Player.propTypes = playerPropTypes;
+Player.propTypes = filmPropTypes;
 
 export default Player;
