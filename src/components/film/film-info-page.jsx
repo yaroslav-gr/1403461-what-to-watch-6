@@ -11,7 +11,7 @@ import {formatRunTime} from '../../utils/film';
 import {useSelector} from 'react-redux';
 import {AuthorizationStatus} from '../../const/const';
 
-const FilmDetails = ({id, films}) => {
+const FilmInfoPage = ({id, films}) => {
   const {authorizationStatus} = useSelector((state) => state.LOGIN);
   const currentFilm = films.find((film) => film.id === id);
 
@@ -60,7 +60,7 @@ const FilmDetails = ({id, films}) => {
               <img src={currentFilm.posterImage} alt={currentFilm.name + `poster`} width="218" height="327" />
             </div>
 
-            <FilmTabs/>
+            <FilmTabs film={currentFilm}/>
             
           </div>
         </div>
@@ -79,6 +79,6 @@ const FilmDetails = ({id, films}) => {
   );
 };
 
-FilmDetails.propTypes = filmDetailsPropTypes;
+FilmInfoPage.propTypes = filmDetailsPropTypes;
 
-export default FilmDetails;
+export default FilmInfoPage;

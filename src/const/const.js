@@ -18,3 +18,17 @@ export const APIRoute = {
   FILMS: `/films`,
   LOGIN: `/login`,
 };
+
+export const Tabs = {
+OVERVIEW: `Overview`,
+DETAILS: `Details`,
+REVIEWS: `Reviews`,
+};
+
+export const FilmLevels = {
+  BAD: `Bad`,
+  NORMAL: `Normal`,
+  GOOD: `Good`,
+  VERY_GOOD: `Very good`,
+  AWESOME: `Awesome`,
+};

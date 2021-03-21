@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FilmReviews = ({currentFilm}) => {
+const FilmReviews = ({film}) => {
   return (
     <React.Fragment>
       <div className="movie-card__reviews movie-card__row">
@@ -11,7 +11,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Kate Muir</cite>
-                <time className="review__date" datetime="2016-12-24">December 24, 2016</time>
+                <time className="review__date" dateTime="2016-12-24">December 24, 2016</time>
               </footer>
             </blockquote>
 
@@ -24,7 +24,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Bill Goodykoontz</cite>
-                <time className="review__date" datetime="2015-11-18">November 18, 2015</time>
+                <time className="review__date" dateTime="2015-11-18">November 18, 2015</time>
               </footer>
             </blockquote>
 
@@ -37,7 +37,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Amanda Greever</cite>
-                <time className="review__date" datetime="2015-11-18">November 18, 2015</time>
+                <time className="review__date" dateTime="2015-11-18">November 18, 2015</time>
               </footer>
             </blockquote>
 
@@ -51,7 +51,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Matthew Lickona</cite>
-                <time className="review__date" datetime="2016-12-20">December 20, 2016</time>
+                <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
               </footer>
             </blockquote>
 
@@ -64,7 +64,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Paula Fleri-Soler</cite>
-                <time className="review__date" datetime="2016-12-20">December 20, 2016</time>
+                <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
               </footer>
             </blockquote>
 
@@ -77,7 +77,7 @@ const FilmReviews = ({currentFilm}) => {
 
               <footer className="review__details">
                 <cite className="review__author">Paula Fleri-Soler</cite>
-                <time className="review__date" datetime="2016-12-20">December 20, 2016</time>
+                <time className="review__date" dateTime="2016-12-20">December 20, 2016</time>
               </footer>
             </blockquote>
 

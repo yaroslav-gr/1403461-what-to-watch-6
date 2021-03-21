@@ -1,20 +1,25 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const FilmTabList = () => {
+const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
+
+  const SetLiClass = (isActive) => {
+    return isActive ? `movie-nav__item  movie-nav__item--active` : `movie-nav__item`;
+  };
+
   return (
     <React.Fragment>
       <nav className="movie-nav movie-card__nav">
         <ul className="movie-nav__list">
-          <li className="movie-nav__item">
-            <Link to="#" className="movie-nav__link">Overview</Link>
-          </li>
-          <li className="movie-nav__item movie-nav__item--active">
-            <Link to={`/films/`} className="movie-nav__link">Details</Link>
-          </li>
-          <li className="movie-nav__item">
-            <Link to="#" className="movie-nav__link">Reviews</Link>
-          </li>
+
+          {tabs.map((tab, index) => (
+            <li
+            key={index}
+            onClick={() => {handleChangeTab(index)}}
+            className={SetLiClass(activeTabIndex === index)}>
+              <Link to="#" className="movie-nav__link">{tab}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </React.Fragment>
