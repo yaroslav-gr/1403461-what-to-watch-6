@@ -59,7 +59,6 @@ const FilmInfoPage = ({id, films}) => {
             </div>
 
             <FilmTabs film={currentFilm}/>
-            
           </div>
         </div>
       </section>

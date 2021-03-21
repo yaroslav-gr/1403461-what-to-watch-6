@@ -20,9 +20,9 @@ export const APIRoute = {
 };
 
 export const Tabs = {
-OVERVIEW: `Overview`,
-DETAILS: `Details`,
-REVIEWS: `Reviews`,
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`,
 };
 
 export const FilmLevels = {

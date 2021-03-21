@@ -20,17 +20,18 @@ const FilmTabs = ({film}) => {
       case Tabs.REVIEWS:
         return <FilmReviews film={film} />;
       case Tabs.DETAILS:
-        return <FilmDetails film={film} />;  
+        return <FilmDetails film={film} />;
     }
+    return null;
   };
 
   return (
     <React.Fragment>
       <div className="movie-card__desc">
         <FilmTabList
-        tabs={tabs}
-        handleChangeTab={handleChangeTab}
-        activeTabIndex={activeTabIndex}/>
+          tabs={tabs}
+          handleChangeTab={handleChangeTab}
+          activeTabIndex={activeTabIndex}/>
 
         {getTabContent(activeTabIndex)}
       </div>

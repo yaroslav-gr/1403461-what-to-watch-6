@@ -5,11 +5,22 @@ import {filmPropTypes} from '../../prop-types/prop-types';
 const FilmOverview = ({film}) => {
 
   const getFilmLevel = (rating) => {
-    if (rating < 3) {return FilmLevels.BAD;}
-    if (rating >= 3 && rating < 5) {return FilmLevels.NORMAL;}
-    if (rating >= 5 && rating < 8) {return FilmLevels.GOOD;}
-    if (rating >= 8 && rating < 10) {return FilmLevels.VERY_GOOD;}
-    if (rating >= 10) {return FilmLevels.AWESOME;}
+    if (rating < 3) {
+      return FilmLevels.BAD;
+    }
+    if (rating >= 3 && rating < 5) {
+      return FilmLevels.NORMAL;
+    }
+    if (rating >= 5 && rating < 8) {
+      return FilmLevels.GOOD;
+    }
+    if (rating >= 8 && rating < 10) {
+      return FilmLevels.VERY_GOOD;
+    }
+    if (rating >= 10) {
+      return FilmLevels.AWESOME;
+    }
+    return null;
   };
 
   return (
