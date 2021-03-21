@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {filmTabListPropTypes} from '../../prop-types/prop-types';
 
 const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
 
@@ -25,5 +26,7 @@ const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
     </React.Fragment>
   );
 };
+
+FilmTabList.propTypes = filmTabListPropTypes;
 
 export default FilmTabList;

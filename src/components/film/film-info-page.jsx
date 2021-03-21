@@ -5,9 +5,7 @@ import UserHeader from '../header/user-header';
 import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import FilmTabs from './film-tabs';
-import FilmReviews from './film-reviews';
-import {filmDetailsPropTypes} from '../../prop-types/prop-types';
-import {formatRunTime} from '../../utils/film';
+import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector} from 'react-redux';
 import {AuthorizationStatus} from '../../const/const';
 
@@ -79,6 +77,6 @@ const FilmInfoPage = ({id, films}) => {
   );
 };
 
-FilmInfoPage.propTypes = filmDetailsPropTypes;
+FilmInfoPage.propTypes = filmInfoPagePropTypes;
 
 export default FilmInfoPage;

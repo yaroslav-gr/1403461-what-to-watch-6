@@ -1,5 +1,6 @@
 import React from 'react';
 import {FilmLevels} from '../../const/const';
+import {filmPropTypes} from '../../prop-types/prop-types';
 
 const FilmOverview = ({film}) => {
 
@@ -31,6 +32,6 @@ const FilmOverview = ({film}) => {
   );
 };
 
-// FilmOverview.propTypes = filmsPropTypes;
+FilmOverview.propTypes = filmPropTypes;
 
 export default FilmOverview;

@@ -4,6 +4,7 @@ import FilmOverview from './film-overview';
 import FilmReviews from './film-reviews';
 import FilmDetails from './film-details';
 import {Tabs} from '../../const/const';
+import {filmPropTypes} from '../../prop-types/prop-types';
 
 const FilmTabs = ({film}) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -36,5 +37,7 @@ const FilmTabs = ({film}) => {
     </React.Fragment>
   );
 };
+
+FilmTabs.propTypes = filmPropTypes;
 
 export default FilmTabs;

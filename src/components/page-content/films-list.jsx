@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import FilmCard from '../page-content/film-card';
+import {filmsPropTypes} from '../../prop-types/prop-types';
 
 const FilmsList = ({filmsForRender}) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
@@ -29,6 +30,10 @@ const FilmsList = ({filmsForRender}) => {
       </div>
     </React.Fragment>
   );
+};
+
+FilmsList.propTypes = {
+  filmsForRender: filmsPropTypes.films,
 };
 
 export default FilmsList;

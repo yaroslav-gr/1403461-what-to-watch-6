@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const filmPropTypes = {
+export const filmShapePropTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   posterImage: PropTypes.string.isRequired,
@@ -20,36 +20,37 @@ export const filmPropTypes = {
   isFavorite: PropTypes.bool.isRequired,
 };
 
+export const filmPropTypes = {
+  film: PropTypes.shape(filmShapePropTypes).isRequired,
+};
+
 export const filmsPropTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape(filmPropTypes)).isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape(filmShapePropTypes)).isRequired,
 };
 
 export const filmCardPropTypes = {
-  film: PropTypes.shape(filmPropTypes).isRequired,
+  film: filmPropTypes.film,
   isPlaying: PropTypes.bool.isRequired,
   handleHover: PropTypes.func.isRequired,
 };
 
 export const addReviewsPropTypes = {
-  film: PropTypes.shape(filmPropTypes).isRequired,
+  film: PropTypes.shape(filmShapePropTypes).isRequired,
 };
 
-export const playerPropTypes = {
-  film: PropTypes.shape(filmPropTypes).isRequired,
-};
 
 export const inputRadioPropTypes = {
   index: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export const filmDetailsPropTypes = Object.assign(filmsPropTypes, {
+export const filmInfoPagePropTypes = Object.assign(filmsPropTypes, {
   id: PropTypes.number.isRequired,
 });
 
 export const videoPlayerPropTypes = {
-  previewImage: filmPropTypes.previewImage,
-  previewVideoLink: filmPropTypes.previewVideoLink,
+  previewImage: filmShapePropTypes.previewImage,
+  previewVideoLink: filmShapePropTypes.previewVideoLink,
   isPlaying: PropTypes.bool.isRequired,
 };
 
@@ -66,4 +67,10 @@ export const privateRoutePropTypes = {
 export const singInMessagePropTypes = {
   message: PropTypes.string.isRequired,
   isBadRequest: PropTypes.bool.isRequired,
+};
+
+export const filmTabListPropTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  handleChangeTab: PropTypes.func.isRequired,
+  activeTabIndex: PropTypes.number.isRequired,
 };
