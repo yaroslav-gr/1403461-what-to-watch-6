@@ -32,3 +32,7 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
       dispatch(setBadRequest());
     });
 };
+
+export const postComment = ({rating, comment}, id) => (dispatch, _getState, api) => {
+  api.post((APIRoute.COMMENTS + id), {rating, comment})
+}

@@ -1,19 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
+import {useDispatch} from 'react-redux';
 import InputRadio from './input-radio';
 import UserHeader from '../header/user-header';
+import {postComment} from '../../store/api-actions';
 import {Link} from 'react-router-dom';
 import {addReviewsPropTypes} from '../../prop-types/prop-types';
 
 const AddReview = ({film}) => {
+  const dispatch = useDispatch();
+  const textAreaRef = useRef();
   const [userForm, setUserForm] = useState({
+    'rating': 10,
     'review-text': ``,
-    'rating': 0,
   });
 
   const INPUT_RADIO_COUNT = 10;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    const {rating, [`review-text`]: comment} = userForm;
+    dispatch(postComment({rating, comment}, film.id))
+    textAreaRef.current.value = ``;
   };
 
   const handleChange = (evt) => {
@@ -65,7 +72,12 @@ const AddReview = ({film}) => {
             </div>
 
             <div className="add-review__text">
-              <textarea onChange={handleChange} className="add-review__textarea" name="review-text" id="review-text" placeholder="Review text"></textarea>
+              <textarea
+                onChange={handleChange}
+                ref={textAreaRef}
+                className="add-review__textarea"
+                name="review-text" id="review-text"
+                placeholder="Review text"></textarea>
               <div className="add-review__submit">
                 <button className="add-review__btn" type="submit">Post</button>
               </div>
