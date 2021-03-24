@@ -44,9 +44,9 @@ export const inputRadioPropTypes = {
   handleChange: PropTypes.func.isRequired,
 };
 
-export const filmInfoPagePropTypes = Object.assign(filmsPropTypes, {
+export const filmInfoPagePropTypes = {
   id: PropTypes.number.isRequired,
-});
+};
 
 export const videoPlayerPropTypes = {
   previewImage: filmShapePropTypes.previewImage,
