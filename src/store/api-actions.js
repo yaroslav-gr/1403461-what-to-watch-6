@@ -1,4 +1,4 @@
-import {loadFilms, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
+import {loadFilms, loadFilmInfo, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
 import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
 import {filmsAdapter, userInfoAdapter} from '../utils/film';
 
@@ -7,6 +7,11 @@ export const fetchFilms = () => (dispatch, _getState, api) => {
     then(({data}) => filmsAdapter(data)).
     then((data) => dispatch(loadFilms(data))).
     catch((error) => dispatch(setErrorLoading(error)));
+};
+
+export const fetchFilmInfo = (id) => (dispatch, _getState, api) => {
+  api.get(APIRoute.FILMS + `/` + id).
+    then(({data}) => dispatch(loadFilmInfo(data)));
 };
 
 export const checkAuth = () => (dispatch, _getState, api) => {
