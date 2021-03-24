@@ -53,6 +53,9 @@ const App = () => {
         </PrivateRoute>
         <Route exact path="/player/:id" render={(prop) => <Player film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </Route>
+        <Route exact path={AppRoute.NOT_FOUND}>
+          <ErrorFilmsLoading/>
+        </Route>
         <Route>
           <NotFound />
         </Route>

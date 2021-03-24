@@ -13,6 +13,8 @@ export const AppRoute = {
   FILM_DETAILS: `/films/`,
   ADD_REVIEW: `/films/:id/review`,
   PLAYER: `/player/:id`,
+  ERROR: `/error`,
+  NOT_FOUND: `/not-found`,
 };
 
 export const APIRoute = {
