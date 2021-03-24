@@ -13,13 +13,12 @@ import {fetchFilmInfo} from '../../store/api-actions';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
+  const {authorizationStatus} = useSelector((state) => state.LOGIN);
+  const {films, filmInfo} = useSelector((state) => state.FILMS);
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
-  }, []);
-  
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
-  const {films, filmInfo} = useSelector((state) => state.FILMS);
+  }, [filmInfo]);
 
   if (filmInfo.id !== id) {
     return <LoadingScreen/>
@@ -79,7 +78,7 @@ const FilmInfoPage = ({id}) => {
 
       <div className="page-content">
         <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
+          <h2 className="catalog__title">{moreLikeThisFilms.length !== 0 ? `More like this`: `There are no similar movies :(`}</h2>
 
           <FilmsList filmsForRender={moreLikeThisFilms}></FilmsList>
 
