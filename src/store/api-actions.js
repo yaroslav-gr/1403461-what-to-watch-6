@@ -35,5 +35,5 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
 };
 
 export const postComment = ({rating, comment}, id) => (_dispatch, _getState, api) => {
-  api.post((APIRoute.COMMENTS + id), {rating, comment})
+  api.post((APIRoute.COMMENTS + id), {rating, comment});
 };
