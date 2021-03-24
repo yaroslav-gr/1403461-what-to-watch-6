@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import VideoPlayer from '../video-player/video-player';
 import {filmCardPropTypes} from '../../prop-types/prop-types';
+import {AppRoute} from '../../const/const';
 
 const FilmCard = (props) => {
-  const {film, isPlaying, handleHover, handleTitleClick} = props;
+  const {film, isPlaying, handleHover} = props;
   return (
     <React.Fragment>
       <article className="small-movie-card catalog__movies-card" onMouseOver={() => handleHover(film)} onMouseOut={() => handleHover()}>
@@ -13,9 +14,7 @@ const FilmCard = (props) => {
           </VideoPlayer>
         </div>
         <h3 className="small-movie-card__title">
-          <Link className="small-movie-card__link" to={`#`} onClick={() => {
-            handleTitleClick(film.id);
-          }} >{film.name}</Link>
+          <Link className="small-movie-card__link" to={AppRoute.FILM_DETAILS + film.id}>{film.name}</Link>
         </h3>
       </article>
     </React.Fragment>

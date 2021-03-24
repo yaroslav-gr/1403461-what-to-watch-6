@@ -19,16 +19,21 @@ export const formatDate = (dateFromReview) => {
   return formatedDate;
 };
 
+export const filmAdapter = (film) => {
+  const newFilm = {};
+  const filmKeys = Object.keys(film);
+  const filmValues = Object.values(film);
+  filmKeys.map((key, index) => {
+    newFilm[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = filmValues[index];
+  });
+
+  return newFilm;
+};
+
 export const filmsAdapter = (films) => {
   const adaptedFilms = [];
   films.map((film) => {
-    const newFilm = {};
-    const filmKeys = Object.keys(film);
-    const filmValues = Object.values(film);
-    filmKeys.map((key, index) => {
-      newFilm[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = filmValues[index];
-    });
-    adaptedFilms.push(newFilm);
+    adaptedFilms.push(filmAdapter(film));
   });
   return adaptedFilms;
 };

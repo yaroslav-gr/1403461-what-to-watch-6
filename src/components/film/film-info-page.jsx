@@ -1,24 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import FilmsList from '../page-content/films-list';
 import UserHeader from '../header/user-header';
 import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import FilmTabs from './film-tabs';
+import LoadingScreen from '../loading-screen/loading-screen';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {AuthorizationStatus} from '../../const/const';
+import {fetchFilmInfo} from '../../store/api-actions';
 
 const FilmInfoPage = ({id, films}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFilmInfo(id));
+  }, [])
+  
   const {authorizationStatus} = useSelector((state) => state.LOGIN);
-  const currentFilm = films.find((film) => film.id === id);
+  const {filmInfo} = useSelector((state) => state.FILMS);
+
+  if (filmInfo.id !== id) {
+    return <LoadingScreen/>
+  }
 
   return (
     <React.Fragment>
-      <section className="movie-card movie-card--full" style={{backgroundColor: currentFilm.backgroundColor}}>
+      <section className="movie-card movie-card--full" style={{backgroundColor: filmInfo.backgroundColor}}>
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={currentFilm.backgroundImage} alt={currentFilm.name} />
+            <img src={filmInfo.backgroundImage} alt={filmInfo.name} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -27,10 +39,10 @@ const FilmInfoPage = ({id, films}) => {
 
           <div className="movie-card__wrap">
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{currentFilm.name}</h2>
+              <h2 className="movie-card__title">{filmInfo.name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{currentFilm.genre}</span>
-                <span className="movie-card__year">{currentFilm.released}</span>
+                <span className="movie-card__genre">{filmInfo.genre}</span>
+                <span className="movie-card__year">{filmInfo.released}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -46,7 +58,7 @@ const FilmInfoPage = ({id, films}) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <Link to={`/films/` + currentFilm.id + `/review`} className="btn movie-card__button">Add review</Link>
+                <Link to={`/films/` + filmInfo.id + `/review`} className="btn movie-card__button">Add review</Link>
               </div>
             </div>
           </div>
@@ -55,10 +67,10 @@ const FilmInfoPage = ({id, films}) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={currentFilm.posterImage} alt={currentFilm.name + `poster`} width="218" height="327" />
+              <img src={filmInfo.posterImage} alt={filmInfo.name + `poster`} width="218" height="327" />
             </div>
 
-            <FilmTabs film={currentFilm}/>
+            <FilmTabs film={filmInfo}/>
           </div>
         </div>
       </section>
