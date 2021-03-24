@@ -21,7 +21,7 @@ const FilmInfoPage = ({id}) => {
   }, [id]);
 
   if (filmInfo.id !== id) {
-    return <LoadingScreen/>
+    return <LoadingScreen/>;
   }
 
   const moreLikeThisFilms = (films.filter((film) => film.id !== filmInfo.id && film.genre === filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT);
@@ -78,7 +78,7 @@ const FilmInfoPage = ({id}) => {
 
       <div className="page-content">
         <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">{moreLikeThisFilms.length !== 0 ? `More like this`: `There are no similar movies :(`}</h2>
+          <h2 className="catalog__title">{moreLikeThisFilms.length !== 0 ? `More like this` : `There are no similar movies :(`}</h2>
 
           <FilmsList filmsForRender={moreLikeThisFilms}></FilmsList>
 
