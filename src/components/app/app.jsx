@@ -47,7 +47,7 @@ const App = () => {
           path="/mylist"
           render={() => <MyList />}>
         </PrivateRoute>
-        <Route exact path="/films/:id" render={(prop) => <FilmInfoPage id={Number(prop.match.params.id)} films={films}/>}>
+        <Route exact path="/films/:id" render={(prop) => <FilmInfoPage id={Number(prop.match.params.id)}/>}>
         </Route>
         <PrivateRoute exact path="/films/:id/review" render={(prop) => <AddReview film={films.find((film) => film.id === Number(prop.match.params.id))} />}>
         </PrivateRoute>

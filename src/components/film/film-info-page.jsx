@@ -8,22 +8,24 @@ import FilmTabs from './film-tabs';
 import LoadingScreen from '../loading-screen/loading-screen';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
-import {AuthorizationStatus} from '../../const/const';
+import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT} from '../../const/const';
 import {fetchFilmInfo} from '../../store/api-actions';
 
-const FilmInfoPage = ({id, films}) => {
+const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
-  }, [])
+  }, []);
   
   const {authorizationStatus} = useSelector((state) => state.LOGIN);
-  const {filmInfo} = useSelector((state) => state.FILMS);
+  const {films, filmInfo} = useSelector((state) => state.FILMS);
 
   if (filmInfo.id !== id) {
     return <LoadingScreen/>
   }
+
+  const moreLikeThisFilms = (films.filter((film) => film.id !== filmInfo.id && film.genre === filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT);
 
   return (
     <React.Fragment>
@@ -79,7 +81,7 @@ const FilmInfoPage = ({id, films}) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmsList filmsForRender={films}></FilmsList>
+          <FilmsList filmsForRender={moreLikeThisFilms}></FilmsList>
 
         </section>
         <Footer />
