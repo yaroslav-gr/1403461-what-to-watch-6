@@ -18,7 +18,7 @@ const FilmInfoPage = ({id}) => {
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
-  }, [filmInfo]);
+  }, [id]);
 
   if (filmInfo.id !== id) {
     return <LoadingScreen/>
@@ -59,7 +59,7 @@ const FilmInfoPage = ({id}) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                <Link to={`/films/` + filmInfo.id + `/review`} className="btn movie-card__button">Add review</Link>
+                {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`/films/` + filmInfo.id + `/review`} className="btn movie-card__button">Add review</Link> : ``}
               </div>
             </div>
           </div>
