@@ -19,7 +19,7 @@ const AddReview = ({film}) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const {rating, [`review-text`]: comment} = userForm;
-    dispatch(postComment({rating, comment}, film.id))
+    dispatch(postComment({rating, comment}, film.id));
     textAreaRef.current.value = ``;
   };
 
