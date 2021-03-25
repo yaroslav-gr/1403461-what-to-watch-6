@@ -11,6 +11,7 @@ export const ActionType = {
   SET_CURRENT_GENRE: `genres/setCurrentGenre`,
   REDIRECT_TO_ROUTE: `app/redirectToRoute`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
+  LOAD_FILM_INFO: `films/loadFilmInfo`,
 };
 
 export const setCurrentGenre = createAction(ActionType.SET_CURRENT_GENRE, (newGenre) => ({
@@ -29,6 +30,10 @@ export const requireAuthorization = createAction(ActionType.REQUIRED_AUTHORIZATI
 
 export const loadFilms = createAction(ActionType.LOAD_FILMS, (films) => ({
   payload: films,
+}));
+
+export const loadFilmInfo = createAction(ActionType.LOAD_FILM_INFO, (filmInfo) => ({
+  payload: filmInfo,
 }));
 
 export const setErrorLoading = createAction(ActionType.ERROR_LOADING, (error) => ({

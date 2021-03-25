@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {COUNT_FILMS_FOR_SHOWING} from '../../const/const';
-import {setCurrentGenre, handleShowMoreByButton, resetCountShowingFilms, resetFilmList, loadFilms, setErrorLoading} from '../action';
+import {setCurrentGenre, handleShowMoreByButton, resetCountShowingFilms, resetFilmList, loadFilms, setErrorLoading, loadFilmInfo} from '../action';
 
 const initialState = {
   films: [],
@@ -10,6 +10,7 @@ const initialState = {
   isDataLoaded: false,
   isErrorLoading: false,
   errorMessage: ``,
+  filmInfo: {},
 };
 
 const filmsData = createReducer(initialState, (builder) => {
@@ -42,6 +43,10 @@ const filmsData = createReducer(initialState, (builder) => {
     ...state,
     isErrorLoading: true,
     errorMessage: `${action.payload.response.status} ${action.payload.response.statusText}`,
+  }));
+  builder.addCase(loadFilmInfo, (state, action) => ({
+    ...state,
+    filmInfo: action.payload,
   }));
 });
 

@@ -26,7 +26,12 @@ const FilmsList = ({filmsForRender}) => {
   return (
     <React.Fragment>
       <div className="catalog__movies-list">
-        {filmsForRender.map((film) => <FilmCard key={film.id} film={film} isPlaying={isPlaying && currentFilmCard.id === film.id} handleHover={handleHover}/>)}
+        {filmsForRender.map((film) =>
+          <FilmCard
+            key={film.id}
+            film={film}
+            isPlaying={isPlaying && currentFilmCard.id === film.id}
+            handleHover={handleHover}/>)}
       </div>
     </React.Fragment>
   );

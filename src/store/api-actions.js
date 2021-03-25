@@ -1,12 +1,19 @@
-import {loadFilms, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
+import {loadFilms, loadFilmInfo, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
 import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
-import {filmsAdapter, userInfoAdapter} from '../utils/film';
+import {filmAdapter, filmsAdapter, userInfoAdapter} from '../utils/film';
 
 export const fetchFilms = () => (dispatch, _getState, api) => {
   api.get(APIRoute.FILMS).
     then(({data}) => filmsAdapter(data)).
     then((data) => dispatch(loadFilms(data))).
     catch((error) => dispatch(setErrorLoading(error)));
+};
+
+export const fetchFilmInfo = (id) => (dispatch, _getState, api) => {
+  api.get(APIRoute.FILMS + `/` + id).
+    then(({data}) => filmAdapter(data)).
+    then((data) => dispatch(loadFilmInfo(data))).
+    catch(() => dispatch(redirectToRoute(AppRoute.ERROR)));
 };
 
 export const checkAuth = () => (dispatch, _getState, api) => {
@@ -25,4 +32,8 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
     catch(() => {
       dispatch(setBadRequest());
     });
+};
+
+export const postComment = ({rating, comment}, id) => (_dispatch, _getState, api) => {
+  api.post((APIRoute.COMMENTS + id), {rating, comment});
 };
