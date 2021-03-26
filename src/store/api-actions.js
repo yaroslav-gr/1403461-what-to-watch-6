@@ -1,4 +1,4 @@
-import {loadFilms, loadFilmInfo, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest} from '../store/action';
+import {loadFilms, loadFilmInfo, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest, setErrorUploadComment, setUploadCommentStatus} from '../store/action';
 import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
 import {filmAdapter, filmsAdapter, userInfoAdapter} from '../utils/film';
 
@@ -34,6 +34,13 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
     });
 };
 
-export const postComment = ({rating, comment}, id) => (_dispatch, _getState, api) => {
-  api.post((`${APIRoute.COMMENTS}${id}`), {rating, comment});
+export const postComment = ({rating, comment}, id) => (dispatch, _getState, api) => {
+  api.post((`${APIRoute.COMMENTS}${id}hh`), {rating, comment}).
+  then(() => {
+    dispatch(setUploadCommentStatus(false));
+  }).
+  catch(() => {
+    dispatch(setErrorUploadComment(true));
+    dispatch(setUploadCommentStatus(false));
+  });
 };

@@ -1,17 +1,20 @@
-import React, {useState, useRef} from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import InputRadio from './input-radio';
 import UserHeader from '../header/user-header';
+import ErrorMessage from './error-message';
 import {postComment} from '../../store/api-actions';
 import {Link} from 'react-router-dom';
 import {addReviewsPropTypes} from '../../prop-types/prop-types';
 import {AppRoute} from '../../const/const';
+import {setUploadCommentStatus} from '../../store/action';
 
 const AddReview = ({film}) => {
   const dispatch = useDispatch();
-  const textAreaRef = useRef();
+  const {uploadCommentStatus, isErrorUploadComment} = useSelector((state) => state.FILMS)
+
   const [userForm, setUserForm] = useState({
-    'rating': 10,
+    'rating': ``,
     'review-text': ``,
   });
 
@@ -19,14 +22,18 @@ const AddReview = ({film}) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    dispatch(setUploadCommentStatus(true));
     const {rating, [`review-text`]: comment} = userForm;
     dispatch(postComment({rating, comment}, film.id));
-    textAreaRef.current.value = ``;
   };
 
   const handleChange = (evt) => {
     const {name, value} = evt.target;
     setUserForm({...userForm, [name]: value});
+  };
+
+  const checkUserFormValues = () => {
+    return !!(userForm.rating && userForm['review-text'])
   };
 
   return (
@@ -57,7 +64,9 @@ const AddReview = ({film}) => {
         </div>
 
         <div className="add-review">
-          <form onSubmit={handleSubmit}
+          <form
+            onSubmit={handleSubmit}
+            disabled={uploadCommentStatus}
             action="#"
             className="add-review__form">
             <div className="rating">
@@ -74,17 +83,22 @@ const AddReview = ({film}) => {
 
             <div className="add-review__text">
               <textarea
+                disabled={uploadCommentStatus}
+                minLength="50" maxLength="400"
                 onChange={handleChange}
-                ref={textAreaRef}
                 className="add-review__textarea"
                 name="review-text" id="review-text"
                 placeholder="Review text"></textarea>
               <div className="add-review__submit">
-                <button className="add-review__btn" type="submit">Post</button>
+                <button
+                  className="add-review__btn"
+                  type="submit"
+                  disabled={!uploadCommentStatus && checkUserFormValues() ? false : true}
+                  >Post</button>
               </div>
-
             </div>
           </form>
+          {isErrorUploadComment ? <ErrorMessage/> : ``}
         </div>
 
       </section>

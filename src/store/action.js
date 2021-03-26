@@ -5,13 +5,15 @@ export const ActionType = {
   RESET_COUNT_SHOWING_FILMS: `films/resetCountShowingFilms`,
   RESET_FILM_LIST: `films/resetFilmList`,
   LOAD_FILMS: `films/loadFilms`,
-  ERROR_LOADING: `films/erroeLoading`,
+  ERROR_LOADING: `films/errorLoading`,
   GET_AUTHOR_INFO: `login/getUserInfo`,
   SET_BAD_REQUEST: `login/setBadRequest`,
   SET_CURRENT_GENRE: `genres/setCurrentGenre`,
   REDIRECT_TO_ROUTE: `app/redirectToRoute`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
   LOAD_FILM_INFO: `films/loadFilmInfo`,
+  SET_STATUS_UPLOAD_COMMENT: `film/setUploadCommentStatus`,
+  SET_ERROR_UPLOAD_COMMENT: `film/setErrorUploadComment`,
 };
 
 export const setCurrentGenre = createAction(ActionType.SET_CURRENT_GENRE, (newGenre) => ({
@@ -49,3 +51,11 @@ export const redirectToRoute = createAction(ActionType.REDIRECT_TO_ROUTE, (url) 
 }));
 
 export const setBadRequest = createAction(ActionType.SET_BAD_REQUEST);
+
+export const setUploadCommentStatus = createAction(ActionType.SET_STATUS_UPLOAD_COMMENT, (status) => ({
+  payload: status,
+}));
+
+export const  setErrorUploadComment = createAction(ActionType.SET_ERROR_UPLOAD_COMMENT, (status) => ({
+  payload: status,
+}));
