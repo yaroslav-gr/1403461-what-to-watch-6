@@ -8,7 +8,7 @@ import FilmTabs from './film-tabs';
 import LoadingScreen from '../loading-screen/loading-screen';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
-import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT} from '../../const/const';
+import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT, AppRoute} from '../../const/const';
 import {fetchFilmInfo} from '../../store/api-actions';
 
 const FilmInfoPage = ({id}) => {
@@ -59,7 +59,7 @@ const FilmInfoPage = ({id}) => {
                   </svg>
                   <span>My list</span>
                 </button>
-                {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`/films/` + filmInfo.id + `/review`} className="btn movie-card__button">Add review</Link> : ``}
+                {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`${AppRoute.FILM_DETAILS}${filmInfo.id}/review`} className="btn movie-card__button">Add review</Link> : ``}
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ const FilmInfoPage = ({id}) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={filmInfo.posterImage} alt={filmInfo.name + `poster`} width="218" height="327" />
+              <img src={filmInfo.posterImage} alt={`${filmInfo.name} poster`} width="218" height="327" />
             </div>
 
             <FilmTabs film={filmInfo}/>

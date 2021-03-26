@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
 
@@ -21,12 +22,12 @@ const GenresList = () => {
 
         {createCurrentGenreList().map((item, index) => (
           <li key={item + index} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
-            <a href="#" className="catalog__genres-link" onClick={(event) => {
+            <Link to="#" className="catalog__genres-link" onClick={(event) => {
               event.preventDefault();
               dispatch(resetCountShowingFilms());
               dispatch(setCurrentGenre(event.target.textContent));
             }}
-            >{item}</a>
+            >{item}</Link>
           </li>
         ))}
 

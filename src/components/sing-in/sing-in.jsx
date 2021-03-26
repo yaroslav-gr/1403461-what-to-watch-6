@@ -4,6 +4,7 @@ import SingInMessage from './sing-in-message';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {login} from '../../store/api-actions';
+import {AppRoute} from '../../const/const';
 
 const SingIn = () => {
   const {isBadRequest} = useSelector((state) => state.LOGIN);
@@ -39,7 +40,7 @@ const SingIn = () => {
       <div className="user-page">
         <header className="page-header user-page__head">
           <div className="logo">
-            <Link to="/" className="logo__link">
+            <Link to={AppRoute.ROOT} className="logo__link">
               <span className="logo__letter logo__letter--1">W</span>
               <span className="logo__letter logo__letter--2">T</span>
               <span className="logo__letter logo__letter--3">W</span>
