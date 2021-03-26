@@ -4,9 +4,14 @@ import PauseButton from './pause-button';
 import FullScreenButton from './full-screen-button';
 import history from '../../browser-history';
 import {filmPropTypes} from '../../prop-types/prop-types';
+import {formatPlayerRunTime} from '../../utils/film';
 
 const Player = ({film}) => {
   const [isVideoPlaying, setVideoPlaying] = useState(false);
+  const [runTime, setRunTime] = useState({
+    duration: 0,
+    currentTime: 0,
+  });
 
   const videoRef = useRef();
 
@@ -28,10 +33,31 @@ const Player = ({film}) => {
     videoRef.current.requestFullscreen();
   };
 
+  const handlerOnDataLoaded = () => {
+    setRunTime({
+      duration: videoRef.current.duration,
+      currentTime: videoRef.current.currentTime,
+    });
+    console.log(videoRef.current.duration);
+  };
+
+  const handlerTimeChange = () => {
+    setRunTime({
+      ...runTime,
+      currentTime: videoRef.current.currentTime,
+    });
+  };
+
+  const getRemainingTime = () => {
+    return runTime.duration - runTime.currentTime;
+  };
+
   return (
     <React.Fragment>
       <div className="player">
         <video muted
+        onLoadedMetadata={handlerOnDataLoaded}
+        onTimeUpdate={handlerTimeChange}
         src={film.videoLink}
         className="player__video"
         poster={film.posterImage}
@@ -43,9 +69,9 @@ const Player = ({film}) => {
           <div className="player__controls-row">
             <div className="player__time">
               <progress className="player__progress" value="30" max="100"></progress>
-              <div className="player__toggler" style={{left: `0%`}}>Toggler</div>
+              <div className="player__toggler" style={{left: `20%`}}>Toggler</div>
             </div>
-            <div className="player__time-value">1:30:29</div>
+            <div className="player__time-value">{formatPlayerRunTime(getRemainingTime())}</div>
           </div>
 
           <div className="player__controls-row">
