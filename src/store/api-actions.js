@@ -38,7 +38,7 @@ export const postComment = ({rating, comment}, id) => (dispatch, _getState, api)
   api.post((`${APIRoute.COMMENTS}${id}`), {rating, comment}).
   then(() => {
     dispatch(setUploadCommentStatus(false));
-    dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`))
+    dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`));
   }).
   catch(() => {
     dispatch(setErrorUploadComment(true));

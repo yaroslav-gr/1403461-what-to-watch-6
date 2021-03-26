@@ -56,6 +56,6 @@ export const setUploadCommentStatus = createAction(ActionType.SET_STATUS_UPLOAD_
   payload: status,
 }));
 
-export const  setErrorUploadComment = createAction(ActionType.SET_ERROR_UPLOAD_COMMENT, (status) => ({
+export const setErrorUploadComment = createAction(ActionType.SET_ERROR_UPLOAD_COMMENT, (status) => ({
   payload: status,
 }));

@@ -11,7 +11,7 @@ import {setUploadCommentStatus} from '../../store/action';
 
 const AddReview = ({film}) => {
   const dispatch = useDispatch();
-  const {uploadCommentStatus, isErrorUploadComment} = useSelector((state) => state.FILMS)
+  const {uploadCommentStatus, isErrorUploadComment} = useSelector((state) => state.FILMS);
 
   const [userForm, setUserForm] = useState({
     'rating': ``,
@@ -33,7 +33,7 @@ const AddReview = ({film}) => {
   };
 
   const checkUserFormValues = () => {
-    return !!(userForm.rating && userForm['review-text'])
+    return !!(userForm.rating && userForm[`review-text`]);
   };
 
   return (
@@ -94,7 +94,7 @@ const AddReview = ({film}) => {
                   className="add-review__btn"
                   type="submit"
                   disabled={!uploadCommentStatus && checkUserFormValues() ? false : true}
-                  >Post</button>
+                >Post</button>
               </div>
             </div>
           </form>
