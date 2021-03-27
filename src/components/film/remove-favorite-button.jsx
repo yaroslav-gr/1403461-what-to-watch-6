@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { StatusFavorite } from '../../const/const';
+import { buttonsToggleFavorite } from '../../prop-types/prop-types';
 import { fetchFilms, toggleFavoriteFilm } from '../../store/api-actions';
 
 const RemoveFavoriteButton = ({id}) => {
@@ -24,5 +25,7 @@ const RemoveFavoriteButton = ({id}) => {
     </React.Fragment>
   );
 };
+
+RemoveFavoriteButton.propTypes = buttonsToggleFavorite;
 
 export default RemoveFavoriteButton;

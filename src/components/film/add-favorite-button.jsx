@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { StatusFavorite } from '../../const/const';
+import { buttonsToggleFavorite } from '../../prop-types/prop-types';
 import { fetchFilms, toggleFavoriteFilm } from '../../store/api-actions';
 
 const AddFavoriteButton = ({id}) => {
@@ -24,5 +25,7 @@ const AddFavoriteButton = ({id}) => {
     </React.Fragment>
   );
 };
+
+AddFavoriteButton.propTypes = buttonsToggleFavorite;
 
 export default AddFavoriteButton;

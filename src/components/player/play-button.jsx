@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PlayButton = ({handlerPlayClick}) => {
   return (
@@ -14,6 +15,10 @@ const PlayButton = ({handlerPlayClick}) => {
       </button>
     </React.Fragment>
   );
+};
+
+PlayButton.propTypes = {
+  handlerPlayClick: PropTypes.func.isRequired,
 };
 
 export default PlayButton;

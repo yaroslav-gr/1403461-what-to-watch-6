@@ -91,3 +91,7 @@ export const reviewItemPropTypes = {
 export const filmReviewsPropTypes = {
   reviews: PropTypes.arrayOf(reviewItemPropTypes.review),
 };
+
+export const buttonsToggleFavorite = {
+  id: PropTypes.number.isRequired,
+};

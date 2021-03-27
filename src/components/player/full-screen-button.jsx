@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FullScreenButton = ({handlerFullScreenClick}) => {
   return (
@@ -14,6 +15,10 @@ const FullScreenButton = ({handlerFullScreenClick}) => {
       </button>
     </React.Fragment>
   );
+};
+
+FullScreenButton.propTypes = {
+  handlerFullScreenClick: PropTypes.func.isRequired,
 };
 
 export default FullScreenButton;

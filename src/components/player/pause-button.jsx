@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PauseButton = ({handlerPauseClick}) => {
   return (
@@ -14,6 +15,10 @@ const PauseButton = ({handlerPauseClick}) => {
       </button>
     </React.Fragment>
   );
+};
+
+PauseButton.propTypes = {
+  handlerPauseClick: PropTypes.func.isRequired,
 };
 
 export default PauseButton;
