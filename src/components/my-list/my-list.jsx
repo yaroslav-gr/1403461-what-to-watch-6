@@ -19,9 +19,8 @@ const MyList = () => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
           {favoriteFilms.length ?
-          <FilmsList filmsForRender={favoriteFilms}/> :
-          <h3 style={{textAlign: `center`}}>You don't have any favorite movies yet.</h3>}
-          
+            <FilmsList filmsForRender={favoriteFilms}/> :
+            <h3 style={{textAlign: `center`}}>You don&apos;t have any favorite movies yet.</h3>}
         </section>
 
         <footer className="page-footer">

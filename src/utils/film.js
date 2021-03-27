@@ -12,16 +12,16 @@ export const formatRunTime = (time) => {
 
 export const formatPlayerRunTime = (time) => {
   if (time / 3600 > 0) {
-    const hours = Math.trunc(time/3600);
+    const hours = Math.trunc(time / 3600);
     const minutes = ((time / 3600 - hours) * 60);
     const seconds = (minutes - Math.trunc(minutes)) * 60;
-    return `${hours}:${Math.trunc(minutes) < 10 ? `0${Math.trunc(minutes)}` : Math.trunc(minutes)}:${Math.trunc(seconds) < 10 ? `0${Math.trunc(seconds)}` : Math.trunc(seconds)}`
+    return `${hours}:${Math.trunc(minutes) < 10 ? `0${Math.trunc(minutes)}` : Math.trunc(minutes)}:${Math.trunc(seconds) < 10 ? `0${Math.trunc(seconds)}` : Math.trunc(seconds)}`;
   } else if (time / 60 < 60) {
     const minutes = time / 60;
     const seconds = (minutes - Math.trunc(minutes)) * 60;
-    return `0:${Math.trunc(minutes) < 10 ? `0${Math.trunc(minutes)}` : Math.trunc(minutes)}:${Math.trunc(seconds) < 10 ? `0${Math.trunc(seconds)}` : Math.trunc(seconds)}`
+    return `0:${Math.trunc(minutes) < 10 ? `0${Math.trunc(minutes)}` : Math.trunc(minutes)}:${Math.trunc(seconds) < 10 ? `0${Math.trunc(seconds)}` : Math.trunc(seconds)}`;
   } else {
-    return `0 : 0 : ${Math.trunc(time) < 10 ? `0${Math.trunc(time)}` : Math.trunc(time)}`
+    return `0 : 0 : ${Math.trunc(time) < 10 ? `0${Math.trunc(time)}` : Math.trunc(time)}`;
   }
 };
 

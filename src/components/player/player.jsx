@@ -38,7 +38,6 @@ const Player = ({film}) => {
       duration: videoRef.current.duration,
       currentTime: videoRef.current.currentTime,
     });
-    console.log(videoRef.current.duration);
   };
 
   const handlerTimeChange = () => {
@@ -56,12 +55,12 @@ const Player = ({film}) => {
     <React.Fragment>
       <div className="player">
         <video muted
-        onLoadedMetadata={handlerOnDataLoaded}
-        onTimeUpdate={handlerTimeChange}
-        src={film.videoLink}
-        className="player__video"
-        poster={film.backgroundImage}
-        ref={videoRef}></video>
+          onLoadedMetadata={handlerOnDataLoaded}
+          onTimeUpdate={handlerTimeChange}
+          src={film.videoLink}
+          className="player__video"
+          poster={film.backgroundImage}
+          ref={videoRef}></video>
 
         <button onClick={handlerExitClick} type="button" className="player__exit">Exit</button>
 
@@ -76,9 +75,8 @@ const Player = ({film}) => {
 
           <div className="player__controls-row">
             {isVideoPlaying ?
-            <PauseButton handlerPauseClick={handlerPauseClick}/> :
-            <PlayButton handlerPlayClick={handlerPlayClick}/>}
-            
+              <PauseButton handlerPauseClick={handlerPauseClick}/> :
+              <PlayButton handlerPlayClick={handlerPlayClick}/>}
             <div className="player__name">Transpotting</div>
 
             <FullScreenButton handlerFullScreenClick={handlerFullScreenClick} />
