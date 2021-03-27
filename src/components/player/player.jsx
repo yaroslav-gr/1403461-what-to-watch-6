@@ -60,7 +60,7 @@ const Player = ({film}) => {
         onTimeUpdate={handlerTimeChange}
         src={film.videoLink}
         className="player__video"
-        poster={film.posterImage}
+        poster={film.backgroundImage}
         ref={videoRef}></video>
 
         <button onClick={handlerExitClick} type="button" className="player__exit">Exit</button>

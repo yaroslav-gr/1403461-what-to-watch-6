@@ -3,8 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
-import {resetFilmList} from '../../store/action';
-import {AuthorizationStatus} from '../../const/const';
+import {redirectToRoute, resetFilmList} from '../../store/action';
+import {AppRoute, AuthorizationStatus} from '../../const/const';
 
 const Main = () => {
   const film = useSelector((state) => state.FILMS.films[0]);
@@ -40,7 +40,10 @@ const Main = () => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                onClick={() => dispatch(redirectToRoute(`${AppRoute.PLAYER}${film.id}`))}
+                className="btn btn--play movie-card__button"
+                type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>

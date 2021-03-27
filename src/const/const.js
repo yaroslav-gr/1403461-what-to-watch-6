@@ -12,7 +12,7 @@ export const AppRoute = {
   MY_LIST: `/mylist`,
   FILM_DETAILS: `/films/`,
   ADD_REVIEW: `/films/:id/review`,
-  PLAYER: `/player/:id`,
+  PLAYER: `/player/`,
   ERROR: `/error`,
   NOT_FOUND: `/not-found`,
 };

@@ -10,6 +10,7 @@ import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
 import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT, AppRoute} from '../../const/const';
 import {fetchFilmInfo} from '../../store/api-actions';
+import {redirectToRoute} from '../../store/action';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
@@ -47,7 +48,10 @@ const FilmInfoPage = ({id}) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                onClick={() => dispatch(redirectToRoute(`${AppRoute.PLAYER}${filmInfo.id}`))}
+                className="btn btn--play movie-card__button"
+                type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
