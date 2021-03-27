@@ -21,6 +21,7 @@ export const APIRoute = {
   COMMENTS: `/comments/`,
   FILMS: `/films`,
   LOGIN: `/login`,
+  FAVORITE: `/favorite/`,
 };
 
 export const Tabs = {
@@ -50,4 +51,9 @@ export const Months = {
   10: `October`,
   11: `November`,
   12: `December`,
+};
+
+export const StatusFavorite = {
+  ADD: 1,
+  REMOVE: 0,
 };

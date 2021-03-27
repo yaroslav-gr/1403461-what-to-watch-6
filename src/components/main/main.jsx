@@ -5,6 +5,8 @@ import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
 import {redirectToRoute, resetFilmList} from '../../store/action';
 import {AppRoute, AuthorizationStatus} from '../../const/const';
+import RemoveFavoriteButton from '../film/remove-favorite-button';
+import AddFavoriteButton from '../film/add-favorite-button';
 
 const Main = () => {
   const film = useSelector((state) => state.FILMS.films[0]);
@@ -49,12 +51,7 @@ const Main = () => {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
+                {film.isFavorite ? <RemoveFavoriteButton id={film.id}/> : <AddFavoriteButton id={film.id}/>}
               </div>
             </div>
           </div>

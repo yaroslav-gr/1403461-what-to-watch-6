@@ -45,3 +45,11 @@ export const postComment = ({rating, comment}, id) => (dispatch, _getState, api)
     dispatch(setUploadCommentStatus(false));
   });
 };
+
+export const toggleFavoriteFilm = (id, status) => (dispatch, _getState, api) => {
+  api.post(`${APIRoute.FAVORITE}${id}/${status}`).
+  then(() => {
+    dispatch(fetchFilms());
+    dispatch(fetchFilmInfo(id));
+  });
+};

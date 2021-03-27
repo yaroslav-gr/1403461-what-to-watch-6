@@ -6,11 +6,13 @@ import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import FilmTabs from './film-tabs';
 import LoadingScreen from '../loading-screen/loading-screen';
+import AddFavoriteButton from './add-favorite-button';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
 import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT, AppRoute} from '../../const/const';
 import {fetchFilmInfo} from '../../store/api-actions';
 import {redirectToRoute} from '../../store/action';
+import RemoveFavoriteButton from './remove-favorite-button';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
@@ -57,12 +59,8 @@ const FilmInfoPage = ({id}) => {
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
+                {filmInfo.isFavorite ? <RemoveFavoriteButton id={filmInfo.id}/> : <AddFavoriteButton id={filmInfo.id}/>}
+                
                 {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`${AppRoute.FILM_DETAILS}${filmInfo.id}/review`} className="btn movie-card__button">Add review</Link> : ``}
               </div>
             </div>
