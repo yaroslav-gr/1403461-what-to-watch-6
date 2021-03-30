@@ -1,14 +1,21 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
-import {StatusFavorite} from '../../const/const';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRoute, StatusFavorite} from '../../const/const';
 import {buttonsToggleFavorite} from '../../prop-types/prop-types';
 import {toggleFavoriteFilm} from '../../store/api-actions';
+import {AuthorizationStatus} from '../../const/const';
+import {redirectToRoute} from '../../store/action';
 
 const AddFavoriteButton = ({id}) => {
   const dispatch = useDispatch();
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
 
   const handlerButtonClick = () => {
-    dispatch(toggleFavoriteFilm(id, StatusFavorite.ADD));
+    if(authorizationStatus === AuthorizationStatus.AUTH) {
+      dispatch(toggleFavoriteFilm(id, StatusFavorite.ADD));
+    } else {
+      dispatch(redirectToRoute(AppRoute.LOGIN));
+    }
   };
 
   return (
