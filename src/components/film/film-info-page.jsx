@@ -10,7 +10,7 @@ import AddFavoriteButton from './add-favorite-button';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
 import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT, AppRoute} from '../../const/const';
-import {fetchFilmInfo} from '../../store/api-actions';
+import {fetchFilmReviews, fetchFilmInfo} from '../../store/api-actions';
 import {redirectToRoute} from '../../store/action';
 import RemoveFavoriteButton from './remove-favorite-button';
 
@@ -18,9 +18,11 @@ const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
   const {authorizationStatus} = useSelector((state) => state.LOGIN);
   const {films, filmInfo} = useSelector((state) => state.FILMS);
+  const filmReviews = useSelector((state) => state.FILMS.filmReviews);
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
+    dispatch(fetchFilmReviews(id))
   }, [id]);
 
   if (filmInfo.id !== id) {
@@ -72,7 +74,7 @@ const FilmInfoPage = ({id}) => {
               <img src={filmInfo.posterImage} alt={`${filmInfo.name} poster`} width="218" height="327" />
             </div>
 
-            <FilmTabs film={filmInfo}/>
+            <FilmTabs film={filmInfo} reviews={filmReviews}/>
           </div>
         </div>
       </section>
