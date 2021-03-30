@@ -15,9 +15,9 @@ const PageContent = () => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList></GenresList>
+          <GenresList/>
 
-          <FilmsList filmsForRender={filmListByGenre.slice(0, countShowingFilms)}></FilmsList>
+          <FilmsList filmsForRender={filmListByGenre.slice(0, countShowingFilms)}/>
 
           <div className="catalog__more">
 

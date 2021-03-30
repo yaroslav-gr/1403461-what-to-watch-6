@@ -102,7 +102,7 @@ const Player = ({film}) => {
           src={film.videoLink}
           className="player__video"
           poster={film.backgroundImage}
-          ref={videoRef}></video>
+          ref={videoRef}/>
 
         <button onClick={handlerExitClick} type="button" className="player__exit">Exit</button>
 

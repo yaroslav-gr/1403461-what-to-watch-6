@@ -84,7 +84,7 @@ const FilmInfoPage = ({id}) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">{moreLikeThisFilms.length !== 0 ? `More like this` : `There are no similar movies :(`}</h2>
 
-          <FilmsList filmsForRender={moreLikeThisFilms}></FilmsList>
+          <FilmsList filmsForRender={moreLikeThisFilms}/>
 
         </section>
         <Footer />

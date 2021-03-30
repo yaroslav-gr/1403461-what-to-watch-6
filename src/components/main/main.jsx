@@ -58,7 +58,7 @@ const Main = () => {
         </div>
       </section>
 
-      <PageContent></PageContent>
+      <PageContent/>
     </React.Fragment>
   );
 };
