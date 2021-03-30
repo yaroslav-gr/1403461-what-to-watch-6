@@ -29,10 +29,6 @@ const Player = ({film}) => {
     history.goBack();
   };
 
-  const handlerFullScreenClick = () => {
-    videoRef.current.requestFullscreen();
-  };
-
   const handlerOnDataLoaded = () => {
     setRunTime({
       duration: videoRef.current.duration,
@@ -54,6 +50,46 @@ const Player = ({film}) => {
   const setTimeProgressPosition = () => {
     const newPosition = runTime.currentTime / runTime.duration * 100;
     return newPosition;
+  };
+
+  const enterFullscreen = () => {
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else if (videoRef.current.webkitRequestFullScreen) {
+      videoRef.current.webkitRequestFullscreen();
+    } else if (videoRef.current.mozRequestFullScreen) {
+      videoRef.current.mozRequestFullScreen();
+    } else if (videoRef.current.msRequestFullscreen) {
+      videoRef.current.msRequestFullscreen();
+    }
+  };
+
+  const exitFullscreen = () => {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+  };
+
+  const checkFullscreen = () => {
+    return document.fullscreenElement || 
+        document.mozFullScreenElement || 
+        document.webkitFullscreenElement || 
+        document.webkitFullscreenElement || 
+        document.msFullscreenElement;
+  };
+
+  const handlerFullScreenClick = () => {
+    if (checkFullscreen()) {
+      exitFullscreen();
+    } else {
+      enterFullscreen();
+    }
   };
 
   return (
