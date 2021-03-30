@@ -7,7 +7,7 @@ import {filmPropTypes} from '../../prop-types/prop-types';
 import {formatPlayerRunTime} from '../../utils/film';
 
 const Player = ({film}) => {
-  const [isVideoPlaying, setVideoPlaying] = useState(false);
+  const [isVideoPlaying, setVideoPlaying] = useState(true);
   const [runTime, setRunTime] = useState({
     duration: 0,
     currentTime: 0,
@@ -51,10 +51,16 @@ const Player = ({film}) => {
     return runTime.duration - runTime.currentTime;
   };
 
+  const setTimeProgressPosition = () => {
+    const newPosition = runTime.currentTime / runTime.duration * 100;
+    return newPosition;
+  };
+
   return (
     <React.Fragment>
       <div className="player">
         <video muted
+          autoPlay="1"
           onLoadedMetadata={handlerOnDataLoaded}
           onTimeUpdate={handlerTimeChange}
           src={film.videoLink}
@@ -67,8 +73,8 @@ const Player = ({film}) => {
         <div className="player__controls">
           <div className="player__controls-row">
             <div className="player__time">
-              <progress className="player__progress" value="30" max="100"></progress>
-              <div className="player__toggler" style={{left: `20%`}}>Toggler</div>
+              <progress className="player__progress" value={`${setTimeProgressPosition()}`} max="100"></progress>
+              <div className="player__toggler" style={{left: `${setTimeProgressPosition()}%`}}>Toggler</div>
             </div>
             <div className="player__time-value">{formatPlayerRunTime(getRemainingTime())}</div>
           </div>
