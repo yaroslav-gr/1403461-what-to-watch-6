@@ -94,4 +94,4 @@ const FilmInfoPage = ({id}) => {
 
 FilmInfoPage.propTypes = filmInfoPagePropTypes;
 
-export default FilmInfoPage;
+export default React.memo(FilmInfoPage);
