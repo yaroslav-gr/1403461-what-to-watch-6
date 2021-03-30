@@ -16,7 +16,10 @@ import {fetchFilms} from '../../store/api-actions';
 import {AppRoute} from '../../const/const';
 
 const App = () => {
-  const {films, isErrorLoading, isDataLoaded} = useSelector((state) => state.FILMS);
+  const films = useSelector((state) => state.FILMS.films);
+  const isErrorLoading =  useSelector((state) => state.FILMS.isErrorLoading);
+  const isDataLoaded =  useSelector((state) => state.FILMS.isDataLoaded);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -6,7 +6,7 @@ import {redirectToRoute} from '../../store/action';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
 const UserHeader = ({children}) => {
-  const {userInfo} = useSelector((state) => state.USER);
+  const userInfo = useSelector((state) => state.USER.userInfo);
   const dispatch = useDispatch();
 
   return (

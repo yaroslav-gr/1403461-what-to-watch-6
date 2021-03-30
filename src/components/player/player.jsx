@@ -47,7 +47,7 @@ const Player = ({film}) => {
     return runTime.duration - runTime.currentTime;
   };
 
-  const setTimeProgressPosition = () => {
+  const getTimeProgressPosition = () => {
     const newPosition = runTime.currentTime / runTime.duration * 100;
     return newPosition;
   };
@@ -109,8 +109,8 @@ const Player = ({film}) => {
         <div className="player__controls">
           <div className="player__controls-row">
             <div className="player__time">
-              <progress className="player__progress" value={`${setTimeProgressPosition()}`} max="100"></progress>
-              <div className="player__toggler" style={{left: `${setTimeProgressPosition()}%`}}>Toggler</div>
+              <progress className="player__progress" value={`${getTimeProgressPosition()}`} max="100"></progress>
+              <div className="player__toggler" style={{left: `${getTimeProgressPosition()}%`}}>Toggler</div>
             </div>
             <div className="player__time-value">{formatPlayerRunTime(getRemainingTime())}</div>
           </div>

@@ -16,8 +16,9 @@ import RemoveFavoriteButton from './remove-favorite-button';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
-  const {films, filmInfo} = useSelector((state) => state.FILMS);
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
+  const films = useSelector((state) => state.FILMS.films);
+  const filmInfo = useSelector((state) => state.FILMS.filmInfo);
   const filmReviews = useSelector((state) => state.FILMS.filmReviews);
 
   useEffect(() => {

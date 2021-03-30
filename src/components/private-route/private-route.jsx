@@ -6,7 +6,7 @@ import {AppRoute} from '../../const/const';
 import {privateRoutePropTypes} from '../../prop-types/prop-types';
 
 const PrivateRoute = ({render, path, exact}) => {
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
 
   return (
     <Route

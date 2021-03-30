@@ -11,8 +11,9 @@ import {setUploadCommentStatus} from '../../store/action';
 
 const AddReview = ({film}) => {
   const dispatch = useDispatch();
-  const {uploadCommentStatus, isErrorUploadComment} = useSelector((state) => state.FILMS);
-
+  const uploadCommentStatus = useSelector((state) => state.FILMS.uploadCommentStatus);
+  const isErrorUploadComment = useSelector((state) => state.FILMS.isErrorUploadComment);
+  
   const [userForm, setUserForm] = useState({
     'rating': ``,
     'review-text': ``,

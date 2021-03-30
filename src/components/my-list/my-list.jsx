@@ -6,7 +6,7 @@ import UserHeader from '../header/user-header';
 import {AppRoute} from '../../const/const';
 
 const MyList = () => {
-  const {films} = useSelector((state) => state.FILMS);
+  const films = useSelector((state) => state.FILMS.films);
   const favoriteFilms = films.filter((film) => film.isFavorite);
 
   return (

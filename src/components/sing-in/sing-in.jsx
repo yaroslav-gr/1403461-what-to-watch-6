@@ -7,7 +7,7 @@ import {login} from '../../store/api-actions';
 import {AppRoute} from '../../const/const';
 
 const SingIn = () => {
-  const {isBadRequest} = useSelector((state) => state.LOGIN);
+  const isBadRequest = useSelector((state) => state.LOGIN.isBadRequest);
   const dispatch = useDispatch();
 
   const [errorText, setErrorText] = useState(``);

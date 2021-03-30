@@ -4,7 +4,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
 
 const GenresList = () => {
-  const {films, activeGenre} = useSelector((state) => state.FILMS);
+  const films = useSelector((state) => state.FILMS.films);
+  const activeGenre = useSelector((state) => state.FILMS.activeGenre);
+
   const dispatch = useDispatch();
 
   const createCurrentGenreList = () => {

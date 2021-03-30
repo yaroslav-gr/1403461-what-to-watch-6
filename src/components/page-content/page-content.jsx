@@ -6,7 +6,8 @@ import Footer from '../footer/footer';
 import {useSelector} from 'react-redux';
 
 const PageContent = () => {
-  const {countShowingFilms, filmListByGenre} = useSelector((state) => state.FILMS);
+  const countShowingFilms = useSelector((state) => state.FILMS.countShowingFilms);
+  const filmListByGenre = useSelector((state) => state.FILMS.filmListByGenre);
 
   return (
     <React.Fragment>

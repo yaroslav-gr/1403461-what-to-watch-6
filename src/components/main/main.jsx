@@ -10,7 +10,7 @@ import AddFavoriteButton from '../film/add-favorite-button';
 
 const Main = () => {
   const film = useSelector((state) => state.FILMS.films[0]);
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
