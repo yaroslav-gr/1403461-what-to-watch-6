@@ -15,7 +15,7 @@ const FilmTabList = ({tabs, handleChangeTab, activeTabIndex}) => {
 
           {tabs.map((tab, index) => (
             <li
-              key={index}
+              key={tab}
               onClick={() => handleChangeTab(index)}
               className={getLiClass(activeTabIndex === index)}>
               <Link to="#" className="movie-nav__link">{tab}</Link>

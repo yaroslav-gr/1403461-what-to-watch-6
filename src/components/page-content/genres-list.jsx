@@ -11,7 +11,7 @@ const GenresList = () => {
 
   const createCurrentGenreList = () => {
     const genresList = new Set();
-    films.map((film) => genresList.add(film.genre));
+    films.forEach((film) => genresList.add(film.genre));
     const currentGenresList = Array.from(genresList);
     currentGenresList.unshift(`All genres`);
 
@@ -23,7 +23,7 @@ const GenresList = () => {
       <ul className="catalog__genres-list">
 
         {createCurrentGenreList().map((item, index) => (
-          <li key={item + index} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
+          <li key={item} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
             <Link to="#" className="catalog__genres-link" onClick={(event) => {
               event.preventDefault();
               dispatch(resetCountShowingFilms());

@@ -9,28 +9,27 @@ import LoadingScreen from '../loading-screen/loading-screen';
 import AddFavoriteButton from './add-favorite-button';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
-import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT, AppRoute} from '../../const/const';
+import {AuthorizationStatus, AppRoute} from '../../const/const';
 import {fetchFilmReviews, fetchFilmInfo} from '../../store/api-actions';
-import {redirectToRoute} from '../../store/action';
+import {getMoreLikeThisFilms, redirectToRoute} from '../../store/action';
 import RemoveFavoriteButton from './remove-favorite-button';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
   const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
-  const films = useSelector((state) => state.FILMS.films);
   const filmInfo = useSelector((state) => state.FILMS.filmInfo);
   const filmReviews = useSelector((state) => state.FILMS.filmReviews);
+  const moreLikeThisFilms = useSelector((state) => state.FILMS.moreLikeThisFilms);
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
-    dispatch(fetchFilmReviews(id))
+    dispatch(fetchFilmReviews(id));
+    dispatch(getMoreLikeThisFilms());
   }, [id]);
 
   if (filmInfo.id !== id) {
     return <LoadingScreen/>;
   }
-
-  const moreLikeThisFilms = (films.filter((film) => film.id !== filmInfo.id && film.genre === filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT);
 
   return (
     <React.Fragment>

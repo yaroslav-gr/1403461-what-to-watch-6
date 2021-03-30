@@ -15,6 +15,7 @@ export const ActionType = {
   SET_STATUS_UPLOAD_COMMENT: `film/setUploadCommentStatus`,
   SET_ERROR_UPLOAD_COMMENT: `film/setErrorUploadComment`,
   LOAD_FILM_REVIEWS: `film/loadFilmReviews`,
+  GET_MORE_LIKE_THIS_FILMS: `films/getMoreLikeThisFilms`,
 };
 
 export const setCurrentGenre = createAction(ActionType.SET_CURRENT_GENRE, (newGenre) => ({
@@ -64,3 +65,5 @@ export const setErrorUploadComment = createAction(ActionType.SET_ERROR_UPLOAD_CO
 export const loadFilmReviews = createAction(ActionType.LOAD_FILM_REVIEWS, (reviews) => ({
   payload: reviews,
 }));
+
+export const getMoreLikeThisFilms = createAction(ActionType.GET_MORE_LIKE_THIS_FILMS);
