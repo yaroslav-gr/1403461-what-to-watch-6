@@ -15,12 +15,12 @@ const Player = ({film}) => {
 
   const videoRef = useRef();
 
-  const handlerPlayClick = () => {
+  const onHandlePlayClick = () => {
     videoRef.current.play();
     setVideoPlaying(true);
   };
 
-  const handlerPauseClick = () => {
+  const onHandlePauseClick = () => {
     videoRef.current.pause();
     setVideoPlaying(false);
   };
@@ -84,7 +84,7 @@ const Player = ({film}) => {
         document.msFullscreenElement;
   };
 
-  const handlerFullScreenClick = () => {
+  const onHandleFullScreenClick = () => {
     if (checkFullscreen()) {
       exitFullscreen();
     } else {
@@ -117,11 +117,11 @@ const Player = ({film}) => {
 
           <div className="player__controls-row">
             {isVideoPlaying ?
-              <PauseButton handlerPauseClick={handlerPauseClick}/> :
-              <PlayButton handlerPlayClick={handlerPlayClick}/>}
+              <PauseButton onHandlePauseClick={onHandlePauseClick}/> :
+              <PlayButton onHandlePlayClick={onHandlePlayClick}/>}
             <div className="player__name">Transpotting</div>
 
-            <FullScreenButton handlerFullScreenClick={handlerFullScreenClick} />
+            <FullScreenButton onHandleFullScreenClick={onHandleFullScreenClick} />
           </div>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FullScreenButton = ({handlerFullScreenClick}) => {
+const FullScreenButton = ({onHandleFullScreenClick}) => {
   return (
     <React.Fragment>
       <button
-        onClick={handlerFullScreenClick}
+        onClick={onHandleFullScreenClick}
         type="button"
         className="player__full-screen">
         <svg viewBox="0 0 27 27" width="27" height="27">
@@ -18,7 +18,7 @@ const FullScreenButton = ({handlerFullScreenClick}) => {
 };
 
 FullScreenButton.propTypes = {
-  handlerFullScreenClick: PropTypes.func.isRequired,
+  onHandleFullScreenClick: PropTypes.func.isRequired,
 };
 
 export default FullScreenButton;

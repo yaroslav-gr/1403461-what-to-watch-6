@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PauseButton = ({handlerPauseClick}) => {
+const PauseButton = ({onHandlePauseClick}) => {
   return (
     <React.Fragment>
       <button
-        onClick={handlerPauseClick}
+        onClick={onHandlePauseClick}
         type="button"
         className="player__play">
         <svg viewBox="0 0 14 21" width="14" height="21">
@@ -18,7 +18,7 @@ const PauseButton = ({handlerPauseClick}) => {
 };
 
 PauseButton.propTypes = {
-  handlerPauseClick: PropTypes.func.isRequired,
+  onHandlePauseClick: PropTypes.func.isRequired,
 };
 
 export default PauseButton;

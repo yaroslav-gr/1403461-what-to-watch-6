@@ -2,11 +2,11 @@ import React from 'react';
 import {inputRadioPropTypes} from '../../prop-types/prop-types';
 
 const InputRadio = (props) => {
-  const {index, handleChange} = props;
+  const {index, onHandleChange} = props;
 
   const handleChecked = (evt) => {
     if (evt.target.checked === true) {
-      handleChange(evt);
+      onHandleChange(evt);
     }
   };
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlayButton = ({handlerPlayClick}) => {
+const PlayButton = ({onHandlePlayClick}) => {
   return (
     <React.Fragment>
       <button
-        onClick={handlerPlayClick}
+        onClick={onHandlePlayClick}
         type="button"
         className="player__play">
         <svg viewBox="0 0 19 19" width="19" height="19">
@@ -18,7 +18,7 @@ const PlayButton = ({handlerPlayClick}) => {
 };
 
 PlayButton.propTypes = {
-  handlerPlayClick: PropTypes.func.isRequired,
+  onHandlePlayClick: PropTypes.func.isRequired,
 };
 
 export default PlayButton;

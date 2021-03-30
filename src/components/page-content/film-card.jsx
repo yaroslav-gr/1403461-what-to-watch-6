@@ -4,11 +4,10 @@ import VideoPlayer from '../video-player/mini-player';
 import {filmCardPropTypes} from '../../prop-types/prop-types';
 import {AppRoute} from '../../const/const';
 
-const FilmCard = (props) => {
-  const {film, isPlaying, handleHover} = props;
+const FilmCard = ({film, isPlaying, onHandleHover}) => {
   return (
     <React.Fragment>
-      <article className="small-movie-card catalog__movies-card" onMouseOver={() => handleHover(film)} onMouseOut={() => handleHover()}>
+      <article className="small-movie-card catalog__movies-card" onMouseOver={() => onHandleHover(film)} onMouseOut={() => onHandleHover()}>
         <div className="small-movie-card__image">
           <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink} isPlaying={isPlaying}/>
           

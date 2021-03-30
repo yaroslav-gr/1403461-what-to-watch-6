@@ -6,7 +6,7 @@ const FilmsList = ({filmsForRender}) => {
   const [currentFilmCard, setCurrentFilmCard] = useState({});
   const [isPlaying, setPlaying] = useState(false);
 
-  const handleHover = useCallback((film) => {
+  const onHandleHover = useCallback((film) => {
     setCurrentFilmCard(film);
     setPlaying(false);
   }, []);
@@ -31,7 +31,7 @@ const FilmsList = ({filmsForRender}) => {
             key={film.id}
             film={film}
             isPlaying={isPlaying && currentFilmCard.id === film.id}
-            handleHover={handleHover}/>)}
+            onHandleHover={onHandleHover}/>)}
       </div>
     </React.Fragment>
   );
