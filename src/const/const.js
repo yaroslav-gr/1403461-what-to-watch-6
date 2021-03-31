@@ -57,3 +57,8 @@ export const StatusFavorite = {
   ADD: 1,
   REMOVE: 0,
 };
+
+export const LogoClassNames = {
+  HEADER: `logo__link`,
+  FOOTER: `logo__link logo__link--light`,
+};

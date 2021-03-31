@@ -1,7 +1,7 @@
 import React from 'react';
+import Logo from '../logo/logo';
 import {useSelector, useDispatch} from 'react-redux';
-import {Link} from 'react-router-dom';
-import {AppRoute} from '../../const/const';
+import {AppRoute, LogoClassNames} from '../../const/const';
 import {redirectToRoute} from '../../store/action';
 import {userHeaderPropTypes} from '../../prop-types/prop-types';
 
@@ -12,13 +12,7 @@ const UserHeader = ({children}) => {
   return (
     <React.Fragment>
       <header className="page-header user-page__head">
-        <div className="logo">
-          <Link to={AppRoute.ROOT} className="logo__link">
-            <span className="logo__letter logo__letter--1">W</span>
-            <span className="logo__letter logo__letter--2">T</span>
-            <span className="logo__letter logo__letter--3">W</span>
-          </Link>
-        </div>
+        <Logo currentClasses={LogoClassNames.HEADER}/>
 
         {children}
         <div className="user-block">

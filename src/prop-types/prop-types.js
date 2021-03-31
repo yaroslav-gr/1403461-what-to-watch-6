@@ -90,3 +90,7 @@ export const filmReviewsPropTypes = {
 export const buttonsToggleFavorite = {
   id: PropTypes.number.isRequired,
 };
+
+ export const logoPropTypes = {
+  currentClasses: PropTypes.string.isRequired,
+ };
