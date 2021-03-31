@@ -22,7 +22,7 @@ const GenresList = () => {
     <React.Fragment>
       <ul className="catalog__genres-list">
 
-        {createCurrentGenreList().map((item, index) => (
+        {createCurrentGenreList().map((item) => (
           <li key={item} className={`catalog__genres-item ` + (item === activeGenre ? `catalog__genres-item--active ` : ``)}>
             <Link to="#" className="catalog__genres-link" onClick={(event) => {
               event.preventDefault();

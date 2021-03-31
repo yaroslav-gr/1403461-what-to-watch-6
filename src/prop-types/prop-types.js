@@ -31,17 +31,12 @@ export const filmsPropTypes = {
 export const filmCardPropTypes = {
   film: filmPropTypes.film,
   isPlaying: PropTypes.bool.isRequired,
-  handleHover: PropTypes.func.isRequired,
+  onHandleHover: PropTypes.func.isRequired,
 };
-
-export const addReviewsPropTypes = {
-  film: PropTypes.shape(filmShapePropTypes).isRequired,
-};
-
 
 export const inputRadioPropTypes = {
   index: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onHandleChange: PropTypes.func.isRequired,
 };
 
 export const filmInfoPagePropTypes = {
@@ -71,7 +66,7 @@ export const singInMessagePropTypes = {
 
 export const filmTabListPropTypes = {
   tabs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  handleChangeTab: PropTypes.func.isRequired,
+  onHandleChangeTab: PropTypes.func.isRequired,
   activeTabIndex: PropTypes.number.isRequired,
 };
 

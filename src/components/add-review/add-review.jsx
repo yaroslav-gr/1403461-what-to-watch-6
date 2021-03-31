@@ -5,7 +5,7 @@ import UserHeader from '../header/user-header';
 import ErrorMessage from './error-message';
 import {postComment} from '../../store/api-actions';
 import {Link} from 'react-router-dom';
-import {addReviewsPropTypes} from '../../prop-types/prop-types';
+import {filmPropTypes} from '../../prop-types/prop-types';
 import {AppRoute} from '../../const/const';
 import {setUploadCommentStatus} from '../../store/action';
 
@@ -107,6 +107,6 @@ const AddReview = ({film}) => {
   );
 };
 
-AddReview.propTypes = addReviewsPropTypes;
+AddReview.propTypes = filmPropTypes;
 
 export default AddReview;
