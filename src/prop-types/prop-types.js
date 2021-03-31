@@ -91,6 +91,6 @@ export const buttonsToggleFavorite = {
   id: PropTypes.number.isRequired,
 };
 
- export const logoPropTypes = {
+export const logoPropTypes = {
   currentClasses: PropTypes.string.isRequired,
- };
+};

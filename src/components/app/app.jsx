@@ -17,8 +17,8 @@ import {AppRoute} from '../../const/const';
 
 const App = () => {
   const films = useSelector((state) => state.FILMS.films);
-  const isErrorLoading =  useSelector((state) => state.FILMS.isErrorLoading);
-  const isDataLoaded =  useSelector((state) => state.FILMS.isDataLoaded);
+  const isErrorLoading = useSelector((state) => state.FILMS.isErrorLoading);
+  const isDataLoaded = useSelector((state) => state.FILMS.isDataLoaded);
 
   const dispatch = useDispatch();
 

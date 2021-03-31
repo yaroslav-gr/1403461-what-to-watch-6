@@ -11,7 +11,7 @@ const AddFavoriteButton = ({id}) => {
   const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
 
   const handlerButtonClick = () => {
-    if(authorizationStatus === AuthorizationStatus.AUTH) {
+    if (authorizationStatus === AuthorizationStatus.AUTH) {
       dispatch(toggleFavoriteFilm(id, StatusFavorite.ADD));
     } else {
       dispatch(redirectToRoute(AppRoute.LOGIN));

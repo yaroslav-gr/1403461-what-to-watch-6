@@ -66,22 +66,22 @@ const Player = ({film}) => {
 
   const exitFullscreen = () => {
     if (document.exitFullscreen) {
-        document.exitFullscreen();
+      document.exitFullscreen();
     } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
+      document.mozCancelFullScreen();
     } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
+      document.webkitExitFullscreen();
     } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
+      document.msExitFullscreen();
     }
   };
 
   const checkFullscreen = () => {
-    return document.fullscreenElement || 
-        document.mozFullScreenElement || 
-        document.webkitFullscreenElement || 
-        document.webkitFullscreenElement || 
-        document.msFullscreenElement;
+    return document.fullscreenElement ||
+      document.mozFullScreenElement ||
+      document.webkitFullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.msFullscreenElement;
   };
 
   const onHandleFullScreenClick = () => {

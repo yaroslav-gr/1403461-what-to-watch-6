@@ -24,7 +24,7 @@ const FilmTabs = ({film, reviews}) => {
     }
     return null;
   };
-  
+
   return (
     <React.Fragment>
       <div className="movie-card__desc">

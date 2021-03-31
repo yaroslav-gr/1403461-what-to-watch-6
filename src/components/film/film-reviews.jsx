@@ -5,7 +5,7 @@ import {filmReviewsPropTypes} from '../../prop-types/prop-types';
 const FilmReviews = ({reviews}) => {
 
   if (reviews.length === 0) {
-    return <h2 style={{textAlign: `center`, color: `#252525`}}>No any reviews yet.</h2>
+    return <h2 style={{textAlign: `center`, color: `#252525`}}>No any reviews yet.</h2>;
   }
 
   const firstColReviews = reviews.filter((review) => review.id % 2 !== 0);

@@ -10,7 +10,6 @@ const FilmCard = ({film, isPlaying, onHandleHover}) => {
       <article className="small-movie-card catalog__movies-card" onMouseOver={() => onHandleHover(film)} onMouseOut={() => onHandleHover()}>
         <div className="small-movie-card__image">
           <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink} isPlaying={isPlaying}/>
-          
         </div>
         <h3 className="small-movie-card__title">
           <Link className="small-movie-card__link" to={`${AppRoute.FILM_DETAILS}${film.id}`}>{film.name}</Link>

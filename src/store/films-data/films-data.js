@@ -67,7 +67,7 @@ const filmsData = createReducer(initialState, (builder) => {
   builder.addCase(getMoreLikeThisFilms, (state) => ({
     ...state,
     moreLikeThisFilms: (state.films.filter((film) => film.id !== state.filmInfo.id && film.genre === state.filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT),
-  }))
+  }));
 });
 
 export {filmsData};

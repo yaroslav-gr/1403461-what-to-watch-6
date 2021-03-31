@@ -13,7 +13,6 @@ const AddReview = ({film}) => {
   const dispatch = useDispatch();
   const uploadCommentStatus = useSelector((state) => state.FILMS.uploadCommentStatus);
   const isErrorUploadComment = useSelector((state) => state.FILMS.isErrorUploadComment);
-  
   const [userForm, setUserForm] = useState({
     'rating': ``,
     'review-text': ``,
