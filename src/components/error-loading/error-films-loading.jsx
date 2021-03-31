@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {fetchFilms} from '../../store/api-actions';
 
 const ErrorFilmsLoading = () => {
-  const {errorMessage} = useSelector((state) => state.FILMS);
+  const errorMessage = useSelector((state) => state.FILMS.errorMessage);
   const dispatch = useDispatch();
 
   const buttonStyle = {

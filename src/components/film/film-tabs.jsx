@@ -5,14 +5,13 @@ import FilmReviews from './film-reviews';
 import FilmDetails from './film-details';
 import {Tabs} from '../../const/const';
 import {filmPropTypes} from '../../prop-types/prop-types';
-import {reviews} from '../../moks/reviews';
 
-const FilmTabs = ({film}) => {
+const FilmTabs = ({film, reviews}) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   const tabs = Object.values(Tabs);
 
-  const handleChangeTab = (index) => setActiveTabIndex(index);
+  const onHandleChangeTab = (index) => setActiveTabIndex(index);
 
   const getTabContent = (index) => {
     switch (tabs[index]) {
@@ -31,7 +30,7 @@ const FilmTabs = ({film}) => {
       <div className="movie-card__desc">
         <FilmTabList
           tabs={tabs}
-          handleChangeTab={handleChangeTab}
+          onHandleChangeTab={onHandleChangeTab}
           activeTabIndex={activeTabIndex}/>
 
         {getTabContent(activeTabIndex)}

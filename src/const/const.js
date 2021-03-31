@@ -12,7 +12,7 @@ export const AppRoute = {
   MY_LIST: `/mylist`,
   FILM_DETAILS: `/films/`,
   ADD_REVIEW: `/films/:id/review`,
-  PLAYER: `/player/:id`,
+  PLAYER: `/player/`,
   ERROR: `/error`,
   NOT_FOUND: `/not-found`,
 };
@@ -21,6 +21,7 @@ export const APIRoute = {
   COMMENTS: `/comments/`,
   FILMS: `/films`,
   LOGIN: `/login`,
+  FAVORITE: `/favorite/`,
 };
 
 export const Tabs = {
@@ -50,4 +51,14 @@ export const Months = {
   10: `October`,
   11: `November`,
   12: `December`,
+};
+
+export const StatusFavorite = {
+  ADD: 1,
+  REMOVE: 0,
+};
+
+export const LogoClassNames = {
+  HEADER: `logo__link`,
+  FOOTER: `logo__link logo__link--light`,
 };

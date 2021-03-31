@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {COUNT_FILMS_FOR_SHOWING} from '../../const/const';
-import {setCurrentGenre, handleShowMoreByButton, resetCountShowingFilms, resetFilmList, loadFilms, setErrorLoading, loadFilmInfo} from '../action';
+import {COUNT_FILMS_FOR_SHOWING, MORE_LIKE_THIS_FILMS_COUNT} from '../../const/const';
+import {setCurrentGenre, handleShowMoreByButton, resetCountShowingFilms, resetFilmList, loadFilms, setErrorLoading, loadFilmInfo, setErrorUploadComment, setUploadCommentStatus, loadFilmReviews, getMoreLikeThisFilms} from '../action';
 
 const initialState = {
   films: [],
@@ -10,7 +10,11 @@ const initialState = {
   isDataLoaded: false,
   isErrorLoading: false,
   errorMessage: ``,
+  uploadCommentStatus: false,
+  isErrorUploadComment: false,
   filmInfo: {},
+  moreLikeThisFilms: [],
+  filmReviews: [],
 };
 
 const filmsData = createReducer(initialState, (builder) => {
@@ -47,6 +51,22 @@ const filmsData = createReducer(initialState, (builder) => {
   builder.addCase(loadFilmInfo, (state, action) => ({
     ...state,
     filmInfo: action.payload,
+  }));
+  builder.addCase(setUploadCommentStatus, (state, action) => ({
+    ...state,
+    uploadCommentStatus: action.payload,
+  }));
+  builder.addCase(setErrorUploadComment, (state, action) => ({
+    ...state,
+    isErrorUploadComment: action.payload,
+  }));
+  builder.addCase(loadFilmReviews, (state, action) => ({
+    ...state,
+    filmReviews: action.payload,
+  }));
+  builder.addCase(getMoreLikeThisFilms, (state) => ({
+    ...state,
+    moreLikeThisFilms: (state.films.filter((film) => film.id !== state.filmInfo.id && film.genre === state.filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT),
   }));
 });
 

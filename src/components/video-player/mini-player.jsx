@@ -1,8 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {videoPlayerPropTypes} from '../../prop-types/prop-types';
 
-const VideoPlayer = (props) => {
-  const {previewImage, previewVideoLink, isPlaying} = props;
+const VideoPlayer = ({previewImage, previewVideoLink, isPlaying}) => {
   const videoRef = useRef();
 
   useEffect(() =>{

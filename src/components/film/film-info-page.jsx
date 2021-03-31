@@ -6,25 +6,30 @@ import GuestHeader from '../header/guest-header';
 import Footer from '../footer/footer';
 import FilmTabs from './film-tabs';
 import LoadingScreen from '../loading-screen/loading-screen';
+import AddFavoriteButton from './add-favorite-button';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
-import {AuthorizationStatus, MORE_LIKE_THIS_FILMS_COUNT} from '../../const/const';
-import {fetchFilmInfo} from '../../store/api-actions';
+import {AuthorizationStatus, AppRoute} from '../../const/const';
+import {fetchFilmReviews, fetchFilmInfo} from '../../store/api-actions';
+import {getMoreLikeThisFilms, redirectToRoute} from '../../store/action';
+import RemoveFavoriteButton from './remove-favorite-button';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
-  const {films, filmInfo} = useSelector((state) => state.FILMS);
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
+  const filmInfo = useSelector((state) => state.FILMS.filmInfo);
+  const filmReviews = useSelector((state) => state.FILMS.filmReviews);
+  const moreLikeThisFilms = useSelector((state) => state.FILMS.moreLikeThisFilms);
 
   useEffect(() => {
     dispatch(fetchFilmInfo(id));
+    dispatch(fetchFilmReviews(id));
+    dispatch(getMoreLikeThisFilms());
   }, [id]);
 
   if (filmInfo.id !== id) {
     return <LoadingScreen/>;
   }
-
-  const moreLikeThisFilms = (films.filter((film) => film.id !== filmInfo.id && film.genre === filmInfo.genre)).slice(0, MORE_LIKE_THIS_FILMS_COUNT);
 
   return (
     <React.Fragment>
@@ -47,19 +52,17 @@ const FilmInfoPage = ({id}) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                  onClick={() => dispatch(redirectToRoute(`${AppRoute.PLAYER}${filmInfo.id}`))}
+                  className="btn btn--play movie-card__button"
+                  type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`/films/` + filmInfo.id + `/review`} className="btn movie-card__button">Add review</Link> : ``}
+                {filmInfo.isFavorite ? <RemoveFavoriteButton id={filmInfo.id}/> : <AddFavoriteButton id={filmInfo.id}/>}
+                {authorizationStatus === AuthorizationStatus.AUTH ? <Link to={`${AppRoute.FILM_DETAILS}${filmInfo.id}/review`} className="btn movie-card__button">Add review</Link> : ``}
               </div>
             </div>
           </div>
@@ -68,10 +71,10 @@ const FilmInfoPage = ({id}) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={filmInfo.posterImage} alt={filmInfo.name + `poster`} width="218" height="327" />
+              <img src={filmInfo.posterImage} alt={`${filmInfo.name} poster`} width="218" height="327" />
             </div>
 
-            <FilmTabs film={filmInfo}/>
+            <FilmTabs film={filmInfo} reviews={filmReviews}/>
           </div>
         </div>
       </section>
@@ -80,7 +83,7 @@ const FilmInfoPage = ({id}) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">{moreLikeThisFilms.length !== 0 ? `More like this` : `There are no similar movies :(`}</h2>
 
-          <FilmsList filmsForRender={moreLikeThisFilms}></FilmsList>
+          <FilmsList filmsForRender={moreLikeThisFilms}/>
 
         </section>
         <Footer />
@@ -91,4 +94,4 @@ const FilmInfoPage = ({id}) => {
 
 FilmInfoPage.propTypes = filmInfoPagePropTypes;
 
-export default FilmInfoPage;
+export default React.memo(FilmInfoPage);

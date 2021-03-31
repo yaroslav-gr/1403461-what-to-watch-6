@@ -1,10 +1,14 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import FilmsList from '../page-content/films-list';
 import UserHeader from '../header/user-header';
 import {AppRoute} from '../../const/const';
 
 const MyList = () => {
+  const films = useSelector((state) => state.FILMS.films);
+  const favoriteFilms = films.filter((film) => film.isFavorite);
+
   return (
     <React.Fragment>
       <div className="user-page">
@@ -14,8 +18,9 @@ const MyList = () => {
 
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
-
-          <FilmsList/>
+          {favoriteFilms.length ?
+            <FilmsList filmsForRender={favoriteFilms}/> :
+            <h3 style={{textAlign: `center`}}>You don&apos;t have any favorite movies yet.</h3>}
         </section>
 
         <footer className="page-footer">

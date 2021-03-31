@@ -3,12 +3,14 @@ import {useSelector, useDispatch} from 'react-redux';
 import PageContent from '../page-content/page-content';
 import GuestHeader from '../header/guest-header';
 import UserHeader from '../header/user-header';
-import {resetFilmList} from '../../store/action';
-import {AuthorizationStatus} from '../../const/const';
+import {redirectToRoute, resetFilmList} from '../../store/action';
+import {AppRoute, AuthorizationStatus} from '../../const/const';
+import RemoveFavoriteButton from '../film/remove-favorite-button';
+import AddFavoriteButton from '../film/add-favorite-button';
 
 const Main = () => {
   const film = useSelector((state) => state.FILMS.films[0]);
-  const {authorizationStatus} = useSelector((state) => state.LOGIN);
+  const authorizationStatus = useSelector((state) => state.LOGIN.authorizationStatus);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const Main = () => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src={film.posterImage} alt={film.name + ` poster`} width="218" height="327" />
+              <img src={film.posterImage} alt={`${film.name} poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -40,25 +42,23 @@ const Main = () => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <button
+                  onClick={() => dispatch(redirectToRoute(`${AppRoute.PLAYER}${film.id}`))}
+                  className="btn btn--play movie-card__button"
+                  type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
                 </button>
-                <button className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
+                {film.isFavorite ? <RemoveFavoriteButton id={film.id}/> : <AddFavoriteButton id={film.id}/>}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <PageContent></PageContent>
+      <PageContent/>
     </React.Fragment>
   );
 };
