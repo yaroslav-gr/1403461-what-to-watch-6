@@ -1,6 +1,17 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {COUNT_FILMS_FOR_SHOWING, MORE_LIKE_THIS_FILMS_COUNT} from '../../const/const';
-import {setCurrentGenre, handleShowMoreByButton, resetCountShowingFilms, resetFilmList, loadFilms, setErrorLoading, loadFilmInfo, setErrorUploadComment, setUploadCommentStatus, loadFilmReviews, getMoreLikeThisFilms} from '../action';
+import {
+  setCurrentGenre,
+  handleShowMoreByButton,
+  resetCountShowingFilms,
+  resetFilmList,
+  loadFilms,
+  setErrorLoading,
+  loadFilmInfo,
+  setErrorUploadComment,
+  setUploadCommentStatus,
+  loadFilmReviews,
+  getMoreLikeThisFilms} from '../action';
 
 const initialState = {
   films: [],

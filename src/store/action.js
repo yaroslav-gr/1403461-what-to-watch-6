@@ -52,7 +52,9 @@ export const redirectToRoute = createAction(ActionType.REDIRECT_TO_ROUTE, (url) 
   payload: url,
 }));
 
-export const setBadRequest = createAction(ActionType.SET_BAD_REQUEST);
+export const setBadRequest = createAction(ActionType.SET_BAD_REQUEST, (status) => ({
+  payload: status,
+}));
 
 export const setUploadCommentStatus = createAction(ActionType.SET_STATUS_UPLOAD_COMMENT, (status) => ({
   payload: status,
