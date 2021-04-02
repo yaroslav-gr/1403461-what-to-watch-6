@@ -1,5 +1,8 @@
 import {filmsData, initialState} from './films-data';
-import {COUNT_FILMS_FOR_SHOWING} from '../../const/const';
+import {COUNT_FILMS_FOR_SHOWING, APIRoute, AppRoute} from '../../const/const';
+import {createAPI} from '../../services/api';
+import {fetchFilmInfo, fetchFilmReviews, fetchFilms, postComment, toggleFavoriteFilm} from '../api-actions';
+import MockAdapter from 'axios-mock-adapter';
 import {
   setCurrentGenre,
   handleShowMoreByButton,
@@ -12,9 +15,12 @@ import {
   setUploadCommentStatus,
   loadFilmReviews,
   getMoreLikeThisFilms,
+  redirectToRoute,
 } from '../action';
 
-describe(`Reducer work correctly`, () => {
+const api = createAPI(() => {});
+
+describe(`Reducer 'filmsData' work correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(filmsData(undefined, {})).toEqual(initialState);
   });
@@ -141,5 +147,99 @@ describe(`Reducer work correctly`, () => {
       ...state,
       moreLikeThisFilms: [{id: 2, genre: `Thriller`}],
     });
+  });
+});
+
+describe(`Async operation work correctly`, () => {
+  it(`Should make a correct API call to /films`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const filmsLoader = fetchFilms();
+
+    apiMock
+      .onGet(APIRoute.FILMS)
+      .reply(200, [{fake: true}]);
+
+    return filmsLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, loadFilms([{fake: true}]));
+      });
+  });
+
+  it(`Should make a correct API call to /films/:id`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const id = 5;
+    const filmInfoLoader = fetchFilmInfo(id);
+
+    apiMock
+      .onGet(`${APIRoute.FILMS}/${id}`)
+      .reply(200, {fake: true});
+
+    return filmInfoLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(dispatch).toHaveBeenNthCalledWith(1, loadFilmInfo({fake: true}));
+        expect(dispatch).toHaveBeenNthCalledWith(2, getMoreLikeThisFilms());
+      });
+  });
+
+  it(`Should make a correct API call to GET /comments/:id`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const id = 5;
+    const filmReviewsLoader = fetchFilmReviews(id);
+
+    apiMock
+      .onGet(`${APIRoute.COMMENTS}${id}`)
+      .reply(200, [{fake: true}]);
+
+    return filmReviewsLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenNthCalledWith(1, loadFilmReviews([{fake: true}]));
+      });
+  });
+
+  it(`Should make a correct API call to POST /comments/:id`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const id = 5;
+    const fakeReview = {
+      rating: 5,
+      comment: `comment`
+    };
+    const reviewLoader = postComment(fakeReview, id);
+
+    apiMock
+      .onPost(`${APIRoute.COMMENTS}${id}`)
+      .reply(200);
+
+    return reviewLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(dispatch).toHaveBeenNthCalledWith(1, setUploadCommentStatus(false));
+        expect(dispatch).toHaveBeenNthCalledWith(2, redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`));
+      });
+  });
+
+  it(`Should make a correct API call to POST /favorite/:id/:status`, () => {
+    const apiMock = new MockAdapter(api);
+    const dispatch = jest.fn();
+    const id = 5;
+    const newStatus = true;
+    const favoriteStatusLoader = toggleFavoriteFilm(id, newStatus);
+    
+    apiMock
+      .onPost(`${APIRoute.FAVORITE}${id}/${newStatus}`)
+      .reply(200);
+
+    return favoriteStatusLoader(dispatch, () => {}, api)
+      .then(() => {
+        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(dispatch).toHaveBeenNthCalledWith(1, fetchFilms());
+        expect(dispatch).toHaveBeenNthCalledWith(2, fetchFilmInfo(id));
+      });
   });
 });

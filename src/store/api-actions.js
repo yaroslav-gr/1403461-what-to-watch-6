@@ -3,14 +3,14 @@ import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
 import {filmAdapter, filmsAdapter, userInfoAdapter} from '../utils/film';
 
 export const fetchFilms = () => (dispatch, _getState, api) => {
-  api.get(APIRoute.FILMS).
+  return api.get(APIRoute.FILMS).
     then(({data}) => filmsAdapter(data)).
     then((data) => dispatch(loadFilms(data))).
     catch((error) => dispatch(setErrorLoading(error)));
 };
 
 export const fetchFilmInfo = (id) => (dispatch, _getState, api) => {
-  api.get(`${APIRoute.FILMS}/${id}`).
+  return api.get(`${APIRoute.FILMS}/${id}`).
     then(({data}) => filmAdapter(data)).
     then((data) => {
       dispatch(loadFilmInfo(data));
@@ -20,19 +20,20 @@ export const fetchFilmInfo = (id) => (dispatch, _getState, api) => {
 };
 
 export const fetchFilmReviews = (id) => (dispatch, _getState, api) => {
-  api.get(`${APIRoute.COMMENTS}${id}`).
-  then(({data}) => dispatch(loadFilmReviews(data))).
-  catch(() => dispatch(redirectToRoute(AppRoute.ERROR)));
+  return api.get(`${APIRoute.COMMENTS}${id}`).
+    then(({data}) => dispatch(loadFilmReviews(data))).
+    catch(() => dispatch(redirectToRoute(AppRoute.ERROR)));
 };
 
 export const checkAuth = () => (dispatch, _getState, api) => {
-  api.get(APIRoute.LOGIN).then(({data}) => dispatch(getUserInfo(userInfoAdapter(data)))).
+  return api.get(APIRoute.LOGIN).
+    then(({data}) => dispatch(getUserInfo(userInfoAdapter(data)))).
     then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH))).
     catch(() => {});
 };
 
 export const login = ({email, password}) => (dispatch, _getState, api) => {
-  api.post(APIRoute.LOGIN, {email, password}).
+  return api.post(APIRoute.LOGIN, {email, password}).
     then(({data}) => {
       dispatch(getUserInfo(userInfoAdapter(data)));
       dispatch(redirectToRoute(AppRoute.ROOT));
@@ -44,21 +45,21 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
 };
 
 export const postComment = ({rating, comment}, id) => (dispatch, _getState, api) => {
-  api.post((`${APIRoute.COMMENTS}${id}`), {rating, comment}).
-  then(() => {
-    dispatch(setUploadCommentStatus(false));
-    dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`));
-  }).
-  catch(() => {
-    dispatch(setErrorUploadComment(true));
-    dispatch(setUploadCommentStatus(false));
-  });
+  return api.post((`${APIRoute.COMMENTS}${id}`), {rating, comment}).
+    then(() => {
+      dispatch(setUploadCommentStatus(false));
+      dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`));
+    }).
+    catch(() => {
+      dispatch(setErrorUploadComment(true));
+      dispatch(setUploadCommentStatus(false));
+    });
 };
 
 export const toggleFavoriteFilm = (id, status) => (dispatch, _getState, api) => {
-  api.post(`${APIRoute.FAVORITE}${id}/${status}`).
-  then(() => {
-    dispatch(fetchFilms());
-    dispatch(fetchFilmInfo(id));
-  });
+  return api.post(`${APIRoute.FAVORITE}${id}/${status}`).
+    then(() => {
+      dispatch(fetchFilms());
+      dispatch(fetchFilmInfo(id));
+    });
 };
