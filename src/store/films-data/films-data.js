@@ -13,7 +13,7 @@ import {
   loadFilmReviews,
   getMoreLikeThisFilms} from '../action';
 
-const initialState = {
+export const initialState = {
   films: [],
   activeGenre: `All genres`,
   filmListByGenre: [],

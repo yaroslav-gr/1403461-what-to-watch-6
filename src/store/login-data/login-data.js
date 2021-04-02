@@ -2,7 +2,7 @@ import {createReducer} from '@reduxjs/toolkit';
 import {AuthorizationStatus} from '../../const/const';
 import {setBadRequest, requireAuthorization} from '../action';
 
-const initialState = {
+export const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
   isBadRequest: false,
 };

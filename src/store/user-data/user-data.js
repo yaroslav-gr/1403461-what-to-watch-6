@@ -1,7 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {getUserInfo} from '../action';
 
-const initialState = {
+export const initialState = {
   userInfo: {},
 };
 
