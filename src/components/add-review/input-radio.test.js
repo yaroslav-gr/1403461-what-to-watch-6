@@ -4,7 +4,7 @@ import InputRadio from './input-radio';
 
 it(`InputRadio should render correctly`, () => {
   const {getByText} = render(
-    <InputRadio index={5} onHandleChange={() => {}}/>
+      <InputRadio index={5} onHandleChange={() => {}}/>
   );
 
   const labelElement = getByText(`Rating 5`);

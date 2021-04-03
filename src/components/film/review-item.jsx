@@ -3,7 +3,6 @@ import {formatDate} from '../../utils/film';
 import {reviewItemPropTypes} from '../../prop-types/prop-types';
 
 const ReviewItem = ({review}) => {
-  console.log(review);
   return (
     <React.Fragment>
       <div className="review">

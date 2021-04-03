@@ -4,7 +4,7 @@ import ErrorMessage from './error-message';
 
 it(`NotFoundScreen should render correctly`, () => {
   const {getByText} = render(
-    <ErrorMessage/>
+      <ErrorMessage/>
   );
 
   const titleElement = getByText(`An error occurred loading the comment. Try again or later.`);

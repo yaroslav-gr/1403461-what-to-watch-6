@@ -10,9 +10,9 @@ it(`FilmTabList should render correctly`, () => {
   const fakeTabIndex = 0;
 
   const {getByText} = render(
-    <Router history={history}>
-      <FilmTabList tabs={fakeTabs} onHandleChangeTab={() => {}} activeTabIndex={fakeTabIndex}/>
-    </Router>
+      <Router history={history}>
+        <FilmTabList tabs={fakeTabs} onHandleChangeTab={() => {}} activeTabIndex={fakeTabIndex}/>
+      </Router>
   );
 
   const linkElementOverview = getByText(`Overview`);

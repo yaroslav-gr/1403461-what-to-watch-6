@@ -8,9 +8,9 @@ it(`Footer should render correctly`, () => {
   const history = createMemoryHistory();
 
   const {getByText} = render(
-    <Router history={history}>
-      <Footer/>
-    </Router>
+      <Router history={history}>
+        <Footer/>
+      </Router>
   );
 
   const paragrafElement = getByText(`© 2019 What to watch Ltd.`);

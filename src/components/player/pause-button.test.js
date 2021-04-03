@@ -4,7 +4,7 @@ import PauseButton from './pause-button';
 
 it(`PauseButton should render correctly`, () => {
   const {getByText} = render(
-    <PauseButton onHandlePauseClick={() => {}}/>
+      <PauseButton onHandlePauseClick={() => {}}/>
   );
 
   const spanElement = getByText(`Pause`);

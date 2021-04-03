@@ -4,7 +4,7 @@ import PlayButton from './play-button';
 
 it(`PlayButton should render correctly`, () => {
   const {getByText} = render(
-    <PlayButton onHandlePlayClick={() => {}}/>
+      <PlayButton onHandlePlayClick={() => {}}/>
   );
 
   const spanElement = getByText(`Play`);

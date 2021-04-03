@@ -4,7 +4,7 @@ import FullScreenButton from './full-screen-button';
 
 it(`FullScreenButton should render correctly`, () => {
   const {getByText} = render(
-    <FullScreenButton onHandleFullScreenClick={() => {}}/>
+      <FullScreenButton onHandleFullScreenClick={() => {}}/>
   );
 
   const spanElement = getByText(`Full screen`);

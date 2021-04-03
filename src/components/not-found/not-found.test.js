@@ -8,9 +8,9 @@ it(`NotFound should render correctly`, () => {
   const history = createMemoryHistory();
 
   const {getByText} = render(
-    <Router history={history}>
-      <NotFound/>
-    </Router>
+      <Router history={history}>
+        <NotFound/>
+      </Router>
   );
 
   const headerElement = getByText(`404 Page Not Found`);

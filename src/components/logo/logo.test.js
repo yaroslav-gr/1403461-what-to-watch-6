@@ -8,14 +8,14 @@ it(`Logo should render correctly`, () => {
   const fakeCurrentClasses = ``;
   const history = createMemoryHistory();
   const {getByText, getAllByText} = render(
-    <Router history={history}>
-      <Logo currentClasses={fakeCurrentClasses}/>
-    </Router>
+      <Router history={history}>
+        <Logo currentClasses={fakeCurrentClasses}/>
+      </Router>
   );
 
   const spanElemetsW = getAllByText(`W`);
   const spanElemetT = getByText(`T`);
 
-  spanElemetsW.forEach((element) => expect(element).toBeInTheDocument())
+  spanElemetsW.forEach((element) => expect(element).toBeInTheDocument());
   expect(spanElemetT).toBeInTheDocument();
 });

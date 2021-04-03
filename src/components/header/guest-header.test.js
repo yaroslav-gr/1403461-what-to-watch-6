@@ -7,9 +7,9 @@ import GuestHeader from './guest-header';
 it(`GuestHeader should render correctly`, () => {
   const history = createMemoryHistory();
   const {getByText} = render(
-    <Router history={history}>
-      <GuestHeader/>
-    </Router>
+      <Router history={history}>
+        <GuestHeader/>
+      </Router>
   );
 
   const linkElement = getByText(`Sign in`);
