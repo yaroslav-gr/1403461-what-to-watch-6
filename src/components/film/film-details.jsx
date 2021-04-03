@@ -3,6 +3,7 @@ import {formatRunTime} from '../../utils/film';
 import {filmPropTypes} from '../../prop-types/prop-types';
 
 const FilmDetails = ({film}) => {
+  console.log(film);
   return (
     <React.Fragment>
       <div className="movie-card__text movie-card__row">
