@@ -20,7 +20,7 @@ import {
 import {AuthorizationStatus} from '../const/const';
 
 describe(`Action creators work correctly`, () => {
-  it (`Action creator setCurrentGenre returns correct action`, () => {
+  it(`Action creator setCurrentGenre returns correct action`, () => {
     const newGenre = `genre`;
 
     const expectedAction = {
@@ -198,5 +198,4 @@ describe(`Action creators work correctly`, () => {
 
     expect(getMoreLikeThisFilms()).toEqual(expectedAction);
   });
- });
- 
+});

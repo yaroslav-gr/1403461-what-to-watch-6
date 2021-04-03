@@ -1,7 +1,7 @@
 import {filmsData, initialState} from './films-data';
 import {COUNT_FILMS_FOR_SHOWING, APIRoute, AppRoute} from '../../const/const';
 import {createAPI} from '../../services/api';
-import {fetchFilmInfo, fetchFilmReviews, fetchFilms, postComment, toggleFavoriteFilm} from '../api-actions';
+import {fetchFilmInfo, fetchFilmReviews, fetchFilms, postComment} from '../api-actions';
 import MockAdapter from 'axios-mock-adapter';
 import {
   setCurrentGenre,
@@ -47,14 +47,14 @@ describe(`Reducer 'filmsData' work correctly`, () => {
     });
   });
 
-  it (`Reduser should return new countShowingFilms increased by COUNT_FILMS_FOR_SHOWING value`, () => {
+  it(`Reduser should return new countShowingFilms increased by COUNT_FILMS_FOR_SHOWING value`, () => {
     expect(filmsData({countShowingFilms: COUNT_FILMS_FOR_SHOWING}, handleShowMoreByButton())).toEqual({
       countShowingFilms: 16,
     });
   });
 
   it(`Reducer should return original value of countShowingFilms`, () => {
-    expect(filmsData({countShowingFilms: COUNT_FILMS_FOR_SHOWING * 2}, resetCountShowingFilms())).toEqual({ countShowingFilms: 8 })
+    expect(filmsData({countShowingFilms: COUNT_FILMS_FOR_SHOWING * 2}, resetCountShowingFilms())).toEqual({countShowingFilms: 8});
   });
 
   it(`Reduser should return reseted state`, () => {
@@ -79,7 +79,7 @@ describe(`Reducer 'filmsData' work correctly`, () => {
       films: [],
       isDataLoaded: false,
       filmListByGenre: [],
-    }
+    };
 
     expect(filmsData(state, loadFilms(loadedFilms))).toEqual({
       ...state,
@@ -111,7 +111,7 @@ describe(`Reducer 'filmsData' work correctly`, () => {
   it(`Reducer should set new value for filmInfo`, () => {
     const info = {id: 1, name: `film name`};
 
-    expect(filmsData({filmInfo: {}}, loadFilmInfo(info))).toEqual({filmInfo: info})
+    expect(filmsData({filmInfo: {}}, loadFilmInfo(info))).toEqual({filmInfo: info});
   });
 
   it(`Reducer shult set new status for loading status comments`, () => {
@@ -221,25 +221,6 @@ describe(`Async operation work correctly`, () => {
         expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, setUploadCommentStatus(false));
         expect(dispatch).toHaveBeenNthCalledWith(2, redirectToRoute(`${AppRoute.FILM_DETAILS}${id}`));
-      });
-  });
-
-  it(`Should make a correct API call to POST /favorite/:id/:status`, () => {
-    const apiMock = new MockAdapter(api);
-    const dispatch = jest.fn();
-    const id = 5;
-    const newStatus = true;
-    const favoriteStatusLoader = toggleFavoriteFilm(id, newStatus);
-    
-    apiMock
-      .onPost(`${APIRoute.FAVORITE}${id}/${newStatus}`)
-      .reply(200);
-
-    return favoriteStatusLoader(dispatch, () => {}, api)
-      .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(2);
-        expect(dispatch).toHaveBeenNthCalledWith(1, fetchFilms());
-        expect(dispatch).toHaveBeenNthCalledWith(2, fetchFilmInfo(id));
       });
   });
 });
