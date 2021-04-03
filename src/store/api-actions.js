@@ -63,3 +63,11 @@ export const toggleFavoriteFilm = (id, status) => (dispatch, _getState, api) => 
       dispatch(fetchFilmInfo(id));
     });
 };
+
+export const fakeToggleFavoriteFilm = (id, status) => (dispatch, _getState, api) => {
+  return api.post(`${APIRoute.FAVORITE}${id}/${status}`).
+    then(() => {
+      dispatch(fetchFilms);
+      dispatch(fetchFilmInfo);
+    });
+};
