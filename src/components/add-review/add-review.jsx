@@ -68,11 +68,12 @@ const AddReview = ({film}) => {
             onSubmit={handleSubmit}
             disabled={uploadCommentStatus}
             action="#"
-            className="add-review__form">
+            className="add-review__form"
+            data-testid="form">
             <div className="rating">
               <div className="rating__stars">
 
-                {new Array(INPUT_RADIO_COUNT).fill(1).map((item, index) => {
+                {new Array(INPUT_RADIO_COUNT).fill(1).map((_item, index) => {
                   return (
                     <InputRadio key={index + 1} index={index + 1} onHandleChange={onHandleChange}/>
                   );
@@ -88,7 +89,8 @@ const AddReview = ({film}) => {
                 onChange={onHandleChange}
                 className="add-review__textarea"
                 name="review-text" id="review-text"
-                placeholder="Review text"></textarea>
+                placeholder="Review text"
+                data-testid="review"></textarea>
               <div className="add-review__submit">
                 <button
                   className="add-review__btn"
