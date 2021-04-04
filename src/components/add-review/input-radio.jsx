@@ -10,7 +10,13 @@ const InputRadio = ({index, onHandleChange}) => {
 
   return (
     <React.Fragment>
-      <input className="rating__input" id={`star-` + index} type="radio" name="rating" value={index} onChange={handleChecked}/>
+      <input
+      className="rating__input"
+      id={`star-` + index}
+      type="radio" name="rating"
+      value={index}
+      onChange={handleChecked}
+      data-testid="input-radio"/>
       <label className="rating__label" htmlFor={`star-` + index}>Rating {index}</label>
     </React.Fragment>
   );

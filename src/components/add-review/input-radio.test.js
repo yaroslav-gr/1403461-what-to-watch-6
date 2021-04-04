@@ -1,13 +1,18 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import InputRadio from './input-radio';
 
 it(`InputRadio should render correctly`, () => {
-  const {getByText} = render(
-      <InputRadio index={5} onHandleChange={() => {}}/>
+  const replayChangeHandle = jest.fn();
+  replayChangeHandle.mockImplementation(() => {});
+
+  render(
+      <InputRadio index={5} onHandleChange={replayChangeHandle}/>
   );
 
-  const labelElement = getByText(`Rating 5`);
-
+  const labelElement = screen.getByText(`Rating 5`);
   expect(labelElement).toBeInTheDocument();
+
+  fireEvent.click(screen.getByTestId(`input-radio`));
+  expect(replayChangeHandle).toHaveBeenCalled()
 });
