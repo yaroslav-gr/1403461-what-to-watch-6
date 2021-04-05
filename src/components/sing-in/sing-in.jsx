@@ -1,10 +1,10 @@
 import React, {useRef, useState, useEffect} from 'react';
 import Footer from '../footer/footer';
 import SingInMessage from './sing-in-message';
-import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {login} from '../../store/api-actions';
-import {AppRoute} from '../../const/const';
+import {LogoClassNames} from '../../const/const';
+import Logo from '../logo/logo';
 
 const SingIn = () => {
   const isBadRequest = useSelector((state) => state.LOGIN.isBadRequest);
@@ -39,14 +39,7 @@ const SingIn = () => {
     <React.Fragment>
       <div className="user-page">
         <header className="page-header user-page__head">
-          <div className="logo">
-            <Link to={AppRoute.ROOT} className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </Link>
-          </div>
-
+          <Logo currentClasses={LogoClassNames.HEADER}/>
           <h1 className="page-title user-page__title">Sign in</h1>
         </header>
 
@@ -67,7 +60,8 @@ const SingIn = () => {
                   placeholder="Email address"
                   name="user-email"
                   id="user-email"
-                  required/>
+                  required
+                  data-testid="user-email"/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
               </div>
               <div className="sign-in__field">
@@ -79,12 +73,16 @@ const SingIn = () => {
                   placeholder="Password"
                   name="user-password"
                   id="user-password"
-                  required/>
+                  required
+                  data-testid="user-password"/>
                 <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
               </div>
             </div>
             <div className="sign-in__submit">
-              <button className="sign-in__btn" type="submit">Sign in</button>
+              <button
+              className="sign-in__btn"
+              type="submit"
+              data-testid="submit-button">Sign in</button>
             </div>
           </form>
         </div>
