@@ -7,7 +7,11 @@ import {AppRoute} from '../../const/const';
 const FilmCard = ({film, isPlaying, onHandleHover}) => {
   return (
     <React.Fragment>
-      <article className="small-movie-card catalog__movies-card" onMouseOver={() => onHandleHover(film)} onMouseOut={() => onHandleHover()}>
+      <article
+      className="small-movie-card catalog__movies-card"
+      onMouseOver={() => onHandleHover(film)}
+      onMouseOut={() => onHandleHover()}
+      data-testid="article">
         <div className="small-movie-card__image">
           <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink} isPlaying={isPlaying}/>
         </div>
