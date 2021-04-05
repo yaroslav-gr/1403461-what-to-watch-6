@@ -7,7 +7,8 @@ const PauseButton = ({onHandlePauseClick}) => {
       <button
         onClick={onHandlePauseClick}
         type="button"
-        className="player__play">
+        className="player__play"
+        data-testid="pause-button">
         <svg viewBox="0 0 14 21" width="14" height="21">
           <use xlinkHref="#pause"></use>
         </svg>
