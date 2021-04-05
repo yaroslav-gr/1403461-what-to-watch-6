@@ -15,9 +15,14 @@ const VideoPlayer = ({previewImage, previewVideoLink, isPlaying}) => {
 
   return (
     <React.Fragment>
-      <video width="280" height="175"
-        poster={previewImage} loop muted
-        ref={videoRef}>
+      <video
+        loop
+        muted
+        width="280"
+        height="175"
+        poster={previewImage}
+        ref={videoRef}
+        data-testid="video-player">Some Text
         <source src={previewVideoLink}/>
       </video>
     </React.Fragment>
