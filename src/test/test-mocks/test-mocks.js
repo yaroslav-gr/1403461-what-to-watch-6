@@ -5,7 +5,7 @@ export const fakeFilm = {
   director: `Wes Anderson`,
   genre: `Adventure`,
   id: 3,
-  isFavorite: true,
+  isFavorite: false,
   name: `Dardjeeling Limited`,
   posterImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Dardjeeling_Limited.jpg`,
   previewImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/dardjeeling_limited.jpg`,
