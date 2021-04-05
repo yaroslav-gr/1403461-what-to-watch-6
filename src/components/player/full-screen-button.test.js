@@ -1,13 +1,24 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import FullScreenButton from './full-screen-button';
 
-it(`FullScreenButton should render correctly`, () => {
-  const {getByText} = render(
+describe(`FullScreenButton should work correctly`, () => {
+  it(`FullScreenButton should render correctly`, () => {
+    render(
       <FullScreenButton onHandleFullScreenClick={() => {}}/>
-  );
+    );
 
-  const spanElement = getByText(`Full screen`);
+    expect(screen.getByText(`Full screen`)).toBeInTheDocument();
+  });
 
-  expect(spanElement).toBeInTheDocument();
+  it(`FullScreenButton should call calback`, () => {
+    const onHandleFullScreenClick = jest.fn();
+
+    render(
+      <FullScreenButton onHandleFullScreenClick={onHandleFullScreenClick}/>
+    );
+
+    fireEvent.click(screen.getByTestId(`fullscreen-button`));
+    expect(onHandleFullScreenClick).toBeCalled();
+  });
 });

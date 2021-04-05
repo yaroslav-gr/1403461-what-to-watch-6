@@ -1,13 +1,24 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import PauseButton from './pause-button';
 
-it(`PauseButton should render correctly`, () => {
-  const {getByText} = render(
+describe(`PauseButton should work correctly`, () => {
+  it(`PauseButton should render correctly`, () => {
+    render(
       <PauseButton onHandlePauseClick={() => {}}/>
-  );
+    );
 
-  const spanElement = getByText(`Pause`);
+    expect(screen.getByTestId(`pause-button`)).toBeInTheDocument();
+  });
 
-  expect(spanElement).toBeInTheDocument();
+  it(`PauseButton should call calback`, () => {
+    const onHandlePauseClick = jest.fn();
+
+    render(
+      <PauseButton onHandlePauseClick={onHandlePauseClick}/>
+    );
+
+    fireEvent.click(screen.getByTestId(`pause-button`));
+    expect(onHandlePauseClick).toBeCalled();
+  });
 });

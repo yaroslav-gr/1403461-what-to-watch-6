@@ -7,7 +7,8 @@ const FullScreenButton = ({onHandleFullScreenClick}) => {
       <button
         onClick={onHandleFullScreenClick}
         type="button"
-        className="player__full-screen">
+        className="player__full-screen"
+        data-testid="fullscreen-button">
         <svg viewBox="0 0 27 27" width="27" height="27">
           <use xlinkHref="#full-screen"></use>
         </svg>
