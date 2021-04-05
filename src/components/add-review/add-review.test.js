@@ -26,11 +26,11 @@ describe(`Test AddReview`, () => {
 
   it(`AddReview should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <AddReview film={fakeFilm} />
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <AddReview film={fakeFilm} />
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();
@@ -40,11 +40,11 @@ describe(`Test AddReview`, () => {
 
   it(`Form should responds correctly to user's action `, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <AddReview film={fakeFilm} />
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <AddReview film={fakeFilm} />
+          </Router>
+        </Provider>
     );
 
     userEvent.type(screen.getByTestId(`review`), fakeShortComment);

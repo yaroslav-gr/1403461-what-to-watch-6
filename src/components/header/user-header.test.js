@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import UserHeader from './user-header';
 import {render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
@@ -23,11 +23,13 @@ describe(`UserHeader should work correctly`, () => {
 
   it(`UserHeader should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <UserHeader children={<p></p>}/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <UserHeader>
+              <p></p>
+            </UserHeader>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/q@gmail.com/i)).toBeInTheDocument();

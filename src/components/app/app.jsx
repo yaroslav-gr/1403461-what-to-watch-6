@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Main from '../main/main';
 import AddReview from '../add-review/add-review';
 import MyList from '../my-list/my-list';

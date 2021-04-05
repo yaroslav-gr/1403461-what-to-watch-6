@@ -80,9 +80,9 @@ const SingIn = () => {
             </div>
             <div className="sign-in__submit">
               <button
-              className="sign-in__btn"
-              type="submit"
-              data-testid="submit-button">Sign in</button>
+                className="sign-in__btn"
+                type="submit"
+                data-testid="submit-button">Sign in</button>
             </div>
           </form>
         </div>

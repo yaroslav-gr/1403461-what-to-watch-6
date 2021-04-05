@@ -39,11 +39,11 @@ describe(`Main should work correctly`, () => {
 
   it(`Main should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <Main/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <Main/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import AddFavoriteButton from './add-favorite-button';
 import {render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
@@ -17,9 +17,9 @@ describe(`AddFavoriteButton should work correctly`, () => {
 
   it(`AddFavoriteButton should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <AddFavoriteButton id={5}/>
-      </Provider>
+        <Provider store={store}>
+          <AddFavoriteButton id={5}/>
+        </Provider>
     );
 
     expect(screen.getByText(/My list/i)).toBeInTheDocument();

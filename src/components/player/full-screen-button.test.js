@@ -5,7 +5,7 @@ import FullScreenButton from './full-screen-button';
 describe(`FullScreenButton should work correctly`, () => {
   it(`FullScreenButton should render correctly`, () => {
     render(
-      <FullScreenButton onHandleFullScreenClick={() => {}}/>
+        <FullScreenButton onHandleFullScreenClick={() => {}}/>
     );
 
     expect(screen.getByText(`Full screen`)).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe(`FullScreenButton should work correctly`, () => {
     const onHandleFullScreenClick = jest.fn();
 
     render(
-      <FullScreenButton onHandleFullScreenClick={onHandleFullScreenClick}/>
+        <FullScreenButton onHandleFullScreenClick={onHandleFullScreenClick}/>
     );
 
     fireEvent.click(screen.getByTestId(`fullscreen-button`));

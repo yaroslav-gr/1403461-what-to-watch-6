@@ -4,7 +4,7 @@ import LoadingScreen from './loading-screen';
 
 it(`LoadinScreen should render correctly`, () => {
   render(
-    <LoadingScreen/>
+      <LoadingScreen/>
   );
 
   expect(screen.getByText(/Loading.../i)).toBeInTheDocument();

@@ -8,9 +8,9 @@ it(`Footer should render correctly`, () => {
   const history = createMemoryHistory();
 
   render(
-    <Router history={history}>
-      <Footer/>
-    </Router>
+      <Router history={history}>
+        <Footer/>
+      </Router>
   );
 
   expect(screen.getByText(/© 2019 What to watch Ltd./i)).toBeInTheDocument();

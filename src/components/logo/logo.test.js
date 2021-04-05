@@ -8,9 +8,9 @@ it(`Logo should render correctly`, () => {
   const fakeCurrentClasses = ``;
   const history = createMemoryHistory();
   render(
-    <Router history={history}>
-      <Logo currentClasses={fakeCurrentClasses}/>
-    </Router>
+      <Router history={history}>
+        <Logo currentClasses={fakeCurrentClasses}/>
+      </Router>
   );
 
   screen.getAllByText(/W/i).forEach((element) => expect(element).toBeInTheDocument());

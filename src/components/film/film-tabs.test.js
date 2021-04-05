@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FilmTabs from './film-tabs';
 import {render, screen} from '@testing-library/react';
 import {fakeFilm} from '../../test/test-mocks/test-mocks';
@@ -19,7 +19,7 @@ describe(`FilmTabs should work correctly`, () => {
     const fakeReviews = [];
 
     render(
-      <FilmTabs film={fakeFilm} reviews={fakeReviews}/>
+        <FilmTabs film={fakeFilm} reviews={fakeReviews}/>
     );
 
     expect(screen.getByText(/This is mock FilmTabList/i)).toBeInTheDocument();

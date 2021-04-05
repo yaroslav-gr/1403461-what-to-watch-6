@@ -5,7 +5,7 @@ import PlayButton from './play-button';
 describe(`PlayButton should work correctly`, () => {
   it(`PlayButton should render correctly`, () => {
     render(
-      <PlayButton onHandlePlayClick={() => {}}/>
+        <PlayButton onHandlePlayClick={() => {}}/>
     );
 
     expect(screen.getByTestId(`play-button`)).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe(`PlayButton should work correctly`, () => {
     const onHandlePlayClick = jest.fn();
 
     render(
-      <PlayButton onHandlePlayClick={onHandlePlayClick}/>
+        <PlayButton onHandlePlayClick={onHandlePlayClick}/>
     );
 
     fireEvent.click(screen.getByTestId(`play-button`));

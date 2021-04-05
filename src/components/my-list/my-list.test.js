@@ -24,11 +24,11 @@ describe(`MyList should work correctly`, () => {
 
   it(`MyList should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <MyList/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <MyList/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/My list/i)).toBeInTheDocument();

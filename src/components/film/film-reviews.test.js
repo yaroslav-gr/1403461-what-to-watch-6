@@ -4,7 +4,7 @@ import FilmReviews from './film-reviews';
 
 it(`FilmReviews should render correctly`, () => {
   render(
-    <FilmReviews reviews={[]}/>
+      <FilmReviews reviews={[]}/>
   );
 
   expect(screen.getByText(/No any reviews yet./i)).toBeInTheDocument();

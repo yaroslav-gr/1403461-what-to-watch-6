@@ -29,10 +29,10 @@ const store = configureStore({
 store.dispatch(checkAuth());
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter history={browserHistory}>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+    <Provider store={store}>
+      <BrowserRouter history={browserHistory}>
+        <App />
+      </BrowserRouter>
+    </Provider>,
     document.querySelector(`#root`)
 );

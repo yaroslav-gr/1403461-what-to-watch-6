@@ -13,9 +13,9 @@ describe(`VideoPlayer should work correctly`, () => {
     const mockPath = `mock-path`;
 
     render(
-      <VideoPlayer previewImage={``} previewVideoLink={mockPath} isPlaying={true}/>
+        <VideoPlayer previewImage={``} previewVideoLink={mockPath} isPlaying={true}/>
     );
 
-    expect(screen.getByTestId(`video-player`)).toBeInTheDocument()
+    expect(screen.getByTestId(`video-player`)).toBeInTheDocument();
   });
 });

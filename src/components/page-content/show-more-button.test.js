@@ -12,9 +12,9 @@ describe(`ShowMoreButton should work correctly`, () => {
 
   it(`ShowMoreButton sgould render correctly`, () => {
     render(
-      <Provider store={store}>
-        <ShowMoreButton/>
-      </Provider>
+        <Provider store={store}>
+          <ShowMoreButton/>
+        </Provider>
     );
 
     expect(screen.getByText(/Show more/i)).toBeInTheDocument();

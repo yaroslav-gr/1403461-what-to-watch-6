@@ -5,7 +5,7 @@ import {fakeFilm} from '../../test/test-mocks/test-mocks';
 
 it(`FilmOverview should render correctly`, () => {
   render(
-    <FilmOverview film={fakeFilm}/>
+      <FilmOverview film={fakeFilm}/>
   );
 
   expect(screen.getByText(/3.6/i)).toBeInTheDocument();

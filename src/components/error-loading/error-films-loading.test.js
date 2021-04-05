@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ErrorFilmsLoading from './error-films-loading';
 import {render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
@@ -16,9 +16,9 @@ describe(`ErrorFilmsLoading should work correctly`, () => {
 
   it(`ErrorFilmsLoading should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <ErrorFilmsLoading/>
-      </Provider>
+        <Provider store={store}>
+          <ErrorFilmsLoading/>
+        </Provider>
     );
 
     expect(screen.getByText(/some message/i)).toBeInTheDocument();

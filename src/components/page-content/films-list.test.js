@@ -23,11 +23,11 @@ describe(`FilmsList should work correctly`, () => {
 
   it(`FilmsList should render correctly`, () => {
     render(
-      <Router history={history}>
-        <FilmsList filmsForRender={fakeFilms}/>
-      </Router>
+        <Router history={history}>
+          <FilmsList filmsForRender={fakeFilms}/>
+        </Router>
     );
 
-    screen.getAllByText(/Dardjeeling Limited/i).forEach(item => expect(item).toBeInTheDocument());
+    screen.getAllByText(/Dardjeeling Limited/i).forEach((item) => expect(item).toBeInTheDocument());
   });
 });

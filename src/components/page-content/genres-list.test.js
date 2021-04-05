@@ -22,13 +22,13 @@ describe(`GenresList should work correctly`, () => {
 
   it(`GenresList should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <GenresList/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <GenresList/>
+          </Router>
+        </Provider>
     );
 
-    screen.getAllByText(/Adventure/i).forEach(item => expect(item).toBeInTheDocument());
+    screen.getAllByText(/Adventure/i).forEach((item) => expect(item).toBeInTheDocument());
   });
 });

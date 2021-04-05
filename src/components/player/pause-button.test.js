@@ -5,7 +5,7 @@ import PauseButton from './pause-button';
 describe(`PauseButton should work correctly`, () => {
   it(`PauseButton should render correctly`, () => {
     render(
-      <PauseButton onHandlePauseClick={() => {}}/>
+        <PauseButton onHandlePauseClick={() => {}}/>
     );
 
     expect(screen.getByTestId(`pause-button`)).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe(`PauseButton should work correctly`, () => {
     const onHandlePauseClick = jest.fn();
 
     render(
-      <PauseButton onHandlePauseClick={onHandlePauseClick}/>
+        <PauseButton onHandlePauseClick={onHandlePauseClick}/>
     );
 
     fireEvent.click(screen.getByTestId(`pause-button`));

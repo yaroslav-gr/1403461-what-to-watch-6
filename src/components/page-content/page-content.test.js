@@ -45,11 +45,11 @@ describe(`PageContent shuold work correctly`, () => {
 
   it(`PageContent should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <PageContent/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <PageContent/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Catalog/i)).toBeInTheDocument();

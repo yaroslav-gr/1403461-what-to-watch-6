@@ -5,7 +5,7 @@ import SingInMessage from './sing-in-message';
 it(`SingInMessage should render correctly`, () => {
   const fakeMessage = `fake message`;
   render(
-    <SingInMessage message={fakeMessage}/>
+      <SingInMessage message={fakeMessage}/>
   );
 
   expect(screen.getByText(/fake message/i)).toBeInTheDocument();

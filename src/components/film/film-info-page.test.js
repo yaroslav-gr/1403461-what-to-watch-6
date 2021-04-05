@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import FilmInfoPage from './film-info-page';
 import {render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
@@ -72,7 +72,7 @@ jest.mock(`../loading-screen/loading-screen`, () => {
   };
 });
 
-describe(`FilmInfoPage should work correctly`, () => {  
+describe(`FilmInfoPage should work correctly`, () => {
   history = createMemoryHistory();
   beforeEach(() => {
     store = mockStore({
@@ -83,17 +83,17 @@ describe(`FilmInfoPage should work correctly`, () => {
         filmInfo: fakeFilm,
         moreLikeThisFilms: []
       },
-    })
+    });
   });
 
 
   it(`FilmInfoPage should render correctly`, () => {
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <FilmInfoPage id={fakeFilm.id}/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <FilmInfoPage id={fakeFilm.id}/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();
@@ -104,11 +104,11 @@ describe(`FilmInfoPage should work correctly`, () => {
     const fakeId = 5;
 
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <FilmInfoPage id={fakeId}/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <FilmInfoPage id={fakeId}/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/This is mock LoadingScreen/i)).toBeInTheDocument();

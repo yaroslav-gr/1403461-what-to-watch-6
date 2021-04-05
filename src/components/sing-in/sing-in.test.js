@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import {fakeUserInfo} from '../../test/test-mocks/test-mocks';
 import {Provider} from 'react-redux';
 import userEvent from '@testing-library/user-event';
-import { AppRoute } from '../../const/const';
+import {AppRoute} from '../../const/const';
 
 const mockStore = configureStore({});
 let history;
@@ -25,14 +25,14 @@ describe(`SingIn should work correctly`, () => {
     });
 
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <SingIn/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <SingIn/>
+          </Router>
+        </Provider>
     );
-     
-    screen.getAllByText(/Sign in/i).forEach(item => expect(item).toBeInTheDocument());
+
+    screen.getAllByText(/Sign in/i).forEach((item) => expect(item).toBeInTheDocument());
   });
 
   it(`SingIn should react correctly by users actions`, () => {
@@ -45,11 +45,11 @@ describe(`SingIn should work correctly`, () => {
     store.dispatch = jest.fn();
 
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <SingIn/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <SingIn/>
+          </Router>
+        </Provider>
     );
 
     userEvent.type(screen.getByTestId(`user-email`), fakeUserInfo.email);
@@ -72,13 +72,13 @@ describe(`SingIn should work correctly`, () => {
     store.dispatch = jest.fn();
 
     render(
-      <Provider store={store}>
-        <Router history={history}>
-          <SingIn/>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <SingIn/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Please enter a valid email address/i)).toBeInTheDocument();
-  })
+  });
 });

@@ -13,7 +13,7 @@ describe(`Player should work correctly`, () => {
 
   it(`Player should render correctly`, () => {
     render(
-      <Player film={fakeFilm}/>
+        <Player film={fakeFilm}/>
     );
 
     expect(screen.getByTestId(`video-player`)).toBeInTheDocument();
@@ -23,7 +23,7 @@ describe(`Player should work correctly`, () => {
 
   it(`Player should play video when data is loaded`, () => {
     render(
-      <Player film={fakeFilm}/>
+        <Player film={fakeFilm}/>
     );
 
     const videoElement = screen.getByTestId(`video-player`);

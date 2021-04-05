@@ -22,13 +22,12 @@ describe(`FilmCard should work correctly`, () => {
   it(`FilmCard should render correctly`, () => {
     history = createMemoryHistory();
     const onHandleHover = jest.fn();
-  
     render(
-      <Router history={history}>
-        <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-      </Router>
+        <Router history={history}>
+          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+        </Router>
     );
-    
+
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();
     expect(screen.getByText(/This is mock VideoPlayer/i)).toBeInTheDocument();
   });
@@ -36,11 +35,11 @@ describe(`FilmCard should work correctly`, () => {
   it(`Handle should calls after user events`, () => {
     history = createMemoryHistory();
     const onHandleHover = jest.fn();
-  
+
     render(
-      <Router history={history}>
-        <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-      </Router>
+        <Router history={history}>
+          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+        </Router>
     );
 
     fireEvent.mouseOver(screen.getByTestId(`article`));

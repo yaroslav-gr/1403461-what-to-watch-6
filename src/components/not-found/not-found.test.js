@@ -8,9 +8,9 @@ it(`NotFound should render correctly`, () => {
   const history = createMemoryHistory();
 
   render(
-    <Router history={history}>
-      <NotFound/>
-    </Router>
+      <Router history={history}>
+        <NotFound/>
+      </Router>
   );
 
   expect(screen.getByText(/404 Page Not Found/i)).toBeInTheDocument();
