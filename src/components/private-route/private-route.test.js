@@ -22,16 +22,16 @@ describe(`PrivateRouter should work correctly`, () => {
     });
 
     render(
-        <Provider store={store}>
-          <Router history={history}>
-            <Route exact path="/login"><h1>Public Route</h1></Route>
-            <PrivateRoute
-              exact
-              path="/private"
-              render={() => (<h1>Private Route</h1>)}
-            />
-          </Router>
-        </Provider>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route exact path="/login"><h1>Public Route</h1></Route>
+          <PrivateRoute
+            exact
+            path="/private"
+            render={() => (<h1>Private Route</h1>)}
+          />
+        </Router>
+      </Provider>
     );
 
     expect(screen.getByText(/Public Route/i)).toBeInTheDocument();
@@ -44,16 +44,16 @@ describe(`PrivateRouter should work correctly`, () => {
     });
 
     render(
-        <Provider store={store}>
-          <Router history={history}>
-            <Route exact path="/login"><h1>Public Route</h1></Route>
-            <PrivateRoute
-              exact
-              path="/private"
-              render={() => (<h1>Private Route</h1>)}
-            />
-          </Router>
-        </Provider>
+      <Provider store={store}>
+        <Router history={history}>
+          <Route exact path="/login"><h1>Public Route</h1></Route>
+          <PrivateRoute
+            exact
+            path="/private"
+            render={() => (<h1>Private Route</h1>)}
+          />
+        </Router>
+      </Provider>
     );
 
     expect(screen.getByText(/Private Route/i)).toBeInTheDocument();

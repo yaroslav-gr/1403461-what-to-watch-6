@@ -1,13 +1,11 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import FilmReviews from './film-reviews';
 
 it(`FilmReviews should render correctly`, () => {
-  const {getByText} = render(
-      <FilmReviews reviews={[]}/>
+  render(
+    <FilmReviews reviews={[]}/>
   );
 
-  const headerElement = getByText(`No any reviews yet.`);
-
-  expect(headerElement).toBeInTheDocument();
+  expect(screen.getByText(/No any reviews yet./i)).toBeInTheDocument();
 });

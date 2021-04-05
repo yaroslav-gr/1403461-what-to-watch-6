@@ -6,7 +6,7 @@ import * as redux from 'react-redux';
 import configureStore from 'redux-mock-store';
 import {AuthorizationStatus, AppRoute} from '../../const/const';
 import App from './app';
-import { fakeFilm, fakeFilms } from '../../test/test-mocks/test-mocks';
+import {fakeFilm, fakeFilms} from '../../test/test-mocks/test-mocks';
 
 const mockStore = configureStore({});
 

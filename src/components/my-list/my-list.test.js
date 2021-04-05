@@ -1,12 +1,11 @@
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createMemoryHistory} from 'history';
 import configureStore from 'redux-mock-store';
 import MyList from './my-list';
-import { fakeFilms, fakeUserInfo } from '../../test/test-mocks/test-mocks';
-import { AuthorizationStatus } from '../../const/const';
+import {fakeFilms, fakeUserInfo} from '../../test/test-mocks/test-mocks';
 
 let store;
 let history;

@@ -3,7 +3,7 @@ import {fireEvent, render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmCard from './film-card';
-import { fakeFilm } from '../../test/test-mocks/test-mocks';
+import {fakeFilm} from '../../test/test-mocks/test-mocks';
 
 let history;
 
@@ -24,9 +24,9 @@ describe(`FilmCard should work correctly`, () => {
     const onHandleHover = jest.fn();
   
     render(
-        <Router history={history}>
-          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-        </Router>
+      <Router history={history}>
+        <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+      </Router>
     );
     
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();
@@ -38,15 +38,14 @@ describe(`FilmCard should work correctly`, () => {
     const onHandleHover = jest.fn();
   
     render(
-        <Router history={history}>
-          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-        </Router>
+      <Router history={history}>
+        <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+      </Router>
     );
 
     fireEvent.mouseOver(screen.getByTestId(`article`));
     expect(onHandleHover).toBeCalled();
     fireEvent.mouseOut(screen.getByTestId(`article`));
     expect(onHandleHover).toBeCalled();
-  })
-})
-
+  });
+});

@@ -7,11 +7,10 @@ it(`InputRadio should render correctly`, () => {
   replayChangeHandle.mockImplementation(() => {});
 
   render(
-      <InputRadio index={5} onHandleChange={replayChangeHandle}/>
+    <InputRadio index={5} onHandleChange={replayChangeHandle}/>
   );
 
-  const labelElement = screen.getByText(`Rating 5`);
-  expect(labelElement).toBeInTheDocument();
+  expect(screen.getByText(/Rating 5/i)).toBeInTheDocument();
 
   fireEvent.click(screen.getByTestId(`input-radio`));
   expect(replayChangeHandle).toHaveBeenCalled()

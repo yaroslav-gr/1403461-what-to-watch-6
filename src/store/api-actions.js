@@ -40,7 +40,7 @@ export const login = ({email, password}) => (dispatch, _getState, api) => {
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     }).
     catch(() => {
-      dispatch(setBadRequest());
+      dispatch(setBadRequest(true));
     });
 };
 

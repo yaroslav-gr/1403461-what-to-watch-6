@@ -1,12 +1,9 @@
 import React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
-import {Provider} from 'react-redux';
 import {createMemoryHistory} from 'history';
-import configureStore from 'redux-mock-store';
 import FilmsList from './films-list';
-import { fakeFilms} from '../../test/test-mocks/test-mocks';
+import {fakeFilms} from '../../test/test-mocks/test-mocks';
 
 let history;
 
@@ -31,6 +28,6 @@ describe(`FilmsList should work correctly`, () => {
       </Router>
     );
 
-    screen.getAllByText(/Dardjeeling Limited/i).forEach(item => expect(item).toBeInTheDocument())
+    screen.getAllByText(/Dardjeeling Limited/i).forEach(item => expect(item).toBeInTheDocument());
   });
 });

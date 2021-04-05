@@ -1,25 +1,21 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmTabList from './film-tab-list';
+import {fakeTabs} from '../../test/test-mocks/test-mocks';
 
 it(`FilmTabList should render correctly`, () => {
   const history = createMemoryHistory();
-  const fakeTabs = [`Overview`, `Details`, `Reviews`];
   const fakeTabIndex = 0;
 
-  const {getByText} = render(
-      <Router history={history}>
-        <FilmTabList tabs={fakeTabs} onHandleChangeTab={() => {}} activeTabIndex={fakeTabIndex}/>
-      </Router>
+  render(
+    <Router history={history}>
+      <FilmTabList tabs={fakeTabs} onHandleChangeTab={() => {}} activeTabIndex={fakeTabIndex}/>
+    </Router>
   );
 
-  const linkElementOverview = getByText(`Overview`);
-  const linkElementDetails = getByText(`Details`);
-  const linkElementReviews = getByText(`Reviews`);
-
-  expect(linkElementOverview).toBeInTheDocument();
-  expect(linkElementDetails).toBeInTheDocument();
-  expect(linkElementReviews).toBeInTheDocument();
+  expect(screen.getByText(/Overview/i)).toBeInTheDocument();
+  expect(screen.getByText(/Details/i)).toBeInTheDocument();
+  expect(screen.getByText(/Reviews/i)).toBeInTheDocument();
 });
