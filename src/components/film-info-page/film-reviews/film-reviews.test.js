@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import FilmReviews from '../film-reviews';
+import FilmReviews from './film-reviews';
 
 it(`FilmReviews should render correctly`, () => {
   render(

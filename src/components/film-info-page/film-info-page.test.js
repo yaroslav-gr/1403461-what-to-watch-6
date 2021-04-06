@@ -17,7 +17,7 @@ let store;
 let history;
 const mockStore = configureStore(middleware);
 
-jest.mock(`../header/guest-header`, () => {
+jest.mock(`../common/headers/guest-header/guest-header`, () => {
   const guestHeader = () => <div>This is mock Header</div>;
   guestHeader.displayName = `GuestHeader`;
   return {
@@ -28,7 +28,7 @@ jest.mock(`../header/guest-header`, () => {
   };
 });
 
-jest.mock(`../header/user-header`, () => {
+jest.mock(`../common/headers/user-header/user-header`, () => {
   const userHeader = () => <div>This is mock Header</div>;
   userHeader.displayName = `UserHeader`;
   return {
@@ -39,7 +39,7 @@ jest.mock(`../header/user-header`, () => {
   };
 });
 
-jest.mock(`./film-tabs`, () =>{
+jest.mock(`./film-tabs/film-tabs`, () =>{
   const filmTabs = () => <div>This is mock Tabs</div>;
   filmTabs.displayName = `FilmTabs`;
   return {
@@ -50,7 +50,7 @@ jest.mock(`./film-tabs`, () =>{
   };
 });
 
-jest.mock(`../page-content/films-list`, () => {
+jest.mock(`../common/films-list/films-list`, () => {
   const filmList = () => <div>This is mock FilmList</div>;
   filmList.displayName = `FilmsList`;
   return {

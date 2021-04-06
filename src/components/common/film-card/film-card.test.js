@@ -11,7 +11,7 @@ let history;
 let store;
 const mockStore = configureStore({});
 
-jest.mock(`../video-player/mini-player`, () => {
+jest.mock(`../../mini-player/mini-player`, () => {
   const videoPlayer = () => <div>This is mock VideoPlayer</div>;
   videoPlayer.displayName = `VideoPlayer`;
   return {

@@ -12,7 +12,7 @@ let store;
 let history;
 const mockStore = configureStore({});
 
-jest.mock(`./films-list`, () => {
+jest.mock(`../common/films-list/films-list`, () => {
   const filmsList = () => <div>This is mock FilmsList</div>;
   filmsList.displayName = `FilmsList`;
   return {
@@ -23,7 +23,7 @@ jest.mock(`./films-list`, () => {
   };
 });
 
-jest.mock(`./genres-list`, () => {
+jest.mock(`./genres-list/genres-list`, () => {
   const genresList = () => <div>This is mock GenresList</div>;
   genresList.displayName = `GenresList`;
   return {

@@ -3,7 +3,7 @@ import FilmTabs from './film-tabs';
 import {render, screen} from '@testing-library/react';
 import {fakeFilm} from '../../../test/test-mocks/test-mocks';
 
-jest.mock(`./film-tab-list`, () => {
+jest.mock(`../film-tab-list/film-tab-list`, () => {
   const filmTabList = () => <div>This is mock FilmTabList</div>;
   filmTabList.displayName = `FilmTabList`;
   return {

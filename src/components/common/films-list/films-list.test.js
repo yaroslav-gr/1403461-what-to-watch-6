@@ -3,11 +3,15 @@ import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmsList from './films-list';
-import {fakeFilms} from '../../../test/test-mocks/test-mocks';
+import {fakeFilm} from '../../../test/test-mocks/test-mocks';
+import configureStore from 'redux-mock-store';
+import {Provider} from 'react-redux';
 
 let history;
+let store;
+const mockStore = configureStore({});
 
-jest.mock(`../video-player/mini-player`, () => {
+jest.mock(`../../mini-player/mini-player`, () => {
   const videoPlayer = () => <div>This is mock VideoPlayer</div>;
   videoPlayer.displayName = `VideoPlayer`;
   return {
@@ -20,12 +24,15 @@ jest.mock(`../video-player/mini-player`, () => {
 
 describe(`FilmsList should work correctly`, () => {
   history = createMemoryHistory();
+  store = mockStore({});
 
   it(`FilmsList should render correctly`, () => {
     render(
-        <Router history={history}>
-          <FilmsList filmsForRender={fakeFilms}/>
-        </Router>
+        <Provider store={store}>
+          <Router history={history}>
+            <FilmsList filmsForRender={[fakeFilm]}/>
+          </Router>
+        </Provider>
     );
 
     screen.getAllByText(/Dardjeeling Limited/i).forEach((item) => expect(item).toBeInTheDocument());

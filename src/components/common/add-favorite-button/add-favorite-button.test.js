@@ -1,5 +1,5 @@
 import React from 'react';
-import AddFavoriteButton from '.';
+import AddFavoriteButton from './add-favorite-button';
 import {render, screen} from '@testing-library/react';
 import {Provider} from 'react-redux';
 import configureStore from 'redux-mock-store';

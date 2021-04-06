@@ -21,7 +21,7 @@ jest.mock(`../main/main`, () => {
   };
 });
 
-jest.mock(`../film/film-info-page`, () => {
+jest.mock(`../film-info-page/film-info-page`, () => {
   const filmInfoPage = () => <div>This is mock FilmInfoPage</div>;
   filmInfoPage.displayName = `FilmInfoPage`;
   return {

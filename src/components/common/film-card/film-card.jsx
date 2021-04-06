@@ -17,8 +17,8 @@ const FilmCard = ({film, isPlaying, onHandleHover}) => {
         onMouseOut={() => onHandleHover()}
         data-testid="article">
         <div
-        className="small-movie-card__image"
-        onClick={() => dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${film.id}`))}>
+          className="small-movie-card__image"
+          onClick={() => dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${film.id}`))}>
           <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink} isPlaying={isPlaying}/>
         </div>
         <h3 className="small-movie-card__title">
