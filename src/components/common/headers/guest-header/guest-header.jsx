@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../logo/logo';
+import Logo from '../../logo/logo';
 import {Link} from 'react-router-dom';
-import {AppRoute, LogoClassNames} from '../../const/const';
+import {AppRoute, LogoClassNames} from '../../../../const/const';
 
 const GuestHeader = () => {
   return (

@@ -3,7 +3,7 @@ import {fireEvent, render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmCard from './film-card';
-import {fakeFilm} from '../../test/test-mocks/test-mocks';
+import {fakeFilm} from '../../../test/test-mocks/test-mocks';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 

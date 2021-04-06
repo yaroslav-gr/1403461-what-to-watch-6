@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import GenresList from './genres-list';
-import {fakeFilms} from '../../test/test-mocks/test-mocks';
+import {fakeFilms} from '../../../test/test-mocks/test-mocks';
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
 

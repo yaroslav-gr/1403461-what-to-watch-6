@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmsList from './films-list';
-import {fakeFilms} from '../../test/test-mocks/test-mocks';
+import {fakeFilms} from '../../../test/test-mocks/test-mocks';
 
 let history;
 

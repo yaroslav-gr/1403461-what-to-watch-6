@@ -1,6 +1,6 @@
 import React from 'react';
-import {formatRunTime} from '../../utils/film';
-import {filmPropTypes} from '../../prop-types/prop-types';
+import {formatRunTime} from '../../../utils/film';
+import {filmPropTypes} from '../../../prop-types/prop-types';
 
 const FilmDetails = ({film}) => {
   return (

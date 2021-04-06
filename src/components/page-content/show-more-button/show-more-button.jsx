@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {handleShowMoreByButton} from '../../store/action';
+import {handleShowMoreByButton} from '../../../store/action';
 
 const ShowMoreButton = () => {
   const dispatch = useDispatch();

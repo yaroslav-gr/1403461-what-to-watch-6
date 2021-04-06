@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import {setCurrentGenre, resetCountShowingFilms} from '../../store/action';
+import {setCurrentGenre, resetCountShowingFilms} from '../../../store/action';
 
 const GenresList = () => {
   const films = useSelector((state) => state.FILMS.films);

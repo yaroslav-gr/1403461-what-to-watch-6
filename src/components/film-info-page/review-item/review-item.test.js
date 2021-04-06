@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import ReviewItem from './review-item';
-import {fakeReview} from '../../test/test-mocks/test-mocks';
+import {fakeReview} from '../../../test/test-mocks/test-mocks';
 
 it(`ReviewItem should render correctly`, () => {
   render(

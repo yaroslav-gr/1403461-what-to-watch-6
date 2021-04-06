@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import FilmTabList from './film-tab-list';
 import FilmOverview from './film-overview';
 import FilmReviews from './film-reviews';
-import FilmDetails from './film-details';
-import {Tabs} from '../../const/const';
-import {filmPropTypes} from '../../prop-types/prop-types';
+import FilmDetails from '../film-details/film-details';
+import {Tabs} from '../../../const/const';
+import {filmPropTypes} from '../../../prop-types/prop-types';
 
 const FilmTabs = ({film, reviews}) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);

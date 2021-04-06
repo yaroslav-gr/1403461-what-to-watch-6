@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../logo/logo';
-import {LogoClassNames} from '../../const/const';
+import Logo from '../../logo/logo';
+import {LogoClassNames} from '../../../const/const';
 
 const Footer = () => {
 

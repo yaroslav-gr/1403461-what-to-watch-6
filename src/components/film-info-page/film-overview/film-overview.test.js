@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
-import FilmOverview from './film-overview';
-import {fakeFilm} from '../../test/test-mocks/test-mocks';
+import FilmOverview from '../film-overview';
+import {fakeFilm} from '../../../test/test-mocks/test-mocks';
 
 it(`FilmOverview should render correctly`, () => {
   render(

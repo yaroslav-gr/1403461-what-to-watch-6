@@ -2,8 +2,8 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
-import FilmTabList from './film-tab-list';
-import {fakeTabs} from '../../test/test-mocks/test-mocks';
+import FilmTabList from '../film-tab-list';
+import {fakeTabs} from '../../../test/test-mocks/test-mocks';
 
 it(`FilmTabList should render correctly`, () => {
   const history = createMemoryHistory();

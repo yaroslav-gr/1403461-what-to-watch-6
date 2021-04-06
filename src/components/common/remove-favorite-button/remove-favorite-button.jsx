@@ -1,8 +1,8 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {StatusFavorite} from '../../const/const';
-import {buttonsToggleFavorite} from '../../prop-types/prop-types';
-import {toggleFavoriteFilm} from '../../store/api-actions';
+import {StatusFavorite} from '../../../const/const';
+import {buttonsToggleFavorite} from '../../../prop-types/prop-types';
+import {toggleFavoriteFilm} from '../../../store/api-actions';
 
 const RemoveFavoriteButton = ({id}) => {
   const dispatch = useDispatch();
