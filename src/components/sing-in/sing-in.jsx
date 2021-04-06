@@ -1,10 +1,10 @@
 import React, {useRef, useState, useEffect} from 'react';
-import Footer from '../footer/footer';
-import SingInMessage from './sing-in-message';
+import Footer from '../common/footer/footer';
+import SingInMessage from './sing-in-message/sing-in-message';
 import {useSelector, useDispatch} from 'react-redux';
 import {login} from '../../store/api-actions';
 import {LogoClassNames} from '../../const/const';
-import Logo from '../logo/logo';
+import Logo from '../common/logo/logo';
 
 const SingIn = () => {
   const isBadRequest = useSelector((state) => state.LOGIN.isBadRequest);

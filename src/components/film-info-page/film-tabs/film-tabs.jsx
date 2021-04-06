@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import FilmTabList from './film-tab-list';
-import FilmOverview from './film-overview';
-import FilmReviews from './film-reviews';
+import FilmTabList from '../film-tab-list/film-tab-list';
+import FilmOverview from '../film-overview/film-overview';
+import FilmReviews from '../film-reviews/film-reviews';
 import FilmDetails from '../film-details/film-details';
 import {Tabs} from '../../../const/const';
 import {filmPropTypes} from '../../../prop-types/prop-types';

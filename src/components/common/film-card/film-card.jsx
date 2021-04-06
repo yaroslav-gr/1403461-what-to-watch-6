@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import VideoPlayer from '../video-player/mini-player';
-import {filmCardPropTypes} from '../../prop-types/prop-types';
-import {AppRoute} from '../../const/const';
+import VideoPlayer from '../../mini-player/mini-player';
+import {filmCardPropTypes} from '../../../prop-types/prop-types';
+import {AppRoute} from '../../../const/const';
 import {useDispatch} from 'react-redux';
-import {redirectToRoute} from '../../store/action';
+import {redirectToRoute} from '../../../store/action';
 
 const FilmCard = ({film, isPlaying, onHandleHover}) => {
   const dispatch = useDispatch();

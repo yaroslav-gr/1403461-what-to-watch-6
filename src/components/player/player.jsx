@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
-import PlayButton from './play-button';
-import PauseButton from './pause-button';
-import FullScreenButton from './full-screen-button';
+import PlayButton from './play-button/play-button';
+import PauseButton from './pause-button/pause-button';
+import FullScreenButton from './full-screen-button/full-screen-button';
 import history from '../../browser-history';
 import {filmPropTypes} from '../../prop-types/prop-types';
 import {formatPlayerRunTime} from '../../utils/film';

@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import PageContent from '../page-content/page-content';
-import GuestHeader from '../header/guest-header';
-import UserHeader from '../header/user-header';
+import GuestHeader from '../common/headers/guest-header/guest-header';
+import UserHeader from '../common/headers/user-header/user-header';
 import {redirectToRoute, resetFilmList} from '../../store/action';
 import {AppRoute, AuthorizationStatus} from '../../const/const';
-import RemoveFavoriteButton from '../film/remove-favorite-button';
-import AddFavoriteButton from '../film/add-favorite-button';
+import RemoveFavoriteButton from '../common/remove-favorite-button/remove-favorite-button';
+import AddFavoriteButton from '../common/add-favorite-button/add-favorite-button';
 
 const Main = () => {
   const film = useSelector((state) => state.FILMS.films[0]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {filmTabListPropTypes} from '../../prop-types/prop-types';
+import {filmTabListPropTypes} from '../../../prop-types/prop-types';
 
 const FilmTabList = ({tabs, onHandleChangeTab, activeTabIndex}) => {
 

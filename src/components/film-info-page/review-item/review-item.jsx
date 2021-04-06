@@ -1,6 +1,6 @@
 import React from 'react';
-import {formatDate} from '../../utils/film';
-import {reviewItemPropTypes} from '../../prop-types/prop-types';
+import {formatDate} from '../../../utils/film';
+import {reviewItemPropTypes} from '../../../prop-types/prop-types';
 
 const ReviewItem = ({review}) => {
   return (

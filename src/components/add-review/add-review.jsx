@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import InputRadio from './input-radio';
-import UserHeader from '../header/user-header';
-import ErrorMessage from './error-message';
+import InputRadio from '../add-review/input-radio/input-radio';
+import UserHeader from '../common/headers/user-header/user-header';
+import ErrorMessage from './error-message/error-message';
 import {postComment} from '../../store/api-actions';
 import {Link} from 'react-router-dom';
 import {filmPropTypes} from '../../prop-types/prop-types';

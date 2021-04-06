@@ -1,8 +1,8 @@
 import React from 'react';
-import GenresList from './genres-list';
-import ShowMoreButton from './show-more-button';
-import FilmsList from './films-list';
-import Footer from '../footer/footer';
+import GenresList from './genres-list/genres-list';
+import ShowMoreButton from './show-more-button/show-more-button';
+import FilmsList from '../common/films-list/films-list';
+import Footer from '../common/footer/footer';
 import {useSelector} from 'react-redux';
 
 const PageContent = () => {

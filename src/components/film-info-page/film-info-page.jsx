@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import FilmsList from '../page-content/films-list';
-import UserHeader from '../header/user-header';
-import GuestHeader from '../header/guest-header';
-import Footer from '../footer/footer';
-import FilmTabs from './film-tabs';
+import FilmsList from '../common/films-list/films-list';
+import UserHeader from '../common/headers/user-header/user-header';
+import GuestHeader from '../common/headers/guest-header/guest-header';
+import Footer from '../common/footer/footer';
+import FilmTabs from './film-tabs/film-tabs';
 import LoadingScreen from '../loading-screen/loading-screen';
-import AddFavoriteButton from './add-favorite-button';
+import AddFavoriteButton from '../common/add-favorite-button/add-favorite-button';
+import RemoveFavoriteButton from '../common/remove-favorite-button/remove-favorite-button';
 import {filmInfoPagePropTypes} from '../../prop-types/prop-types';
 import {useSelector, useDispatch} from 'react-redux';
 import {AuthorizationStatus, AppRoute} from '../../const/const';
 import {fetchFilmReviews, fetchFilmInfo} from '../../store/api-actions';
 import {getMoreLikeThisFilms, redirectToRoute} from '../../store/action';
-import RemoveFavoriteButton from './remove-favorite-button';
 
 const FilmInfoPage = ({id}) => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from 'react';
-import {FilmLevels} from '../../const/const';
-import {filmPropTypes} from '../../prop-types/prop-types';
+import {FilmLevels} from '../../../const/const';
+import {filmPropTypes} from '../../../prop-types/prop-types';
 
 const FilmOverview = ({film}) => {
 

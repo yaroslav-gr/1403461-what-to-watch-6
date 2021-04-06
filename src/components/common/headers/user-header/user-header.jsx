@@ -1,9 +1,9 @@
 import React from 'react';
-import Logo from '../logo/logo';
+import Logo from '../../logo/logo';
 import {useSelector, useDispatch} from 'react-redux';
-import {AppRoute, LogoClassNames} from '../../const/const';
-import {redirectToRoute} from '../../store/action';
-import {userHeaderPropTypes} from '../../prop-types/prop-types';
+import {AppRoute, LogoClassNames} from '../../../../const/const';
+import {redirectToRoute} from '../../../../store/action';
+import {userHeaderPropTypes} from '../../../../prop-types/prop-types';
 
 const UserHeader = ({children}) => {
   const userInfo = useSelector((state) => state.USER.userInfo);

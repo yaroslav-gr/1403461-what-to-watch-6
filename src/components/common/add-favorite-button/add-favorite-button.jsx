@@ -1,10 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRoute, StatusFavorite} from '../../const/const';
-import {buttonsToggleFavorite} from '../../prop-types/prop-types';
-import {toggleFavoriteFilm} from '../../store/api-actions';
-import {AuthorizationStatus} from '../../const/const';
-import {redirectToRoute} from '../../store/action';
+import {AppRoute, StatusFavorite, AuthorizationStatus} from '../../../const/const';
+import {buttonsToggleFavorite} from '../../../prop-types/prop-types';
+import {toggleFavoriteFilm} from '../../../store/api-actions';
+import {redirectToRoute} from '../../../store/action';
 
 const AddFavoriteButton = ({id}) => {
   const dispatch = useDispatch();

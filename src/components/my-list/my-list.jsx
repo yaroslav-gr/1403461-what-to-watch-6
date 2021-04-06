@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import FilmsList from '../page-content/films-list';
-import UserHeader from '../header/user-header';
-import Footer from '../footer/footer';
+import FilmsList from '../common/films-list/films-list';
+import UserHeader from '../common/headers/user-header/user-header';
+import Footer from '../common/footer/footer';
 
 const MyList = () => {
   const films = useSelector((state) => state.FILMS.films);

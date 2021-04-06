@@ -1,5 +1,5 @@
 import React from 'react';
-import {inputRadioPropTypes} from '../../prop-types/prop-types';
+import {inputRadioPropTypes} from '../../../prop-types/prop-types';
 
 const InputRadio = ({index, onHandleChange}) => {
   const handleChecked = (evt) => {

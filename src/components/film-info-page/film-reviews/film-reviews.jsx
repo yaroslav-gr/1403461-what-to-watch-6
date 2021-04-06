@@ -1,6 +1,6 @@
 import React from 'react';
-import ReviewItem from './review-item';
-import {filmReviewsPropTypes} from '../../prop-types/prop-types';
+import ReviewItem from '../review-item/review-item';
+import {filmReviewsPropTypes} from '../../../prop-types/prop-types';
 
 const FilmReviews = ({reviews}) => {
 

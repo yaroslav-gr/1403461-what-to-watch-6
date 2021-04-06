@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {AppRoute} from '../../const/const';
-import {logoPropTypes} from '../../prop-types/prop-types';
+import {AppRoute} from '../../../const/const';
+import {logoPropTypes} from '../../../prop-types/prop-types';
 
 const Logo = ({currentClasses}) => {
   return (
