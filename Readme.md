@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [yaroslav grigorev](https://up.htmlacademy.ru/react/6/user/1403461).
-* Наставник: [Александр Булах](https://htmlacademy.ru/profile/id1213123).
+* Наставник: [Юлия Корецкая](https://htmlacademy.ru/profile/id11886).
 
 ---
 
