@@ -11,7 +11,7 @@ const FilmTabs = ({film, reviews}) => {
 
   const tabs = Object.values(Tabs);
 
-  const onHandleChangeTab = (index) => setActiveTabIndex(index);
+  const handleChangeTab = (index) => setActiveTabIndex(index);
 
   const getTabContent = (index) => {
     switch (tabs[index]) {
@@ -30,7 +30,7 @@ const FilmTabs = ({film, reviews}) => {
       <div className="movie-card__desc">
         <FilmTabList
           tabs={tabs}
-          onHandleChangeTab={onHandleChangeTab}
+          onHandleChangeTab={handleChangeTab}
           activeTabIndex={activeTabIndex}/>
 
         {getTabContent(activeTabIndex)}

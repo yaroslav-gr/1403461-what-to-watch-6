@@ -27,7 +27,7 @@ const AddReview = ({film}) => {
     dispatch(postComment({rating, comment}, film.id));
   };
 
-  const onHandleChange = (evt) => {
+  const handleChange = (evt) => {
     const {name, value} = evt.target;
     setUserForm({...userForm, [name]: value});
   };
@@ -74,7 +74,7 @@ const AddReview = ({film}) => {
 
                 {new Array(INPUT_RADIO_COUNT).fill(1).map((_item, index) => {
                   return (
-                    <InputRadio key={index + 1} index={index + 1} onHandleChange={onHandleChange}/>
+                    <InputRadio key={index + 1} index={index + 1} onHandleChange={handleChange}/>
                   );
                 })}
 
@@ -85,7 +85,7 @@ const AddReview = ({film}) => {
               <textarea
                 disabled={uploadCommentStatus}
                 minLength="50" maxLength="400"
-                onChange={onHandleChange}
+                onChange={handleChange}
                 className="add-review__textarea"
                 name="review-text" id="review-text"
                 placeholder="Review text"
