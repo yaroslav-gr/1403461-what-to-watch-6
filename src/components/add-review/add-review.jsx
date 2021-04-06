@@ -66,7 +66,6 @@ const AddReview = ({film}) => {
         <div className="add-review">
           <form
             onSubmit={handleSubmit}
-            disabled={uploadCommentStatus}
             action="#"
             className="add-review__form"
             data-testid="form">
@@ -95,7 +94,7 @@ const AddReview = ({film}) => {
                 <button
                   className="add-review__btn"
                   type="submit"
-                  disabled={!uploadCommentStatus && checkUserFormValues() ? false : true}
+                  disabled={!(!uploadCommentStatus && checkUserFormValues())}
                 >Post</button>
               </div>
             </div>
