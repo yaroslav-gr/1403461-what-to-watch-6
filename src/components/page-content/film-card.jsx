@@ -3,8 +3,12 @@ import {Link} from 'react-router-dom';
 import VideoPlayer from '../video-player/mini-player';
 import {filmCardPropTypes} from '../../prop-types/prop-types';
 import {AppRoute} from '../../const/const';
+import {useDispatch} from 'react-redux';
+import {redirectToRoute} from '../../store/action';
 
 const FilmCard = ({film, isPlaying, onHandleHover}) => {
+  const dispatch = useDispatch();
+
   return (
     <React.Fragment>
       <article
@@ -12,7 +16,9 @@ const FilmCard = ({film, isPlaying, onHandleHover}) => {
         onMouseOver={() => onHandleHover(film)}
         onMouseOut={() => onHandleHover()}
         data-testid="article">
-        <div className="small-movie-card__image">
+        <div
+        className="small-movie-card__image"
+        onClick={() => dispatch(redirectToRoute(`${AppRoute.FILM_DETAILS}${film.id}`))}>
           <VideoPlayer previewImage={film.previewImage} previewVideoLink={film.previewVideoLink} isPlaying={isPlaying}/>
         </div>
         <h3 className="small-movie-card__title">

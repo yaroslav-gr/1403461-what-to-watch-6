@@ -4,8 +4,12 @@ import {Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
 import FilmCard from './film-card';
 import {fakeFilm} from '../../test/test-mocks/test-mocks';
+import configureStore from 'redux-mock-store';
+import {Provider} from 'react-redux';
 
 let history;
+let store;
+const mockStore = configureStore({});
 
 jest.mock(`../video-player/mini-player`, () => {
   const videoPlayer = () => <div>This is mock VideoPlayer</div>;
@@ -19,13 +23,19 @@ jest.mock(`../video-player/mini-player`, () => {
 });
 
 describe(`FilmCard should work correctly`, () => {
-  it(`FilmCard should render correctly`, () => {
+  beforeAll(() => {
     history = createMemoryHistory();
+    store = mockStore({});
+  });
+
+  it(`FilmCard should render correctly`, () => {
     const onHandleHover = jest.fn();
     render(
-        <Router history={history}>
-          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-        </Router>
+        <Provider store={store}>
+          <Router history={history}>
+            <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+          </Router>
+        </Provider>
     );
 
     expect(screen.getByText(/Dardjeeling Limited/i)).toBeInTheDocument();
@@ -33,13 +43,14 @@ describe(`FilmCard should work correctly`, () => {
   });
 
   it(`Handle should calls after user events`, () => {
-    history = createMemoryHistory();
     const onHandleHover = jest.fn();
 
     render(
-        <Router history={history}>
-          <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
-        </Router>
+        <Provider store={store}>
+          <Router history={history}>
+            <FilmCard film={fakeFilm} isPlaying={true} onHandleHover={onHandleHover}/>
+          </Router>
+        </Provider>
     );
 
     fireEvent.mouseOver(screen.getByTestId(`article`));

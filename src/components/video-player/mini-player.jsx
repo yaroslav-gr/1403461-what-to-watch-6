@@ -22,7 +22,7 @@ const VideoPlayer = ({previewImage, previewVideoLink, isPlaying}) => {
         height="175"
         poster={previewImage}
         ref={videoRef}
-        data-testid="video-player">Some Text
+        data-testid="video-player">
         <source src={previewVideoLink}/>
       </video>
     </React.Fragment>
