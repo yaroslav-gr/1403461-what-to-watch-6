@@ -34,31 +34,21 @@ export const formatDate = (dateFromReview) => {
   return formatedDate;
 };
 
-export const filmAdapter = (film) => {
-  const newFilm = {};
-  const filmKeys = Object.keys(film);
-  const filmValues = Object.values(film);
-  filmKeys.map((key, index) => {
-    newFilm[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = filmValues[index];
+export const dataAdapter = (data) => {
+  const newData = {};
+  const dataKeys = Object.keys(data);
+  const dataValues = Object.values(data);
+  dataKeys.map((key, index) => {
+    newData[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = dataValues[index];
   });
 
-  return newFilm;
+  return newData;
 };
 
 export const filmsAdapter = (films) => {
   const adaptedFilms = [];
   films.map((film) => {
-    adaptedFilms.push(filmAdapter(film));
+    adaptedFilms.push(dataAdapter(film));
   });
   return adaptedFilms;
-};
-
-export const userInfoAdapter = (authInfo) => {
-  const newInfo = {};
-  const infoKeys = Object.keys(authInfo);
-  const infoValues = Object.values(authInfo);
-  infoKeys.map((key, index) => {
-    newInfo[key.replace(/_\w/g, (m) => m[1].toUpperCase())] = infoValues[index];
-  });
-  return newInfo;
 };

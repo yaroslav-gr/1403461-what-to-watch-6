@@ -1,6 +1,6 @@
 import {loadFilms, loadFilmInfo, setErrorLoading, getUserInfo, requireAuthorization, redirectToRoute, setBadRequest, setErrorUploadComment, setUploadCommentStatus, loadFilmReviews, getMoreLikeThisFilms} from '../store/action';
 import {AuthorizationStatus, AppRoute, APIRoute} from '../const/const';
-import {filmAdapter, filmsAdapter, userInfoAdapter} from '../utils/film';
+import {dataAdapter, filmsAdapter} from '../utils/film';
 
 export const fetchFilms = () => (dispatch, _getState, api) => {
   return api.get(APIRoute.FILMS).
@@ -11,7 +11,7 @@ export const fetchFilms = () => (dispatch, _getState, api) => {
 
 export const fetchFilmInfo = (id) => (dispatch, _getState, api) => {
   return api.get(`${APIRoute.FILMS}/${id}`).
-    then(({data}) => filmAdapter(data)).
+    then(({data}) => dataAdapter(data)).
     then((data) => {
       dispatch(loadFilmInfo(data));
       dispatch(getMoreLikeThisFilms());
@@ -27,7 +27,7 @@ export const fetchFilmReviews = (id) => (dispatch, _getState, api) => {
 
 export const checkAuth = () => (dispatch, _getState, api) => {
   return api.get(APIRoute.LOGIN).
-    then(({data}) => dispatch(getUserInfo(userInfoAdapter(data)))).
+    then(({data}) => dispatch(getUserInfo(dataAdapter(data)))).
     then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH))).
     catch(() => {});
 };
@@ -35,7 +35,7 @@ export const checkAuth = () => (dispatch, _getState, api) => {
 export const login = ({email, password}) => (dispatch, _getState, api) => {
   return api.post(APIRoute.LOGIN, {email, password}).
     then(({data}) => {
-      dispatch(getUserInfo(userInfoAdapter(data)));
+      dispatch(getUserInfo(dataAdapter(data)));
       dispatch(redirectToRoute(AppRoute.ROOT));
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
     }).
